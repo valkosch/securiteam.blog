@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kurcz Valentin</title>
+    <link>//localhost:1313/</link>
+    <description>Recent content on Kurcz Valentin</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 15:02:16 +0200</lastBuildDate>
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test2</title>
+      <link>//localhost:1313/posts/2024/06/test2/</link>
+      <pubDate>Sun, 16 Jun 2024 15:02:16 +0200</pubDate>
+      <guid>//localhost:1313/posts/2024/06/test2/</guid>
+      <description>lorem</description>
+    </item>
+    <item>
+      <title>Hello</title>
+      <link>//localhost:1313/about/</link>
+      <pubDate>Sun, 16 Jun 2024 13:45:51 +0200</pubDate>
+      <guid>//localhost:1313/about/</guid>
+      <description>HELLO </description>
+    </item>
+    <item>
+      <title>Test</title>
+      <link>//localhost:1313/posts/2024/06/test/</link>
+      <pubDate>Sat, 15 Jun 2024 14:17:57 +0200</pubDate>
+      <guid>//localhost:1313/posts/2024/06/test/</guid>
+      <description>Hello big fella Welcome to my page! This is a test&#xA;for(int i = 0; i &amp;lt; 10; i++){ sum++; } </description>
+    </item>
+  </channel>
+</rss>

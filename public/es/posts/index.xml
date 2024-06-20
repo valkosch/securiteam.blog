@@ -1,0 +1,29 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Kurcz Valentin</title>
+        <link>//localhost:1313/es/posts/</link>
+        <description>Recent content in Posts on Kurcz Valentin</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Sat, 15 Jun 2024 14:17:57 +0200</lastBuildDate>
+        <atom:link href="//localhost:1313/es/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Test</title>
+            <link>//localhost:1313/es/posts/2024/06/test/</link>
+            <pubDate>Sat, 15 Jun 2024 14:17:57 +0200</pubDate>
+            
+            <guid>//localhost:1313/es/posts/2024/06/test/</guid>
+            <description>Hola! Me llamo Valentin Kurcz, soy un Inginir de informatico
+for(int i = 0; i &amp;lt; 10; i++){ sum++; } </description>
+            <content type="html"><![CDATA[<h1 id="hola">Hola!</h1>
+<p>Me llamo Valentin Kurcz, soy un Inginir de informatico</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    sum<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div>]]></content>
+        </item>
+        
+    </channel>
+</rss>

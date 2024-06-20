@@ -1,0 +1,240 @@
+baseURL = "localhost"
+title   = "Kurcz Valentin"
+languageCode = "hu"
+theme = "hello-friend-ng"
+
+PygmentsCodeFences = true
+PygmentsStyle = "monokai"
+
+paginate  = 10
+rssLimit  = 10  # Maximum number of items in the RSS feed.
+copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
+
+# googleAnalytics = ""
+# disqusShortname = ""
+
+archetypeDir = "archetypes"
+contentDir   = "content"
+dataDir      = "data"
+layoutDir    = "layouts"
+publishDir   = "public"
+
+buildDrafts  = true
+buildFuture  = false
+buildExpired = false
+
+enableRobotsTXT = true
+enableGitInfo   = false
+enableEmoji     = true
+enableMissingTranslationPlaceholders = false
+disableRSS     = false
+disableSitemap = false
+disable404     = false
+disableHugoGeneratorInject = false
+
+[permalinks]
+  posts = "/posts/:year/:month/:title/"
+
+[blackfriday]
+  hrefTargetBlank = true
+
+[taxonomies]
+  tag      = "tags"
+  category = "categories"
+  series   = "series"
+
+[params]
+
+  dateform        = "Jan 2, 2006"
+  dateformShort   = "Jan 2"
+  dateformNum     = "2006-01-02"
+  dateformNumTime = "2006-01-02 15:04"
+
+
+ [params.portrait]
+   path     = "/logo_1.png"
+   alt      = "Logo"
+   maxWidth = "400px"
+  
+  # Set a background for the homepage
+  # backgroundImage = "assets/images/background.jpg"
+
+  # Prefix of link to the git commit detail page. GitInfo must be enabled.
+  #
+  # gitUrl = ""
+
+  # Set disableReadOtherPosts to true in order to hide the links to other posts.
+  #
+  disableReadOtherPosts = false
+
+  # Enable theme toggle
+  # 
+  # This options enables the theme toggle for the theme. 
+  # Per default, this option is off. 
+  # The theme is respecting the prefers-color-scheme of the operating system. 
+  # With this option on, the page user is able to set the scheme he wants. 
+  enableThemeToggle = true
+
+  # Sharing buttons
+  #
+  # There are a lot of buttons preconfigured. If you want to change them,
+  # generate the buttons here: https://sharingbuttons.io
+  # and add them into your own `layouts/partials/sharing-buttons.html`
+  #
+  enableSharingButtons = true
+
+  # Global language menu
+  #
+  # Enables the global language menu.
+  #
+  enableGlobalLanguageMenu = true
+
+  # Integrate Javascript files or stylesheets by adding the url to the external assets or by
+  # linking local files with their path relative to the static folder, e.g. "css/styles.css"
+  #
+  customCSS = []
+  customJS  = []
+
+  # Toggle this option need to rebuild SCSS, requires extended version of Hugo
+  #
+  justifyContent = false  # Set "text-align: justify" to .post-content.
+
+  # Integrate Plausible.io
+  # plausibleDataDomain = 'test.com'
+  # plausibleScriptSource = 'https://plausible.io/js/script.js'
+
+  [author]
+    name = "Kurcz Valentin"
+
+  # Custom footer 
+  # If you want, you can easily override the default footer with your own content. 
+  #
+  [params.footer]
+    trademark = 2024
+    rss = true
+    copyright = true
+    author = false
+
+    topText = []
+    bottomText = [
+      "Powered by <a href=\"http://gohugo.io\">Hugo</a>",
+      "Made with &#10084; by <a href=\"https://github.com/valbra\">Kurcz Valentin</a>"
+    ]
+
+  # Colors for favicons
+  #
+  [params.favicon.color]
+    mask = "#1b1c1d"
+    msapplication = "#1b1c1d"
+    theme = "#1b1c1d"
+
+  [params.logo]
+    logoMark     = ">"
+    logoText     = "$ you@kurczvalentin"
+    logoHomeLink = "/"
+    # Set true to remove the logo cursor entirely.
+    # logoCursorDisabled = false
+    # Set to a valid CSS color to change the cursor in the logo.
+    logoCursorColor  = "#ff0000"
+    # Set to a valid CSS time value to change the animation duration, "0s" to disable.
+    # logoCursorAnimate  = "2s"
+    # Append the current url pathname to logoText 
+    # logoCursorPathname = true
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  
+  # Addon: Commento
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # Commento is more than just a comments widget you can embed — 
+  # it’s a return to the roots of the internet. 
+  # An internet without the tracking and invasions of privacy. 
+  # An internet that is simple and lightweight. 
+  # An internet that is focused on interesting discussions, not ads. 
+  # A better internet.
+  # Uncomment this to enable Commento.
+  #
+  # [params.commento]
+  #   url = ""
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  
+  # Addon: Social icons
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #
+
+  [[params.social]]
+    name = "email"
+    url  = "mailto:kurczv@gmail.com"
+
+  [[params.social]]
+    name = "github"
+    url  = "https://github.com/valkosch"
+
+  [[params.social]]
+    name = "linkedin"
+    url  = "https://www.linkedin.com/"
+
+
+defaultContentLanguage = 'hu'
+defaultContentLanguageInSubdir = true 
+
+[languages]
+  [languages.hu]
+  [languages.hu.params]
+        weight    = 3
+        languageCode = 'hu-HU'
+        disabled = false
+        langaugeName = 'Magyar'
+        subtitle  = "Kurcz Valentin Blog és Portfólió oldala"
+        description = "Weboldal ami Kurcz Valentin tevékenységének van dedikálva, amin megtalálhatóak eddigi munkái, kisebb pet projectjeivalamint blog posztjai amikben főleg az informatika különböző szakterületeit érinti, mint például az IT Security"
+        keywords = "IT biztonság, Kurcz Valentin, Portfólió, Blog, Informatikus"
+        images = [""]
+        homeSubtitle = "Én és minden ami informatika :>"
+
+   [languages.hu.menus]
+     [[languages.hu.menus.main]]
+        name = 'Cikkek'
+        pageRef = '/posts'
+     [[languages.hu.menus.main]]
+        name = 'Rólam'
+        pageRef = '/about'
+
+  [languages.en]
+    [languages.en.params]
+        weight    = 2
+        languageCode = 'en-US'
+        disabled = false
+        langaugeName = 'English'
+        subtitle  = "Valentin Kurcz's Blog and Portfolio page"
+        homeSubtitle = "Me and everything which is IT :>"
+        keywords = "IT Security, Valentin Kurcz, Portfolio, Blog"
+        images = [""]
+        description = "A website which is dedicated to the work of Valentin Kurcz, where you can find his previous works, pet projects, furthermore some blog posts about topics like IT Security"
+
+   [languages.en.menus]
+     [[languages.en.menus.main]]
+        name = 'Posts'
+        pageRef = '/posts'
+     [[languages.en.menus.main]]
+        name = 'About me'
+        pageRef = '/about'
+
+  [languages.es]
+    [languages.es.params]
+        weight    = 3
+        languageCode = 'es-ES'
+        disabled = false
+        langaugeName = 'Espanol'
+        subtitle  = "Blog y Portfolio de Valentin Kurcz"
+        homeSubtitle = "Yo y todo lo que es ESO :>"
+        keywords = "Seguridad informática, Valentin Kurcz, Portfolio, Blog"
+        images = [""]
+        description = "Un sitio web dedicado a la obra de Valentin Kurcz, donde se pueden encontrar sus trabajos anteriores, proyectos favoritos, además de algunas publicaciones de blog sobre temas como la seguridad informática"
+
+   [languages.es.menus]
+     [[languages.es.menus.main]]
+        name = 'Los publicaciones'
+        pageRef = '/posts'
+     [[languages.es.menus.main]]
+        name = 'Acerca de mí'
+        pageRef = '/about'
+
+
