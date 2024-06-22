@@ -174,7 +174,16 @@ disableHugoGeneratorInject = false
 
   [[params.social]]
     name = "linkedin"
-    url  = "https://www.linkedin.com/"
+    url  = "https://www.linkedin.com/in/valentin-kurcz-b286142aa/"
+  [[params.social]]
+    name = "discord"
+    url  = "https://discordapp.com/users/kurczv"
+  [[params.social]]
+    name = "telegram"
+    url  = "https://t.me/valkosch"
+  [[params.social]]
+    name = "tryhackme"
+    url  = "https://tryhackme.com/p/valkosch"
 
 
 defaultContentLanguage = 'hu'
@@ -189,9 +198,10 @@ defaultContentLanguageInSubdir = true
         langaugeName = 'Magyar'
         subtitle  = "Kurcz Valentin Blog és Portfólió oldala"
         description = "Weboldal ami Kurcz Valentin tevékenységének van dedikálva, amin megtalálhatóak eddigi munkái, kisebb pet projectjeivalamint blog posztjai amikben főleg az informatika különböző szakterületeit érinti, mint például az IT Security"
-        keywords = "IT biztonság, Kurcz Valentin, Portfólió, Blog, Informatikus"
+        keywords = "IT biztonság, Kurcz Valentin, Portfólió, Blog, Mérnökinformatikus, Computer Science"
         images = [""]
-        homeSubtitle = "Én és minden ami informatika :>"
+        homeSubtitle = "Én és minden ami Computer Science, IT Biztonság és filozófia :>"
+        homeRecent = "Legutóbbi cikkek"
 
    [languages.hu.menus]
      [[languages.hu.menus.main]]
@@ -200,6 +210,9 @@ defaultContentLanguageInSubdir = true
      [[languages.hu.menus.main]]
         name = 'Rólam'
         pageRef = '/about'
+     [[languages.hu.menus.main]]
+        name = 'Projektek'
+        pageRef = '/'
 
   [languages.en]
     [languages.en.params]
@@ -208,18 +221,23 @@ defaultContentLanguageInSubdir = true
         disabled = false
         langaugeName = 'English'
         subtitle  = "Valentin Kurcz's Blog and Portfolio page"
-        homeSubtitle = "Me and everything which is IT :>"
+        homeSubtitle = "Me and everything which is Computer Science, IT Security and philosophy :>"
+        homeRecent = "Recent posts"
         keywords = "IT Security, Valentin Kurcz, Portfolio, Blog"
         images = [""]
         description = "A website which is dedicated to the work of Valentin Kurcz, where you can find his previous works, pet projects, furthermore some blog posts about topics like IT Security"
 
    [languages.en.menus]
-     [[languages.en.menus.main]]
+        [[languages.en.menus.main]]
+        name = 'Projects'
+        pageRef = '/'
+        [[languages.en.menus.main]]
         name = 'Posts'
         pageRef = '/posts'
-     [[languages.en.menus.main]]
+        [[languages.en.menus.main]]
         name = 'About me'
         pageRef = '/about'
+
 
   [languages.es]
     [languages.es.params]
@@ -228,17 +246,21 @@ defaultContentLanguageInSubdir = true
         disabled = false
         langaugeName = 'Espanol'
         subtitle  = "Blog y Portfolio de Valentin Kurcz"
-        homeSubtitle = "Yo y todo lo que es ESO :>"
+        homeSubtitle = "Yo y todo lo que es Ciencias de la Computación, seguridad informatica y filosofia :>"
+        homeRecent = "Publicaciones recientes"
         keywords = "Seguridad informática, Valentin Kurcz, Portfolio, Blog"
         images = [""]
         description = "Un sitio web dedicado a la obra de Valentin Kurcz, donde se pueden encontrar sus trabajos anteriores, proyectos favoritos, además de algunas publicaciones de blog sobre temas como la seguridad informática"
 
    [languages.es.menus]
      [[languages.es.menus.main]]
-        name = 'Los publicaciones'
+        name = 'Publicaciones'
         pageRef = '/posts'
      [[languages.es.menus.main]]
         name = 'Acerca de mí'
         pageRef = '/about'
+     [[languages.es.menus.main]]
+        name = 'Proyectos'
+        pageRef = '/'
 
 

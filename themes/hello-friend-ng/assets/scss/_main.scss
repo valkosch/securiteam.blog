@@ -347,7 +347,9 @@ ol ol {
   }
 }
 .lightlogo{
-  max-width: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;  max-width: 400px;
   [data-theme=dark] & {
     display: none;
   }
@@ -355,6 +357,9 @@ ol ol {
 
 }
 .darklogo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 400px;
   [data-theme=light] & {
     display: none;
@@ -448,3 +453,92 @@ hr {
 .highlight {
   margin: 30px auto;
 }
+.recent {
+  width: 80%;
+  text-align: left;
+  padding: 20px;
+  margin: 20px auto;
+
+  @media #{$media-size-tablet} {
+    max-width: 660px;
+  }
+
+  &:not(:last-of-type) {
+    // Default
+    border-bottom: 1px solid $light-border-color;
+
+    @media (prefers-color-scheme: dark) {
+      border-bottom: 1px solid $dark-border-color;
+    }
+  
+    @media (prefers-color-scheme: light) {
+      border-bottom: 1px solid $light-border-color;
+    }
+  
+    [data-theme=dark] & {
+      border-bottom: 1px solid $dark-border-color;
+    }
+  
+    [data-theme=light] & {
+      border-bottom: 1px solid $light-border-color;
+    }
+  }
+
+  &-group {
+    display: flex;
+    margin-bottom: 1.9em;
+    margin-top: 1.9em;
+    padding: 15px;
+    line-height: normal;
+    @media (prefers-color-scheme: dark) {
+      background-color: $dark-background-third;
+    }
+  
+    @media (prefers-color-scheme: light) {
+      background-color: $light-background-third;
+    }
+  
+    [data-theme=dark] & {
+      background-color: $dark-background-third;
+    }
+  
+    [data-theme=light] & {
+      background-color: $light-background-third;
+    }
+
+    @media #{$media-size-tablet} {
+      display: block;
+    }
+  }
+
+  &-list {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+ .post {
+    &-title {
+      font-size: 1rem;
+      margin: 5px 0 5px 0;
+    }
+
+    &-item {
+
+      &-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 2px 0;
+        text-decoration: none;
+      }
+    }
+
+    &-day {
+      flex-shrink: 0;
+      margin-left: 1em;
+      @include dimmed;
+    }
+  }
+

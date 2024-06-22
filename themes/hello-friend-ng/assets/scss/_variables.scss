@@ -2,6 +2,7 @@
 
 /* Light theme color */
 $light-background: #fff;
+$light-background-third: #e6e6e6;
 $light-background-secondary: #eaeaea;
 $light-background-header: #fafafa;
 $light-color: #222;
@@ -12,6 +13,7 @@ $light-table-color: #dcdcdc;
 
 /* Dark theme colors */
 $dark-background: #232425;
+$dark-background-third: #3c3e3f;
 $dark-background-secondary: #3b3d42;
 $dark-background-header: #1b1c1d;
 $dark-color: #a9a9b3;
@@ -28,6 +30,6 @@ $media-size-tablet: "(max-width: 900px)";
   --phoneWidth: (max-width: 684px);
   --tabletWidth: (max-width: 900px);
 }
-
+$red: #ff0000;
 /* Content */
 $max-width: 860px;
