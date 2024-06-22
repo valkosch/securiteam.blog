@@ -51,10 +51,6 @@ disableHugoGeneratorInject = false
   dateformNumTime = "2006-01-02 15:04"
 
 
- [params.portrait]
-   path     = "/logo_1.png"
-   alt      = "Logo"
-   maxWidth = "400px"
   
   # Set a background for the homepage
   # backgroundImage = "assets/images/background.jpg"
@@ -102,6 +98,10 @@ disableHugoGeneratorInject = false
   # Integrate Plausible.io
   # plausibleDataDomain = 'test.com'
   # plausibleScriptSource = 'https://plausible.io/js/script.js'
+ [params.portrait]
+   path     = "/logo_1.png"
+   alt      = "Logo"
+   maxWidth = "400px"
 
   [author]
     name = "Kurcz Valentin"
@@ -130,7 +130,7 @@ disableHugoGeneratorInject = false
 
   [params.logo]
     logoMark     = ">"
-    logoText     = "$ you@kurczvalentin"
+    logoText     = " you@kurczvalentin $"
     logoHomeLink = "/"
     # Set true to remove the logo cursor entirely.
     # logoCursorDisabled = false
