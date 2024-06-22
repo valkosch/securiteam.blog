@@ -98,8 +98,12 @@ disableHugoGeneratorInject = false
   # Integrate Plausible.io
   # plausibleDataDomain = 'test.com'
   # plausibleScriptSource = 'https://plausible.io/js/script.js'
- [params.portrait]
-   path     = "/logo_1.png"
+ [params.portrait.light]
+   path     = "/logo_light.png"
+   alt      = "Logo"
+   maxWidth = "400px"
+ [params.portrait.dark]
+   path     = "/logo_dark.png"
    alt      = "Logo"
    maxWidth = "400px"
 

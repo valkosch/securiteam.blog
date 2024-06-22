@@ -346,6 +346,21 @@ ol ol {
     margin-top: 0;
   }
 }
+.lightlogo{
+  max-width: 400px;
+  [data-theme=dark] & {
+    display: none;
+  }
+
+
+}
+.darklogo{
+  max-width: 400px;
+  [data-theme=light] & {
+    display: none;
+  }
+
+}
 
 hr {
   width: 100%;
