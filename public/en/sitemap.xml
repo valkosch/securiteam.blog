@@ -64,6 +64,42 @@
   </url><url>
     <loc>//localhost:1313/about/</loc>
     <lastmod>2024-06-16T13:45:51+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="//localhost:1313/es/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="//localhost:1313/hu/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/about/"
+                />
+  </url><url>
+    <loc>//localhost:1313/categories/</loc>
+    <lastmod>2024-06-15T14:17:57+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="//localhost:1313/es/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="//localhost:1313/hu/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/categories/"
+                />
+  </url><url>
+    <loc>//localhost:1313/categories/crypto/</loc>
+    <lastmod>2024-06-15T14:17:57+02:00</lastmod>
   </url><url>
     <loc>//localhost:1313/tags/kaki/</loc>
     <lastmod>2024-06-15T14:17:57+02:00</lastmod>
@@ -117,23 +153,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/posts/2024/06/test/"
-                />
-  </url><url>
-    <loc>//localhost:1313/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="//localhost:1313/es/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="//localhost:1313/hu/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/categories/"
                 />
   </url><url>
     <loc>//localhost:1313/series/</loc>

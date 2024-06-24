@@ -196,7 +196,7 @@ defaultContentLanguageInSubdir = true
         languageCode = 'hu-HU'
         disabled = false
         langaugeName = 'Magyar'
-        subtitle  = "Kurcz Valentin Blog és Portfólió oldala"
+        subtitle  = "Blog és Portfólió oldala"
         description = "Weboldal ami Kurcz Valentin tevékenységének van dedikálva, amin megtalálhatóak eddigi munkái, kisebb pet projectjeivalamint blog posztjai amikben főleg az informatika különböző szakterületeit érinti, mint például az IT Security"
         keywords = "IT biztonság, Kurcz Valentin, Portfólió, Blog, Mérnökinformatikus, Computer Science"
         images = [""]
@@ -205,13 +205,13 @@ defaultContentLanguageInSubdir = true
 
    [languages.hu.menus]
      [[languages.hu.menus.main]]
-        name = 'Cikkek'
+        name = '~/cikkek'
         pageRef = '/posts'
      [[languages.hu.menus.main]]
-        name = 'Rólam'
+        name = '~/rólam'
         pageRef = '/about'
      [[languages.hu.menus.main]]
-        name = 'Projektek'
+        name = '~/projektek'
         pageRef = '/'
 
   [languages.en]
@@ -220,7 +220,7 @@ defaultContentLanguageInSubdir = true
         languageCode = 'en-US'
         disabled = false
         langaugeName = 'English'
-        subtitle  = "Valentin Kurcz's Blog and Portfolio page"
+        subtitle  = "Blog and Portfolio page"
         homeSubtitle = "Me and everything which is Computer Science, IT Security and philosophy :>"
         homeRecent = "Recent posts"
         keywords = "IT Security, Valentin Kurcz, Portfolio, Blog"
@@ -229,13 +229,13 @@ defaultContentLanguageInSubdir = true
 
    [languages.en.menus]
         [[languages.en.menus.main]]
-        name = 'Projects'
+        name = '~/projects'
         pageRef = '/'
         [[languages.en.menus.main]]
-        name = 'Posts'
+        name = '~/posts'
         pageRef = '/posts'
         [[languages.en.menus.main]]
-        name = 'About me'
+        name = '~/aboutme'
         pageRef = '/about'
 
 
@@ -245,7 +245,7 @@ defaultContentLanguageInSubdir = true
         languageCode = 'es-ES'
         disabled = false
         langaugeName = 'Espanol'
-        subtitle  = "Blog y Portfolio de Valentin Kurcz"
+        subtitle  = "Blog y Portfolio"
         homeSubtitle = "Yo y todo lo que es Ciencias de la Computación, seguridad informatica y filosofia :>"
         homeRecent = "Publicaciones recientes"
         keywords = "Seguridad informática, Valentin Kurcz, Portfolio, Blog"
@@ -254,13 +254,13 @@ defaultContentLanguageInSubdir = true
 
    [languages.es.menus]
      [[languages.es.menus.main]]
-        name = 'Publicaciones'
+        name = '~/publicaciones'
         pageRef = '/posts'
      [[languages.es.menus.main]]
-        name = 'Acerca de mí'
+        name = '~/acercademí'
         pageRef = '/about'
      [[languages.es.menus.main]]
-        name = 'Proyectos'
+        name = '~/proyectos'
         pageRef = '/'
 
 

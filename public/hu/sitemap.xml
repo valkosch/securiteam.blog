@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>//localhost:1313/hu/about/</loc>
+    <lastmod>2024-06-16T13:45:51+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="//localhost:1313/es/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="//localhost:1313/hu/about/"
+                />
+  </url><url>
+    <loc>//localhost:1313/hu/</loc>
+    <lastmod>2024-06-16T13:45:51+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="//localhost:1313/es/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="//localhost:1313/hu/"
+                />
+  </url><url>
     <loc>//localhost:1313/hu/tags/kaki/</loc>
     <lastmod>2024-06-15T14:17:57+02:00</lastmod>
     <xhtml:link
@@ -18,24 +54,6 @@
                 rel="alternate"
                 hreflang="hu"
                 href="//localhost:1313/hu/tags/kaki/"
-                />
-  </url><url>
-    <loc>//localhost:1313/hu/</loc>
-    <lastmod>2024-06-15T14:17:57+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="//localhost:1313/es/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="//localhost:1313/hu/"
                 />
   </url><url>
     <loc>//localhost:1313/hu/tags/personal/</loc>
