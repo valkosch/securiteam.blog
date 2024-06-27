@@ -16,7 +16,7 @@ I'm Valentin Kurcz, a 19 years old , hungarian, computer engineer student at the
 **My achievements here right now**
 
 * Academic distinction and excellence, scholarschip
-* Many projects which you can find at the [~/projects]() site
+* Many projects which you can find at the [~/projects](https://github.com/valkosch?tab=repositories) site
 
 **2019 - 2023 Leövey Klára Gymnasium**
 > I still reminisce with pleasure about my years here, because besides all the fun and good memories I made here, it had prominent positive influence on my personality, and on my ambitions. I studied in the IT course, but after all, I majored in Mathematics. However my interest towards IT began to gain its ground at this time. Many thanks for the hard work of my teachers, because even in the adversity of the hungarian education system, they helped me in my personal development. My achievements are just as theirs as mine.
@@ -28,11 +28,12 @@ I'm Valentin Kurcz, a 19 years old , hungarian, computer engineer student at the
 
 # Skills 
 
-* advanced understanding of Linux (my daily driver is an Arch linux)
+* advanced understanding of Linux (btw I use Arch Linux :D)
 * experienced in C/C++, Java development, also entry level Go and Python knowledge
 * web development with React, Next.js and Hugo (this website was made with Hugo)
-* intermidiate understandig of concepts in IT Security, SOC Security Analyst, penetration testing, also I solve CTFs in my free time
-* hungarian C2, english C1, spanish A2, and a bit of german
+* intermediate understandig of concepts in IT Security, SOC Security Analyst, penetration testing, also I solve CTFs in my free time
+* DevOps experience with Git
+* native hungarian, english C1, spanish A2, and a bit of german
 
 # Motivation
 

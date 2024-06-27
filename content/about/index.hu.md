@@ -4,7 +4,7 @@ date = 2024-06-16T13:45:51+02:00
 draft = true
 +++
 
-Kurcz Valentin vagyok, 19 éves, magyar, mérnökinformatikus hallgató a Budapesti Műszaki Egyetemen (BME), és örülök hogy itt talállak. Szeretek szerelgetni, alkotni, kirándulni a természetben, pizzát sütni, szeretem a westend filmeket, a szeletelt kenyeret és a fogkefém lila. Szerény oldalamon keresztül blog és portfólió formájában, szeretném bemutatni magamat, munkáimat, gondolataimat, melyekről véleményt is fogalmazhatsz akár anoním módon. Ebben a szekcióban a tanulmányaimról és motivációmról olvashatsz.
+Kurcz Valentin vagyok, 19 éves, magyar, mérnökinformatikus hallgató a Budapesti Műszaki Egyetemen (BME), és örülök hogy itt talállak. Szeretek szerelgetni, alkotni, kirándulni a természetben, pizzát sütni, szeretem a westend filmeket, a szeletelt kenyeret és a fogkefém lila. Szerény oldalamon keresztül blog és portfólió formájában, szeretném bemutatni magamat, munkáimat, gondolataimat, melyekről véleményt is fogalmazhatsz akár anoním módon. Ebben a szekcióban a tanulmányaimról, készségeimről és motivációmról olvashatsz.
 
 # Tanulmányaim 
 
@@ -16,7 +16,7 @@ Kurcz Valentin vagyok, 19 éves, magyar, mérnökinformatikus hallgató a Budape
 **Itt eddigi eredményeim**
 
 * Tanulmányi kiemelt 1. és 2. félévben is (5-ös átlag), ösztöndíjas
-* És sok más projektem amit a [~/projektek]() fülön találhatsz
+* És sok más projektem amit a [~/projektek](https://github.com/valkosch?tab=repositories) fülön találhatsz
 
 **2019 - 2023 Leövey Klára Gimnázium**
  > Még mindig boldogan gondolok vissza az itt eltöltött éveimre, mivel a sok boldog emlék és történet mellett meghatározó szerepet játszott a személyiségem, és az ambicióm kialakulásában. Informatika tagozatra jártam, ami egy gimnáziumi környezetben annyit jelent, hogy az emelt színtű informatika érettségire készítenek fel. Végül csak matematikából volt szükséges emelten érettségiznem, de az informatika és a számítástechnika iránti érdeklődésem már itt elkezdte térnyerését bennem. Tanáraimnak ezúton is köszönöm munkájukat, és hogy a magyar közoktás viszonytagsága mellett is segítettek a fejlődésemben. A sikereim legalább annyira az ő érdemük mint az enyém.
@@ -25,6 +25,15 @@ Kurcz Valentin vagyok, 19 éves, magyar, mérnökinformatikus hallgató a Budape
 
 * OPL gunnercook ügyvédi iroda ösztöndíjasa
 * Leövey-díj
+
+# Készségek
+
+* haladó ismeretek Linux környezetről (Arch Linuxot használok napi szinten)
+* tapasztalt C/C++, Java nyelvekben, illetve belépő szintű ismeret Go és Python nyelvvel
+* web fejlesztés React, Next.js és Hugo keretrendszerrel (ez a weboldal is Hugoval készült)
+* átfogó ismeretek az IT biztonság, SOC Security Analyst, penetration testing
+* DevOps tapasztalatok Git használattal
+* anyanyelvű magyar, angol C1, spanyol A2, és egy kis német nyelvtudás
 
 # Motivációm
 

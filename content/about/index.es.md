@@ -16,7 +16,7 @@ Soy Valentin Kurcz, un húgaro estudiante de ingerniero informático de 19 anos 
 **Mis logros aquí en este momento**
 
 * Distinciób y excelencia académica, beca
-* Muchos proyectos, los que puedes encontrar en el [~/proyectos]() sitio
+* Muchos proyectos, los que puedes encontrar en el [~/proyectos](https://github.com/valkosch?tab=repositories) sitio
 
 **2019 - 2023 Leövey Klára Gimnasio**
 > Todavía recuerdo con placer mis anos aquí, porque además de toda la diversión y los buenos recuerdos que hice aquí, tuvo una influencia positiva prominente en mi personalidad, y en mi ambiciones. Estudié en el curso de informática, pero después de todo me especialicé en matemáticas. Sin embrago, mi interés por la informática comenzó a ganar terreno en esta época. Muchas gracias por el arduo trabajo de mis maestros, porque incluso en la adversidad del sistema educativo húngaro, me ayudaron en mi desarrollo personal. Mis logros son tan suyos como los míos.
@@ -32,6 +32,7 @@ Soy Valentin Kurcz, un húgaro estudiante de ingerniero informático de 19 anos 
 * experiencia en desarrollo con C/C++ y Java, también conocimiento básicos de Go y Python
 * desarrollo web con React, Next.js y Hugo (este sitio web fue creado con Hugo)
 * comprensión intermedia de conceptos en seguridad informática, analista de seguridad SOC, pruebas de penetración, también resuelvo CTFs en mi tiempo libre
+* experiencia en DevOps con Git
 * húngaro C2, inglés C1, espanol A2, y un poco de alemán
 
 # Motivación
