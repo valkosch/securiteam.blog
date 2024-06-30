@@ -38,96 +38,6 @@
                 href="//localhost:1313/hu/"
                 />
   </url><url>
-    <loc>//localhost:1313/hu/tags/kaki/</loc>
-    <lastmod>2024-06-15T14:17:57+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/tags/kaki/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="//localhost:1313/es/tags/kaki/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="//localhost:1313/hu/tags/kaki/"
-                />
-  </url><url>
-    <loc>//localhost:1313/hu/tags/personal/</loc>
-    <lastmod>2024-06-15T14:17:57+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/tags/personal/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="//localhost:1313/es/tags/personal/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="//localhost:1313/hu/tags/personal/"
-                />
-  </url><url>
-    <loc>//localhost:1313/hu/posts/</loc>
-    <lastmod>2024-06-15T14:17:57+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="//localhost:1313/es/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="//localhost:1313/hu/posts/"
-                />
-  </url><url>
-    <loc>//localhost:1313/hu/tags/</loc>
-    <lastmod>2024-06-15T14:17:57+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="//localhost:1313/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="//localhost:1313/hu/tags/"
-                />
-  </url><url>
-    <loc>//localhost:1313/hu/posts/2024/06/test/</loc>
-    <lastmod>2024-06-15T14:17:57+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/posts/2024/06/test/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="//localhost:1313/es/posts/2024/06/test/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="hu"
-                href="//localhost:1313/hu/posts/2024/06/test/"
-                />
-  </url><url>
     <loc>//localhost:1313/hu/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -160,6 +70,23 @@
                 rel="alternate"
                 hreflang="hu"
                 href="//localhost:1313/hu/series/"
+                />
+  </url><url>
+    <loc>//localhost:1313/hu/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="//localhost:1313/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="//localhost:1313/hu/tags/"
                 />
   </url>
 </urlset>

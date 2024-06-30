@@ -16,12 +16,5 @@
       <guid>//localhost:1313/es/about/</guid>
       <description>Soy Valentin Kurcz, un húgaro estudiante de ingerniero informático de 19 anos en la Universida Tecnológica de Budapest (BME), y me alegro de conocerte. Me gusta reparar y retocar cosas viejas, crear cosas nuevas, el senderismo, hornear pizza, tambien me encantan las películas del westend. Ah, y mi cepillo de dientes es morado. Tú puedes encontrar mis proyectos y trabajos en este sitio web, pero tambien mis pensamientos sobre muchos temas, a los que siempre puedes dejar un comentario o dos, sí quieres expresar tu opinión.</description>
     </item>
-    <item>
-      <title>Test</title>
-      <link>//localhost:1313/es/posts/2024/06/test/</link>
-      <pubDate>Sat, 15 Jun 2024 14:17:57 +0200</pubDate>
-      <guid>//localhost:1313/es/posts/2024/06/test/</guid>
-      <description>Hola! Me llamo Valentin Kurcz, soy un Inginir de informatico&#xA;for(int i = 0; i &amp;lt; 10; i++){ sum++; } </description>
-    </item>
   </channel>
 </rss>
