@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kurcz Valentin</title>
-    <link>//localhost:1313/hu/</link>
+    <link>http://localhost:1313/hu/</link>
     <description>Recent content on Kurcz Valentin</description>
     <generator>Hugo</generator>
     <language>hu</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Sun, 16 Jun 2024 13:45:51 +0200</lastBuildDate>
-    <atom:link href="//localhost:1313/hu/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/hu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>::Jómagam::</title>
-      <link>//localhost:1313/hu/about/</link>
+      <link>http://localhost:1313/hu/about/</link>
       <pubDate>Sun, 16 Jun 2024 13:45:51 +0200</pubDate>
-      <guid>//localhost:1313/hu/about/</guid>
+      <guid>http://localhost:1313/hu/about/</guid>
       <description>Kurcz Valentin vagyok, 19 éves, magyar, mérnökinformatikus hallgató a Budapesti Műszaki Egyetemen (BME), és örülök hogy itt talállak. Szeretek szerelgetni, alkotni, kirándulni a természetben, pizzát sütni, szeretem a westend filmeket, a szeletelt kenyeret és a fogkefém lila. Szerény oldalamon keresztül blog és portfólió formájában, szeretném bemutatni magamat, munkáimat, gondolataimat, melyekről véleményt is fogalmazhatsz akár anoním módon. Ebben a szekcióban a tanulmányaimról, készségeimről és motivációmról olvashatsz.&#xA;Tanulmányaim 2023 - ~ BME VIK</description>
     </item>
   </channel>

@@ -349,9 +349,17 @@ ol ol {
 .lightlogo{
   display: block;
   margin-left: auto;
-  margin-right: auto;  max-width: 400px;
+  margin-top: 100px;
+  margin-bottom: 30px;
+ margin-right: auto;  max-width: 400px;
   [data-theme=dark] & {
     display: none;
+  }
+ @media #{$media-size-phone} {
+   max-width: 200px;
+  }
+ @media #{$media-size-tablet} {
+   max-width: 300px;
   }
 
 
@@ -360,6 +368,8 @@ ol ol {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 100px;
+  margin-bottom: 30px;
   max-width: 400px;
   [data-theme=light] & {
     display: none;

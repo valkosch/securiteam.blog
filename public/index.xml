@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kurcz Valentin</title>
-    <link>//localhost:1313/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Kurcz Valentin</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Fri, 28 Jun 2024 13:20:06 +0200</lastBuildDate>
-    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lokalitástudatos programozás</title>
-      <link>//localhost:1313/posts/2024/06/lokalit%C3%A1studatos-programoz%C3%A1s/</link>
+      <link>http://localhost:1313/posts/2024/06/lokalit%C3%A1studatos-programoz%C3%A1s/</link>
       <pubDate>Fri, 28 Jun 2024 13:20:06 +0200</pubDate>
-      <guid>//localhost:1313/posts/2024/06/lokalit%C3%A1studatos-programoz%C3%A1s/</guid>
+      <guid>http://localhost:1313/posts/2024/06/lokalit%C3%A1studatos-programoz%C3%A1s/</guid>
       <description>Egyáltalán nem mindegy, hogy egy mátrixot, oszloponként, vagy soronkét, nehogy Isten véletlenszerűen járjuk be. Ebben a cikkben körüljárjuk, hogy hogyan lehet számtógépes ismereteinket igába hajtani, a programunk előnyére.</description>
     </item>
     <item>
       <title>::Aboutme::</title>
-      <link>//localhost:1313/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Sun, 16 Jun 2024 13:45:51 +0200</pubDate>
-      <guid>//localhost:1313/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>I&amp;rsquo;m Valentin Kurcz, a 19 years old , hungarian, computer engineer student at the Budapest University of Technology and Economics (BME), and I&amp;rsquo;m glad to meet you. I love repairing and tinkering old stuff, creating new things, hiking, baking pizza, also I love westend movies, and sliced bread. Oh and my toothbrush is purple. You can find my projects and works on this website, but also my takes and thoughts on many topics, to which you can always leave a comment or two, if you want to express your opinion.</description>
     </item>
   </channel>
