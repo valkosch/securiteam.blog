@@ -374,6 +374,12 @@ ol ol {
   [data-theme=light] & {
     display: none;
   }
+ @media #{$media-size-phone} {
+   max-width: 200px;
+  }
+ @media #{$media-size-tablet} {
+   max-width: 300px;
+  }
 
 }
 
@@ -528,6 +534,25 @@ hr {
     list-style: none;
   }
 }
+ .posty {
+    &-item {
+
+      &-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 2px 0;
+        text-decoration: none;
+      }
+    }
+
+    &-day {
+      display: flex;
+      margin-left: 1em;
+      @include dimmed;
+    }
+  }
+
  .post {
     &-title {
       font-size: 1rem;
@@ -551,4 +576,7 @@ hr {
       @include dimmed;
     }
   }
-
+.subtitle{
+  margin-left: 20px;
+  margin-right: 20px;
+}

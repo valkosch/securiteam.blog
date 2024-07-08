@@ -6,22 +6,110 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Fri, 28 Jun 2024 13:20:06 +0200</lastBuildDate>
+        <lastBuildDate>Mon, 08 Jul 2024 09:45:20 +0200</lastBuildDate>
         <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>Lokalitástudatos programozás</title>
-            <link>http://localhost:1313/posts/2024/06/lokalit%C3%A1studatos-programoz%C3%A1s/</link>
-            <pubDate>Fri, 28 Jun 2024 13:20:06 +0200</pubDate>
+            <title>Locality-Aware programming</title>
+            <link>http://localhost:1313/posts/2024/07/locality-aware-programming/</link>
+            <pubDate>Mon, 08 Jul 2024 09:45:20 +0200</pubDate>
             
-            <guid>http://localhost:1313/posts/2024/06/lokalit%C3%A1studatos-programoz%C3%A1s/</guid>
-            <description>Egyáltalán nem mindegy, hogy egy mátrixot, oszloponként, vagy soronkét, nehogy Isten véletlenszerűen járjuk be. Ebben a cikkben körüljárjuk, hogy hogyan lehet számtógépes ismereteinket igába hajtani, a programunk előnyére.</description>
-            <content type="html"><![CDATA[<p>Neumann architektúrája óta, egy számítógép müködése során, a futtatandó utasításokat, és ezen utasítások által hivatkozott címek tartalmát is egy memóriában tárolja. A programban használt adatok, úgynevezett adatmemóriból érhetőek el, ez pedig tárhierarchiába rendeződik.</p>
-<h2 id="tárhierarchia">Tárhierarchia</h2>
-<p>A számítógépünk teljesítménye lényegében a processzor és a memória órajeléből tevődik össze, és eme két egység közül, a memória az ami a processzor mögött kullog. Ez azt jelenti, hogy hiába a magas CPU órajel, ha a memória szűk keresztmetszetként viselkedik mellette, mivel ha az éppen végrehajtandó utasításnál, nincsen kéznél a használandó adat, akkor a processzor várakozásra kényszerűl, ezáltal nem használja ki teljes potenciálját, így suboptimális lesz a kihasználtsága.</p>
-<p>Több memória technológiát is ismerünk, mint például a magas adatsűrűségű és olcsóbb, de lasúbb DRAM, vagy az alacsony adatsűrűségű és drága, de gyors SRAM. Egyiknél sem teljesülhet viszont egyszerre az, hogy olcsó, gyors és nagy, így mindig az igényekhez igaztva, a kompromisszum kötés elkerülhetetlen. Itt jön be a tárhierarchia miszerint több szintből építjük fel a memóriát úgy, hogy az adott szintet minél többször használja a processzor, anál gyorsabb és ezáltal kisebb legyen.</p>
-<p>KÉP IDE BESZÚRÁS - TÁRHIERARCHIA PIRAMIS</p>
-<p>Ezek szerint kulcsfontosságú, hogy a processzor kihasználás érdekében, a programozó teljesen a tárhierarchia keze alá dolgozzon.</p>
+            <guid>http://localhost:1313/posts/2024/07/locality-aware-programming/</guid>
+            <description>It is crucial how we traverse a matrix, whether column-wise, row-wise, or randomly. This article explores how to leverage our knowledge about computers for the benefit of our programs.</description>
+            <content type="html"><![CDATA[<p>Since the Neumann architecture, during the operation of a computer, the instructions and the contents of the addresses referenced by these instructions are stored in memory. The data used in the program can be accessed from so-called data memory, which is organized into a memory hierarchy.</p>
+<h2 id="memory-hierarchy">Memory Hierarchy</h2>
+<p>A computer&rsquo;s performance essentially consists of the clock speed of the processor and the memory, with memory often lagging behind the processor. This means that despite having a high CPU clock speed, if the memory acts as a bottleneck, the processor has to wait for the data it needs, leading to suboptimal performance.</p>
+<h3 id="principles-of-locality">Principles of Locality</h3>
+<p>Fortunately, most computer programs follow certain patterns when accessing memory, known as <strong>principles of locality</strong>, which we can exploit to improve performance. There are several principles of locality:</p>
+<p>If we perform an operation on a data item in memory</p>
+<ul>
+<li><em><strong>Temporal Locality:</strong></em> &hellip;, we will likely use it again soon. Example: incrementing a loop counter in each iteration.</li>
+<li><em><strong>Spatial Locality:</strong></em>&hellip;, we are likely to use the items nearby as well. Example: traversing an array.</li>
+<li><em><strong>Algorithmic Locality:</strong></em> Programs often work with dynamic data structures like binary trees or linked lists which do not fit into spatial or temporal locality but still exhibit predictable behaviors that can be exploited.</li>
+</ul>
+<p>By placing frequently used data and their surroundings close to the processor, we can reduce the number of slow and expensive memory operations. We still store our data in a memory but in much a faster but smaller and higher power consumption memory known as cache memory. But what technology is used for cache?</p>
+<p>We know several memory technologies, such as the high-density but slower and cheaper DRAM, and the low-density but faster and more expensive SRAM. To stor 1 bit, DRAM uses one transistor, while SRAM uses six, explaining the differences in power consumption, density, and cost. It is impossible to achieve cheap, fast, and large memory simultaneously, so compromises are inevitable. This leads to the concept of memory hierarchy, where the memory is structured in multiple levels, with the most frequently used memory being faster and smaller.</p>
+<p><img alt="tárhierarchia" src="/tarhierarchia.png"></p>
+<p>The slowest storage, the HDD or SSD, holds the least frequently used but large amounts of data. Frequently used data are stored in the random-access memory, usually DRAM, and the data used by the currently running program or process (e.g., a local variable) is stored in the cache, made of SRAM.</p>
+<blockquote>
+<p>The workings of the cache are not detailed here, but if interested, it is worth looking into how data gets into the cache, as it must be ready in the cache when the program references memory. This is called prefetching, and it is simpler than it seems.
+I will not go into the subtle details of how a cache works here, however if you are interested, it worths looking into how prefetching works, because that&rsquo;s how the computer loads data into the cache before it&rsquo;s used, after making an educated guess.</p>
+</blockquote>
+<p>To ensure efficient processor utilization, the programmer should aid the memory hierarchy:</p>
+<ul>
+<li>If the programmer references memory randomly in the cache, many cache misses occur, forcing the computer to resort to the slow main memory.</li>
+<li>In DRAM-based system memory, accessing cells in the same row is fast, but random access to different rows incurs expensive and slow operations, due to the time cost of opening new rows.</li>
+</ul>
+<p><strong>The programmer&rsquo;s goal is to address memory in a way that conforms to the principles of locality. How?</strong></p>
+<h2 id="locality-friendly-loop-organization">Locality-Friendly Loop Organization</h2>
+<p>In practice, we often need to traverse one- or multidimensional arrays, requiring loops. I will show you examples of loop organization techniques that utilize our memory hierarchy knowledge to improve our program&rsquo;s runtime.</p>
+<h3 id="merging-loops">Merging loops</h3>
+<p>Original code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    b[i] <span style="color:#f92672">=</span> c <span style="color:#f92672">*</span> a[i] <span style="color:#f92672">-</span> x;
+</span></span><span style="display:flex;"><span>sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    sum <span style="color:#f92672">+=</span> b[i];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span>( <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    d[i] <span style="color:#f92672">=</span> a[i] <span style="color:#f92672">+</span> b[i];
+</span></span></code></pre></div><p>The above is a simple C code example. Now, let&rsquo;s calculate the cache miss ratio, which is how often we need to access slow memory because the data is not in the cache. Let&rsquo;s assume the following for simplicity:</p>
+<ul>
+<li>N is arbitrarily large</li>
+<li>The cache block size is 64 bytes</li>
+<li>Array elements are 8-byte doubles</li>
+<li>Accessing i, c, x, and sum does not involve memory access.</li>
+</ul>
+<p>The first for loop traverses arrays a and b. At i=0, there is a cache miss for a[0] and b[0], as the cache is initially empty. A cache miss loads 8 array elements into the cache, so there will be a cache miss every 8 steps, leading to 2N/8 cache misses for 2N memory references.</p>
+<p>In the second for loop, if N is large enough, the beginning of array b is no longer in the cache, so there will be a cache miss every 8 steps again, resulting in N/8 cache misses.</p>
+<p>Similarly, the third loop will have 3N/8 cache misses for 3N memory references.</p>
+<p>Summing the cache misses, we get 6N memory references with a 12.5% cache miss ratio.</p>
+<p>Now, using loop merging:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span>sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>N; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    b[i] <span style="color:#f92672">=</span> c <span style="color:#f92672">*</span> a[i] <span style="color:#f92672">+</span> x;
+</span></span><span style="display:flex;"><span>    sum <span style="color:#f92672">+=</span> b[i];
+</span></span><span style="display:flex;"><span>    d[i] <span style="color:#f92672">=</span> a[i] <span style="color:#f92672">+</span> b[i];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This algorithm has the same functionality as the original but is more efficient. The first two memory references in the loop body still cause cache misses every 8 steps, but subsequent accesses to a[i] and b[i] will not cause cache misses as they are already in the cache. The third line will only cause a cache miss for d[i] every 8 steps.</p>
+<p>Thus, we have 3N/8 cache misses, reducing the cache miss ratio to 6.25%, half of the original.</p>
+<p>The first rule of thumb is to merge loops wherever we can.</p>
+<h3 id="loop-order-optimization">Loop Order Optimization</h3>
+<p>Consider the following example where the order of loops in traversing a 2D array affects performance.</p>
+<p>First, the optimal example:</p>
+<p>Row-major traversal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>N; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; j<span style="color:#f92672">&lt;</span>N; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        sum <span style="color:#f92672">+=</span> a[i][j];
+</span></span></code></pre></div><p>Before analyzing cache misses, it&rsquo;s important to note that C stores 2D arrays in row-major order. Thus, a 2D array {{4, 2}, {0, 6}} is stored in memory as</p>
+<p>&hellip; 4 | 2 | 0 | 6 &hellip;</p>
+<p>Row-major traversal aligns with spatial locality, leading to a cache miss ratio of 1/8, which can be further improved with prefetching.</p>
+<p>Now, let&rsquo;s see how <strong>NOT</strong> to do it:</p>
+<p>Column-major traversal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; j<span style="color:#f92672">&lt;</span>N; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>N; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        sum <span style="color:#f92672">+=</span> a[i][j];
+</span></span></code></pre></div><p>Here, the loop order is reversed. This time we do not utilize spatial locality, where elements in the same row like a[i][j+1], a[i][j+2], a[i][j+3] are loaded into the cache because, if N &gt; 8, then a[i+1][j], the next reference in our loop, will definitely not be in our cache. If N*8 exceeds the cache size, the situation is even worse, because when the outer loop jumps from j to j+1, until then a[i][j+1] will be long gone from the cache, since other array elements pushed it out from there. This results in a 100% cache miss ratio.</p>
+<h3 id="traversal-with-blocks">Traversal with blocks</h3>
+<p>Another technique is the so called loop tiling, where a matrix is traversed in blocks. This is useful for operations like transposing a matrix:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>N; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; j<span style="color:#f92672">&lt;</span>N; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        b[j][i] <span style="color:#f92672">=</span> a[i][j];
+</span></span></code></pre></div><p>Here, a is traversed row-major, and b column-major, resulting in a 100% cache miss ratio for b for large N, as you can see the reasoning in the paragraph above. We can improve this with loop tiling:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (bi<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; bi<span style="color:#f92672">&lt;=</span>N<span style="color:#f92672">-</span>BLK; bi<span style="color:#f92672">+=</span>BLK)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (bj<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; bj<span style="color:#f92672">&lt;=</span>N<span style="color:#f92672">-</span>BLK; bj<span style="color:#f92672">+=</span>BLK)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (i<span style="color:#f92672">=</span>bi; i<span style="color:#f92672">&lt;</span>bi<span style="color:#f92672">+</span>BLK; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (j<span style="color:#f92672">=</span>bj; j<span style="color:#f92672">&lt;</span>bj<span style="color:#f92672">+</span>BLK; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>                b[j][i] <span style="color:#f92672">=</span> a[i][j];
+</span></span></code></pre></div><p>This may seem obfuscated, but here is a diagram to help:</p>
+<p><img alt="blokkos ciklus" src="/blokkosciklus.png"></p>
+<p>Choosing an appropriate block size (BLK) is crucial, as the goal is to minimize the total number of cache misses.</p>
+<p>Though matrix transposition may seem as an edge case scenario, matrix operations are actually very often used, such as in GPUs which is optimized for these tasks using more advanced techniques.</p>
+<h2 id="summary">Summary</h2>
+<p>We have explored an important aspect of our computer, the memory hierarchy, specifically focusing on the cache. Using this knowledge, we have found solutions to practical problems that result in better performance. What more one could wish for? :D</p>
 ]]></content>
         </item>
         

@@ -8,7 +8,7 @@
             <img src="{{ .Site.Params.Portrait.Dark.Path }}" class="darklogo">
 
             <img src="{{ .Site.Params.Portrait.Light.Path }}" class="lightlogo" >
-            {{ partial "subtitle.html" . }}
+            <span class="subtile">{{ partial "subtitle.html" . }}</span>
 
             {{- with .Site.Params.social }}
                 <div>
@@ -20,10 +20,10 @@
                 <ul class="recent-list">
                 {{ range ( where .Site.RegularPages "Type" "posts" | first 3 ) }}
                     <div class="recent-group">
-                            <li class="post-item">
-                                <a href="{{.Permalink}}" class="post-item-inner">
-                                    <span class="post-title">{{.Title}}</span>
-                                    <span class="post-day">
+                            <li class="posty-item">
+                                <a href="{{.Permalink}}" class="posty-item-inner">
+                                    <h3>{{.Title}}</h3>
+                                    <span class="posty-day">
                                       {{ .Date.Format "2006 Jan 02"}}
                                     </span>
                                 </a>

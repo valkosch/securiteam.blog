@@ -1,39 +1,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on Kurcz Valentin</title>
-        <link>//localhost:1313/hu/posts/</link>
+        <link>http://localhost:1313/hu/posts/</link>
         <description>Recent content in Posts on Kurcz Valentin</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>hu</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 15 Jun 2024 14:17:57 +0200</lastBuildDate>
-        <atom:link href="//localhost:1313/hu/posts/index.xml" rel="self" type="application/rss+xml" />
+        <lastBuildDate>Fri, 28 Jun 2024 13:20:06 +0200</lastBuildDate>
+        <atom:link href="http://localhost:1313/hu/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>Test</title>
-            <link>//localhost:1313/hu/posts/2024/06/test/</link>
-            <pubDate>Sat, 15 Jun 2024 14:17:57 +0200</pubDate>
+            <title>Lokalitástudatos programozás</title>
+            <link>http://localhost:1313/hu/posts/2024/06/lokalit%C3%A1studatos-programoz%C3%A1s/</link>
+            <pubDate>Fri, 28 Jun 2024 13:20:06 +0200</pubDate>
             
-            <guid>//localhost:1313/hu/posts/2024/06/test/</guid>
-            <description>Henlo ez itt a Balázs Show Üdv az oldalamon! Kurcz Valentin vagyok és úgy gondoltam van mondanivalóm.
-Amiket fogsz itt találni: CTF feladatok és a megoldásaim hozzá Szakmai jellegű beszámolók saját pet projectjeimről Portfóliom Lehet ilyet is csinálni
-for(int i = 0; i &amp;lt; 10; i++){ sum++; } </description>
-            <content type="html"><![CDATA[<h1 id="henlo-ez-itt-a-balázs-show">Henlo ez itt a Balázs Show</h1>
-<p>Üdv az oldalamon! <strong>Kurcz Valentin</strong> vagyok és úgy gondoltam van mondanivalóm.</p>
-<h2 id="amiket-fogsz-itt-találni">Amiket fogsz itt találni:</h2>
+            <guid>http://localhost:1313/hu/posts/2024/06/lokalit%C3%A1studatos-programoz%C3%A1s/</guid>
+            <description>Egyáltalán nem mindegy, hogy egy mátrixot, oszloponként, vagy soronkét, nehogy Isten véletlenszerűen járjuk be. Ebben a cikkben körüljárjuk, hogy hogyan lehet számítógépes ismereteinket igába hajtani, a programunk előnyére.</description>
+            <content type="html"><![CDATA[<p>Neumann architektúrája óta, egy számítógép müködése során, a futtatandó utasításokat, és ezen utasítások által hivatkozott címek tartalmát is egy memóriában tárolja. A programban használt adatok, úgynevezett adatmemóriból érhetőek el, ez pedig tárhierarchiába rendeződik.</p>
+<h2 id="tárhierarchia">Tárhierarchia</h2>
+<p>A számítógépünk teljesítménye lényegében a processzor és a memória órajeléből tevődik össze, és eme két egység közül, a memória az ami a processzor mögött kullog. Ez azt jelenti, hogy hiába a magas CPU órajel, ha a memória szűk keresztmetszetként viselkedik mellette, mivel ha az éppen végrehajtandó utasításnál, nincsen kéznél a használandó adat, akkor a processzor várakozásra kényszerűl, ezáltal nem használja ki teljes potenciálját, így suboptimális lesz a kihasználtsága.</p>
+<h3 id="lokalitási-elvek">Lokalitási elvek</h3>
+<p>Nagy <em>szerencse</em> hogy a számítógépes programok többsége valamilyen mintát követnek, mikor a memóriába nyúlnak, úgynevezett <strong>lokalitási elveket</strong>, és ezeket kihasználva tudunk a teljesítményen javítani. Többféle lokalitási elvet is ismerünk:</p>
+<p>Ha egy memóriában tárolt adaton műveletet végeztünk&hellip;</p>
 <ul>
-<li>CTF feladatok és a megoldásaim hozzá</li>
-<li>Szakmai jellegű beszámolók saját pet projectjeimről</li>
-<li>Portfóliom</li>
+<li><em><strong>Időbeli lokalitás:</strong></em> &hellip;akkor valószínüleg a közel jövőben is használni fogjuk. Példa: egy ciklus számlálóját minden ciklusban növelem.</li>
+<li><em><strong>Térbeli lokalitás:</strong></em> &hellip;akkor valószínüleg a közelben lévő adatokat is használni fogjuk. Példa: egy tömböt bejárok.</li>
+<li><em><strong>Algoritmikus lokalitás:</strong></em> Sok program dinamikus adatstruktúrákkal dolgozik (pl. bináris fák, láncolt listák), ezek viszont nem felelnek meg se nem a térbeli se nem az időbeli lokalitásnak (mivel a memóriában nem folytonosan helyezkednek el), ámde mégis szabályos viselkedést eredményeznek, melyet ki lehet használni.</li>
 </ul>
-<hr>
+<p>Tehát ha lokalitási elvek szerint, a processzor közelébe helyezzük a gyakran használt adatokat és környezetüket, akkor csökkenthetjük a lassú és költséges memória műveletek számát. Ekkor is memóriában helyezzük el az adatainkat, csak egy sokkal gyorsabb de kisebb és magasabb fogyasztásúban. Ezt a memóriát cache memóriának nevezzük. De milyen technológiát használnak cachenél?</p>
+<p>Több memória technológiát is ismerünk, mint például a magas adatsűrűségű és olcsóbb, de lasúbb DRAM, vagy az alacsony adatsűrűségű és drága, de gyors SRAM. Egy bit tárolásához, A DRAM 1 tranzisztort, az SRAM pedig 6-ot használ, innen ered a fogyasztás, adatsűrűség és az ár különbség. Egyiknél sem teljesülhet viszont egyszerre az, hogy olcsó, gyors és nagy, így mindig az igényekhez igazítva, a kompromisszum kötés elkerülhetetlen. Itt jön be a tárhierarchia miszerint több szintből építjük fel a memóriát úgy, hogy az adott szintet minél többször használja a processzor, annál gyorsabb és ezáltal kisebb legyen.</p>
+<p><img alt="tárhierarchia" src="/tarhierarchia.png"></p>
+<p>A leglassabb tárolón, a háttértáron tartjuk a legkevésbé használt, de nagy mennyiségű adatokat, általában HDD-n vagy SSD-n. A gyakran használt adatokat az operatív memóriában tároljuk, általában DRAM-ot használva, és az éppen futó program vagy process által használt adatokat (pl. egy lokális  változót) pedig a cache-ben tartjuk, ami SRAM-ból épül fel.</p>
 <blockquote>
-<p>Lehet ilyet is csinálni</p>
+<p>A cache további müködését itt nem részletezem, de ha érdekel akkor érdemes utánanézni, hogy mi alapján kerülnek be a cache-be az adatok, mert nyílván mikor a program hivatkozik a memóriára akkor már készen kell állnia a cache-ben, így valahogy meg kellene jósolni, hogy a jövőben használni fogjuk-e az adatot, ugyanakkor nem szemetelhetjük tele a cache-t mindennel mert kicsi :(, ezért jó tippnek kell lennie. Prefetch-nek nevezik ezt, és egyszerűbb mind aminek gondolnád.</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>){
-</span></span><span style="display:flex;"><span>    sum<span style="color:#f92672">++</span>;
-</span></span><span style="display:flex;"><span>  }
-</span></span></code></pre></div>]]></content>
+<p>Mind ezek szerint elengedhetetlen, hogy a processzor kihasználás érdekében, a programozó segítse a tárhierarchia munkáját:</p>
+<ul>
+<li>A cache esetében, ha a programozó össze-vissza hivatkozik a memóriára, akkor sok lesz a cache hiba, és így kénytelen lesz a számítógép a lomha memóriához nyúlni.</li>
+<li>A DRAM alapú rendszermemória esetében az azonos sorban lévő cellák elérése gyors, de ha itt is véletlenszerűen hivatkozunk a címekre, akkor az új sorok megnyitása költésges és lassú művelet lesz.</li>
+</ul>
+<p><strong>Tehát a programozó célja, hogy a memóriákat úgy címezze, hogy azok megfeleljenek a lokalitási elveknek. Hogyan?</strong></p>
+<h2 id="lokalitásbarát-ciklusszervezés">Lokalitásbarát ciklusszervezés</h2>
+<p>A gyakorlatban számtalan alkalommal van szükség egy-, vagy többdimenziós tömbök bejárása, ehhez pedig ciklus(ok) szükséges(ek). Példát mutatok azon ciklusszervezési technikákra, melyek hasznosítják az imént kifejtett tárhierarchiai ismereteinket, és ezzel javítják programunk futásidejét.</p>
+<h3 id="ciklusegyesítés">Ciklusegyesítés</h3>
+<p>Eredeti kód:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    b[i] <span style="color:#f92672">=</span> c <span style="color:#f92672">*</span> a[i] <span style="color:#f92672">-</span> x;
+</span></span><span style="display:flex;"><span>sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    sum <span style="color:#f92672">+=</span> b[i];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span>( <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    d[i] <span style="color:#f92672">=</span> a[i] <span style="color:#f92672">+</span> b[i];
+</span></span></code></pre></div><p>Fenti kód egy C nyelvű mezei, iskolapélda kód. Most mindenki kapaszkodjon meg mert matekozni fogunk. Számoljuk ki a cache hiba-arányt azaz azt, hogy összes cache-hez intézett kérésünk közül mennyiszer kaptuk azt a választ, hogy sajnos a lassú memóriához kell nyúlnunk, merta cache-ben nincsen benne az, amit keresünk. Tegyük fel az alábbiakat az egyszerűség kedvéért:</p>
+<ul>
+<li>N legyen a tömb mérete tetszőlegesen nagy</li>
+<li>a cache blokk mérete 64 bájt</li>
+<li>a tömb elemei 8 bájtos double-ök</li>
+<li>az i, c, x és sum elérése nem jár memória-hozzáféréssel.</li>
+</ul>
+<p>Az első for ciklus bejárja az a és b tömböt. Az i = 0 -nál cache hibát kaptunk a[0] és b[0] esetben is, mivel üres volt eddig még a cache-ünk. Ha cache hiba történik akkor viszont 8 tömb elem kerül be a cachebe, mivel a térbeli lokalitás szerint azt feltételezzük, hogy a soron következő elemeket is használni fogjuk, és több már nem is férne bele egy cache blokkba (64/8=8). Tehát 8 lépésenkét lesz cache hiba, és mivel 2N memóriahivatkozás van ezért itt 2N/8 cache hiba lesz.</p>
+<p>A második for ciklusnál, ha N elég nagy volt akkor a b tömb eleje már nincs benne a cache-ben, mert a hátsó elemei már kiszórították onnan. Ezért itt, megint minden 8. hivatkozás cache hiba lesz, így N/8 hibát okozva.</p>
+<p>Hasonlóan számolhatunk a harmadik ciklusban is, 3N hivatkozás függvényében 3N/8 cache hibát kapunk.</p>
+<p>Szummázva a cache hibákat megkapjuk, hogy 6N memóriahivatkozásnál 1/8 lesz a cache-hiba arány, ami 12.5%.</p>
+<p>Most pedig ciklusegyesítéssel a kód:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span>sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>N; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    b[i] <span style="color:#f92672">=</span> c <span style="color:#f92672">*</span> a[i] <span style="color:#f92672">+</span> x;
+</span></span><span style="display:flex;"><span>    sum <span style="color:#f92672">+=</span> b[i];
+</span></span><span style="display:flex;"><span>    d[i] <span style="color:#f92672">=</span> a[i] <span style="color:#f92672">+</span> b[i];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Egyértelműen látszik, hogy ez az algoritmus ugyanazzal a funkcionalitással rendelkezik mind az eredeti, csak kicsit jobb. A ciklus hasában az első 2 memóriahivatkozás még mindig minden 8. lépésnél cache hibát okoz. A második sorban az a[i] és b[i] soha nem okozhat cache hibát, mivel már biztosan a cache-ben vannak az első sor révén. A harmadik sorban pedig az előző érvelés alapján csak a d[i] fog cache hibát dobni 8 lépésenként.</p>
+<p>Tehát összesen 3N/8 (= 2N/8 + N/8) hibát kapunk így az arány 6N memóriahivatkozás mellett 1/16-od, ami 6.25%, azaz fele az előzőnek.</p>
+<p>Itt látszik, hogy milyen kis energia befektetéssel, kétszer gyorsabb futásidőt kaptunk. Az első ökölszabály tehát, hogy amit lehet egyetlen ciklusban, azt egyetlen ciklusban érdemes megvalósítani.</p>
+<h3 id="ciklusok-sorrendjének-optimalizálása">Ciklusok sorrendjének optimalizálása</h3>
+<p>Az alábbi példában egy 2 dimenziós tömb, 2 különböző bejárásán mutatom meg, miért fontos a ciklusok sorrende.</p>
+<p>Most először a jó példát mutatom</p>
+<p>Bejárás sor-folytonosan:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>N; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; j<span style="color:#f92672">&lt;</span>N; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        sum <span style="color:#f92672">+=</span> a[i][j];
+</span></span></code></pre></div><p>A cache hiba vizsgálása előtt tisztázni kell, hogy C nyelv a 2 dimenziós tömböket sor-folytonosan helyezi el a memóriában. Tehát ha van egy {{4, 2}, {0, 6}} 2 dimenziós tömb akkor az a memóriában</p>
+<p>&hellip; 4 | 2 | 0 | 6 &hellip;.. módon kap helyet</p>
+<p>Ekkor a bejárás soronként megy végig. Ez szerencsés hiszen a térbeli lokalitás miatt sorokat fog a számítógép is a cache-be rakni. Így a feljebb kikötött feltevések és 64 bájtos blokkméret, 8 bájtos elemméret mellett az algoritmus cache hiba-aránya 1/8-ad lesz, de prefetch algoritmussal még ezen is lehetne javítani.</p>
+<p>Most nézzük meg, hogyan <strong>NE</strong> csináljuk</p>
+<p>Bejárás oszlop-folytonosan:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; j<span style="color:#f92672">&lt;</span>N; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>N; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        sum <span style="color:#f92672">+=</span> a[i][j];
+</span></span></code></pre></div><p>Itt felcseréltem a két ciklus sorrendjét. Ilyenkor hiába próbálja az egy sorban lévő elemeket (pl. a a[i][j+1], a[i][j+2], a[i][j+3] &hellip;) betölteni a számítógép, mert ha N &gt; 8, akkor a[i][j] után következő a[i+1][j] nem lesz benne a cache-ben biztosan. Ha N*8 nagyobb mint a cache méret akkor még ennél is rosszabb a helyzet, mivel mire a külső ciklus lép egyet j-ből j+1-be addigra a[i][j+1] már nem lesz benne a cache-ben, hiába olvastuk be a[i][j]-nél. Tehát minden memóriahivatkozás cache hibát dob, azaz 100% az arány.</p>
+<h3 id="blokkos-ciklusszervezés">Blokkos ciklusszervezés</h3>
+<p>Van még egy további technika, az úgynevezett blokkos ciklusszervezés, amikor is blokkonként járunk be egy mátrixot. Ez például akkor tud nagy segítséget nyújtani, amikor egy mátrixot kell transzponálni:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>N; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; j<span style="color:#f92672">&lt;</span>N; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        b[j][i] <span style="color:#f92672">=</span> a[i][j];
+</span></span></code></pre></div><p>Ekkor a-t sor-folytonosan b-t oszlop-folytonosan járjuk be, ezért a fenti példák alapján, elég nagy N esetén, b-nél 100% os lesz a cache hiba-arány. Ezen tudunk segíteni az alábbi módon:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (bi<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; bi<span style="color:#f92672">&lt;=</span>N<span style="color:#f92672">-</span>BLK; bi<span style="color:#f92672">+=</span>BLK)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (bj<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; bj<span style="color:#f92672">&lt;=</span>N<span style="color:#f92672">-</span>BLK; bj<span style="color:#f92672">+=</span>BLK)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (i<span style="color:#f92672">=</span>bi; i<span style="color:#f92672">&lt;</span>bi<span style="color:#f92672">+</span>BLK; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (j<span style="color:#f92672">=</span>bj; j<span style="color:#f92672">&lt;</span>bj<span style="color:#f92672">+</span>BLK; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>                b[j][i] <span style="color:#f92672">=</span> a[i][j];
+</span></span></code></pre></div><p>Kicsit obfuszkáltnak tűnhet, de talán az ábra segít</p>
+<p><img alt="blokkos ciklus" src="/blokkosciklus.png"></p>
+<p>Itt csak arra kell figyelni, hogy megfelelő BLK-t, azaz blokkméretet válasszunk, mivel az egésznek az a lényege, hogy akkora blokkot válasszunk, hogy minél kevesebbszer legyen cache hiba szummázva.</p>
+<p>Kicsit edge-case-nek tűnhet ez az egész mátrix transzponálás, de a gyakorlatban rengeteg mátrix transzponálás és mátrix művelet történik, elég csak a grafikus kártyátokra nézni, ami pontosan erre van optimalizálva, a fenti technikáknál jóval bonyolúltabb módszerekkel is.</p>
+<h2 id="összegzés">Összegzés</h2>
+<p>Tehát megismerkedtünk a számítógépünk egy fontos elemével a tárhierarchiával, azon belül is szemügyre vettük jobban a cache-t, majd pedig ezt a tudást felhasználva gyakorlati problémákra tudtunk jobb teljesítményt eredményező megoldásokat találni. Kell ennél több? :D</p>
+]]></content>
         </item>
         
     </channel>

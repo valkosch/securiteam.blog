@@ -3,15 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/tags/c/</loc>
-    <lastmod>2024-06-28T13:20:06+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2024-06-28T13:20:06+02:00</lastmod>
+    <lastmod>2024-07-08T09:45:20+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="es"
-                href="http://localhost:1313/es/"
+                hreflang="hu"
+                href="http://localhost:1313/hu/tags/c/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/c/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/computer/</loc>
+    <lastmod>2024-07-08T09:45:20+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2024-07-08T09:45:20+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
@@ -19,33 +27,55 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/"
                 />
   </url><url>
-    <loc>http://localhost:1313/posts/2024/06/lokalit%C3%A1studatos-programoz%C3%A1s/</loc>
-    <lastmod>2024-06-28T13:20:06+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2024-06-28T13:20:06+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/programoz%C3%A1s/</loc>
-    <lastmod>2024-06-28T13:20:06+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/sz%C3%A1m%C3%ADt%C3%B3g%C3%A9p/</loc>
-    <lastmod>2024-06-28T13:20:06+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2024-06-28T13:20:06+02:00</lastmod>
+    <loc>http://localhost:1313/posts/2024/07/locality-aware-programming/</loc>
+    <lastmod>2024-07-08T09:45:20+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="es"
-                href="http://localhost:1313/es/tags/"
+                hreflang="hu"
+                href="http://localhost:1313/hu/posts/2024/06/lokalit%C3%A1studatos-programoz%C3%A1s/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/posts/2024/07/locality-aware-programming/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2024-07-08T09:45:20+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="http://localhost:1313/hu/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/posts/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/programming/</loc>
+    <lastmod>2024-07-08T09:45:20+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-07-08T09:45:20+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
                 href="http://localhost:1313/hu/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/"
                 />
     <xhtml:link
                 rel="alternate"

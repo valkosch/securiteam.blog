@@ -200,7 +200,7 @@ defaultContentLanguageInSubdir = true
         description = "Weboldal ami Kurcz Valentin tevékenységének van dedikálva, amin megtalálhatóak eddigi munkái, kisebb pet projectjeivalamint blog posztjai amikben főleg az informatika különböző szakterületeit érinti, mint például az IT Security"
         keywords = "IT biztonság, Kurcz Valentin, Portfólió, Blog, Mérnökinformatikus, Computer Science"
         images = [""]
-        homeSubtitle = "Én és minden ami Computer Science, IT Biztonság és filozófia :>"
+        homeSubtitle = "Én és minden ami Computer Science és Engineering, IT Biztonság :>"
         homeRecent = "Legutóbbi cikkek"
 
    [languages.hu.menus]
@@ -221,7 +221,7 @@ defaultContentLanguageInSubdir = true
         disabled = false
         langaugeName = 'English'
         subtitle  = "Blog and Portfolio page"
-        homeSubtitle = "Me and everything which is Computer Science, IT Security and philosophy :>"
+        homeSubtitle = "Me and everything which is Computer Science and Engineering, IT Security :>"
         homeRecent = "Recent posts"
         keywords = "IT Security, Valentin Kurcz, Portfolio, Blog"
         images = [""]
@@ -246,7 +246,7 @@ defaultContentLanguageInSubdir = true
         disabled = false
         langaugeName = 'Espanol'
         subtitle  = "Blog y Portfolio"
-        homeSubtitle = "Yo y todo lo que es Ciencias de la Computación, seguridad informatica y filosofia :>"
+        homeSubtitle = "Yo y todo lo que es Ingeníria y Ciencias de la Computación, seguridad informatica :>"
         homeRecent = "Publicaciones recientes"
         keywords = "Seguridad informática, Valentin Kurcz, Portfolio, Blog"
         images = [""]
