@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Computer on Kurcz Valentin</title>
+    <link>http://localhost:1313/tags/computer/</link>
+    <description>Recent content in Computer on Kurcz Valentin</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 08 Jul 2024 09:45:20 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/computer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Locality-Aware programming</title>
+      <link>http://localhost:1313/posts/2024/07/locality-aware-programming/</link>
+      <pubDate>Mon, 08 Jul 2024 09:45:20 +0200</pubDate>
+      <guid>http://localhost:1313/posts/2024/07/locality-aware-programming/</guid>
+      <description>It is crucial how we traverse a matrix, whether column-wise, row-wise, or randomly. This article explores how to leverage our knowledge about computers for the benefit of our programs.</description>
+    </item>
+  </channel>
+</rss>
