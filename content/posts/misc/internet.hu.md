@@ -56,6 +56,6 @@ Csak hogy konkrétumokat is említsek, a koncetrálóképesség drasztikusan cs�
 
 ## És a Csúf
 
-Az internet bármennyire is egy csodálatos és utópisztikus elképzelés volt, jelen pillanatban a tömegek kihasználásáról, szárazra fejéséről szól, ahol az emberek már nem gyártanak semmi valódi értéket, csupán fogyasztók. Minden azzal keződik, hogy reggel felkelsz az álmodból. Itt az ideje felkelni emberek, felkelni az álómból, a kényelemből és szembenézni a valósággal, ami lehet csúf vagy reménytelen, sárga és keserű, de legalább a miénk. Használd az internetet, de ne az internet használjon téged.
+Az internet bármennyire is egy csodálatos és utópisztikus elképzelés volt, jelen pillanatban a tömegek kihasználásáról, szárazra fejéséről szól, ahol az emberek már nem gyártanak semmi valódi értéket, csupán fogyasztók. Minden azzal keződik, hogy reggel felkelsz az álmodból. Itt az ideje felkelni, felkelni az álómból, a kényelemből és szembenézni a valósággal, ami lehet csúf vagy reménytelen, sárga és keserű, de legalább a miénk. Használd az internetet, de ne az internet használjon téged.
 
 Remélem sikerült jól összefoglalnom ezt a pár gondolatomat a témában, ha van bármi hozzászólásod ne tartsd magadban! Legyen szép napod!
