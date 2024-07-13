@@ -24,13 +24,13 @@
     <lastmod>2024-06-16T13:45:51+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/"
+                hreflang="hu"
+                href="http://localhost:1313/hu/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="hu"
-                href="http://localhost:1313/hu/"
+                hreflang="en"
+                href="http://localhost:1313/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -75,13 +75,13 @@
     <loc>http://localhost:1313/es/tags/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/tags/"
+                hreflang="hu"
+                href="http://localhost:1313/hu/tags/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="hu"
-                href="http://localhost:1313/hu/tags/"
+                hreflang="en"
+                href="http://localhost:1313/tags/"
                 />
     <xhtml:link
                 rel="alternate"

@@ -4,7 +4,7 @@ date= 2024-07-08T09:45:20+02:00
 draft= false
 toc = true
 summary = "It is crucial how we traverse a matrix, whether column-wise, row-wise, or randomly. This article explores how to leverage our knowledge about computers for the benefit of our programs."
-description = "Our program can significantly improve if we code with locality awareness. Programming with a locality-aware mindset means avoiding careless actions that hinder our computers work. You can read below about how to become a friend of your computer."
+description = "Our program can significantly improve if we code with locality awareness. Programming with a locality-aware mindset means avoiding careless coding that hinder our computers work. You can read below about how to become a friend of your computer."
 tags = ['programming', 'C', 'computer']
 +++
 
@@ -24,7 +24,7 @@ If we perform an operation on a data item in memory
 * ***Spatial Locality:***..., we are likely to use the items nearby as well. Example: traversing an array.
 * ***Algorithmic Locality:*** Programs often work with dynamic data structures like binary trees or linked lists which do not fit into spatial or temporal locality but still exhibit predictable behaviors that can be exploited.
 
-By placing frequently used data and their surroundings close to the processor, we can reduce the number of slow and expensive memory operations. We still store our data in a memory but in much a faster but smaller and higher power consumption memory known as cache memory. But what technology is used for cache?
+By placing frequently used data and their surroundings close to the processor, we can reduce the number of slow and expensive memory operations. We still store our data in a memory but in a much faster but smaller and higher consumption memory known as cache memory. But what technology is used for cache?
 
 We know several memory technologies, such as the high-density but slower and cheaper DRAM, and the low-density but faster and more expensive SRAM. To stor 1 bit, DRAM uses one transistor, while SRAM uses six, explaining the differences in power consumption, density, and cost. It is impossible to achieve cheap, fast, and large memory simultaneously, so compromises are inevitable. This leads to the concept of memory hierarchy, where the memory is structured in multiple levels, with the most frequently used memory being faster and smaller.
 
@@ -32,7 +32,6 @@ We know several memory technologies, such as the high-density but slower and che
 
 The slowest storage, the HDD or SSD, holds the least frequently used but large amounts of data. Frequently used data are stored in the random-access memory, usually DRAM, and the data used by the currently running program or process (e.g., a local variable) is stored in the cache, made of SRAM.
 
-> The workings of the cache are not detailed here, but if interested, it is worth looking into how data gets into the cache, as it must be ready in the cache when the program references memory. This is called prefetching, and it is simpler than it seems.
 > I will not go into the subtle details of how a cache works here, however if you are interested, it worths looking into how prefetching works, because that's how the computer loads data into the cache before it's used, after making an educated guess.
 
 To ensure efficient processor utilization, the programmer should aid the memory hierarchy:
@@ -40,7 +39,7 @@ To ensure efficient processor utilization, the programmer should aid the memory 
 * If the programmer references memory randomly in the cache, many cache misses occur, forcing the computer to resort to the slow main memory.
 * In DRAM-based system memory, accessing cells in the same row is fast, but random access to different rows incurs expensive and slow operations, due to the time cost of opening new rows.
 
-**The programmer's goal is to address memory in a way that conforms to the principles of locality. How?**
+**The programmer's goal is to address memory in a way that aligns with the principles of locality. How?**
 ## Locality-Friendly Loop Organization
 
 In practice, we often need to traverse one- or multidimensional arrays, requiring loops. I will show you examples of loop organization techniques that utilize our memory hierarchy knowledge to improve our program's runtime.
@@ -58,7 +57,7 @@ for( int i=0; i < N; i++)
     d[i] = a[i] + b[i];
 ```
 
-The above is a simple C code example. Now, let's calculate the cache miss ratio, which is how often we need to access slow memory because the data is not in the cache. Let's assume the following for simplicity:
+The above is a simple C code example. Now, let's calculate the cache miss ratio, which will tell how often do we need to access the slow memory because the data is not in the cache. Let's assume the following for simplicity:
 
 * N is arbitrarily large
 * The cache block size is 64 bytes

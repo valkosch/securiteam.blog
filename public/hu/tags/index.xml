@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>hu</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 28 Jun 2024 13:20:06 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jul 2024 17:47:21 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/hu/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Misc</title>
+      <link>http://localhost:1313/hu/tags/misc/</link>
+      <pubDate>Tue, 09 Jul 2024 17:47:21 +0200</pubDate>
+      <guid>http://localhost:1313/hu/tags/misc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Temitgondolsz?</title>
+      <link>http://localhost:1313/hu/tags/temitgondolsz/</link>
+      <pubDate>Tue, 09 Jul 2024 17:47:21 +0200</pubDate>
+      <guid>http://localhost:1313/hu/tags/temitgondolsz/</guid>
+      <description></description>
+    </item>
     <item>
       <title>C</title>
       <link>http://localhost:1313/hu/tags/c/</link>
