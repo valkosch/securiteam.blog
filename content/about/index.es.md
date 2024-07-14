@@ -4,7 +4,7 @@ date = 2024-06-16T13:45:51+02:00
 draft = true
 +++
 
-Soy Valentin Kurcz, un húgaro estudiante de ingerniero informático de 19 anos en la Universida Tecnológica de Budapest (BME), y me alegro de conocerte. Me gusta reparar y retocar cosas viejas, crear cosas nuevas, el senderismo, hornear pizza, tambien me encantan las películas del westend. Ah, y mi cepillo de dientes es morado. Tú puedes encontrar mis proyectos y trabajos en este sitio web, pero tambien mis pensamientos sobre muchos temas, a los que siempre puedes dejar un comentario o dos, sí quieres expresar tu opinión. En está sección puedes leer sobre mi educación y mi motivación.
+Soy Valentin Kurcz, un húgaro a base de carbono estudiante de ingerniero informático de 19 anos en la Universida Tecnológica de Budapest (BME), y me alegro de conocerte. Me gusta reparar y retocar cosas viejas, crear cosas nuevas, el senderismo, hornear pizza, tambien me encantan las películas del westend. Ah, y mi cepillo de dientes es morado. Tú puedes encontrar mis proyectos y trabajos en este sitio web, pero tambien mis pensamientos sobre muchos temas, a los que siempre puedes dejar un comentario o dos, sí quieres expresar tu opinión. En está sección puedes leer sobre mi educación y mi motivación.
 
 # Educación 
 

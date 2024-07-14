@@ -4,7 +4,7 @@ date = 2024-06-16T13:45:51+02:00
 draft = true
 +++
 
-I'm Valentin Kurcz, a 19 years old , hungarian, computer engineer student at the Budapest University of Technology and Economics (BME), and I'm glad to meet you. I love repairing and tinkering old stuff, creating new things, hiking, baking pizza, also I love westend movies, and sliced bread. Oh and my toothbrush is purple. You can find my projects and works on this website, but also my takes and thoughts on many topics, to which you can always leave a comment or two, if you want to express your opinion. In this section you can read about my education, my skills and my motivation.
+I'm Valentin Kurcz, a 19 years old , hungarian, carbon-based computer engineer student at the Budapest University of Technology and Economics (BME), and I'm glad to meet you. I love repairing and tinkering old stuff, creating new things, hiking, baking pizza, also I love westend movies, and sliced bread. Oh and my toothbrush is purple. You can find my projects and works on this website, but also my takes and thoughts on many topics, to which you can always leave a comment or two, if you want to express your opinion. In this section you can read about my education, my skills and my motivation.
 
 # Education 
 

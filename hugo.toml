@@ -206,10 +206,10 @@ defaultContentLanguageInSubdir = true
    [languages.hu.menus]
      [[languages.hu.menus.main]]
         name = '~/cikkek'
-        pageRef = '/posts'
+        pageRef = '/hu/posts'
      [[languages.hu.menus.main]]
         name = '~/rólam'
-        pageRef = '/about'
+        pageRef = '/hu/about'
      [[languages.hu.menus.main]]
         name = '~/projektek'
         pageRef = 'https://github.com/valkosch?tab=repositories'
