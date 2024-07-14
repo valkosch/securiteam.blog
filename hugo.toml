@@ -212,7 +212,7 @@ defaultContentLanguageInSubdir = true
         pageRef = '/hu/about'
      [[languages.hu.menus.main]]
         name = '~/projektek'
-        pageRef = 'https://github.com/valkosch?tab=repositories'
+        pageRef = '/hu/projects'
 
   [languages.en]
     [languages.en.params]
@@ -230,7 +230,7 @@ defaultContentLanguageInSubdir = true
    [languages.en.menus]
         [[languages.en.menus.main]]
         name = '~/projects'
-        pageRef = 'https://github.com/valkosch?tab=repositories'
+        pageRef = '/projects'
         [[languages.en.menus.main]]
         name = '~/posts'
         pageRef = '/posts'
@@ -255,12 +255,12 @@ defaultContentLanguageInSubdir = true
    [languages.es.menus]
      [[languages.es.menus.main]]
         name = '~/publicaciones'
-        pageRef = '/posts'
+        pageRef = '/es/posts'
      [[languages.es.menus.main]]
         name = '~/acercademí'
-        pageRef = '/about'
+        pageRef = '/es/about'
      [[languages.es.menus.main]]
         name = '~/proyectos'
-        pageRef = 'https://github.com/valkosch?tab=repositories'
+        pageRef = '/es/projects'
 
 

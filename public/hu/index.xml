@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>hu</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 09 Jul 2024 17:47:21 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jul 2024 20:48:48 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/hu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Projektjeim</title>
+      <link>http://localhost:1313/hu/projects/</link>
+      <pubDate>Sat, 13 Jul 2024 20:48:48 +0200</pubDate>
+      <guid>http://localhost:1313/hu/projects/</guid>
+      <description>Itt találod az összes megemlítésre érdemes munkámat, pet projektemet, amiket az évek során csináltam. Ezeket vagy autodidakta módon, vagy a tanulmányaim keretei között csináltam szabadidőmben.&#xA;Fraktálfa és egyéb kis programozás feladatok cirka 2022 Szárny próbálgatás jelleggel programoztam, főképp hogy ismerkedjek a nyelvekkel és hogy kiéljem kreatív vágyaimat. Ennek az időszaknak egyik szüleménye ez a fraktálfa generátor, ami nagyon nem volt hatékony, de legalább korán megismerkedtem a forgatási mátrix hasznával :)).</description>
+    </item>
     <item>
       <title>Az Információs forradalom és az internet következményei</title>
       <link>http://localhost:1313/hu/posts/2024/07/az-inform%C3%A1ci%C3%B3s-forradalom-%C3%A9s-az-internet-k%C3%B6vetkezm%C3%A9nyei/</link>
