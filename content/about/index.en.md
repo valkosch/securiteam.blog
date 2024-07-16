@@ -16,7 +16,7 @@ I'm Valentin Kurcz, a 19 years old , hungarian, carbon-based computer engineer s
 **My achievements here right now**
 
 * Academic distinction and excellence, scholarschip
-* Many projects which you can find at the [~/projects](https://github.com/valkosch?tab=repositories) site
+* Many projects which you can find at the [~/projects](/projects) site
 
 **2019 - 2023 Leövey Klára Gymnasium**
 > I still reminisce with pleasure about my years here, because besides all the fun and good memories I made here, it had prominent positive influence on my personality, and on my ambitions. I studied in the IT course, but after all, I majored in Mathematics. However my interest towards IT began to gain its ground at this time. Many thanks for the hard work of my teachers, because even in the adversity of the hungarian education system, they helped me in my personal development. My achievements are just as theirs as mine.

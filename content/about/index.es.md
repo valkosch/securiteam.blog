@@ -16,7 +16,7 @@ Soy Valentin Kurcz, un húgaro a base de carbono estudiante de ingerniero inform
 **Mis logros aquí en este momento**
 
 * Distinciób y excelencia académica, beca
-* Muchos proyectos, los que puedes encontrar en el [~/proyectos](https://github.com/valkosch?tab=repositories) sitio
+* Muchos proyectos, los que puedes encontrar en el [~/proyectos](/es/projects) sitio
 
 **2019 - 2023 Leövey Klára Gimnasio**
 > Todavía recuerdo con placer mis anos aquí, porque además de toda la diversión y los buenos recuerdos que hice aquí, tuvo una influencia positiva prominente en mi personalidad, y en mi ambiciones. Estudié en el curso de informática, pero después de todo me especialicé en matemáticas. Sin embrago, mi interés por la informática comenzó a ganar terreno en esta época. Muchas gracias por el arduo trabajo de mis maestros, porque incluso en la adversidad del sistema educativo húngaro, me ayudaron en mi desarrollo personal. Mis logros son tan suyos como los míos.

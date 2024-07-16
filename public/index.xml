@@ -10,11 +10,18 @@
     <lastBuildDate>Sat, 13 Jul 2024 20:48:10 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Projects</title>
+      <title>::Myprojects::</title>
       <link>http://localhost:1313/projects/</link>
       <pubDate>Sat, 13 Jul 2024 20:48:10 +0200</pubDate>
       <guid>http://localhost:1313/projects/</guid>
-      <description></description>
+      <description>Here you can find all my noteworthy works and pet projects that I have done over the years. These were either done self-taught or within my studies in my free time.&#xA;Fractal tree and other small programming tasks circa 2022 I started programming to get familiar with different languages and to fulfill my creative desires. One result of this period is this fractal tree generator, which was very inefficient, but at least I learned about the usefulness of rotation matrices early on :)).</description>
+    </item>
+    <item>
+      <title>The consequences of the Information Revolution and the Internet</title>
+      <link>http://localhost:1313/posts/2024/07/the-consequences-of-the-information-revolution-and-the-internet/</link>
+      <pubDate>Tue, 09 Jul 2024 17:47:21 +0200</pubDate>
+      <guid>http://localhost:1313/posts/2024/07/the-consequences-of-the-information-revolution-and-the-internet/</guid>
+      <description>The internet is one of the sharpest double-edged swords in our world. Its positive impact on commerce and, consequently, the economy is unquestionable. However, it remains a question of what price society and people have paid for this.</description>
     </item>
     <item>
       <title>Locality-Aware programming</title>

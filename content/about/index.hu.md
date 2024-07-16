@@ -15,8 +15,8 @@ Kurcz Valentin vagyok, 19 éves, magyar, szénalapú mérnökinformatikus hallga
 
 **Itt eddigi eredményeim**
 
-* Tanulmányi kiemelt 1. és 2. félévben is (5-ös átlag), ösztöndíjas
-* És sok más projektem amit a [~/projektek](https://github.com/valkosch?tab=repositories) fülön találhatsz
+* Tanulmányi kiemelt 1. és 2. félévben is, ösztöndíjas
+* És sok más projektem amit a [~/projektek](/hu/projects) fülön találhatsz
 
 **2019 - 2023 Leövey Klára Gimnázium**
  > Még mindig boldogan gondolok vissza az itt eltöltött éveimre, mivel a sok boldog emlék és történet mellett meghatározó szerepet játszott a személyiségem, és az ambicióm kialakulásában. Informatika tagozatra jártam, ami egy gimnáziumi környezetben annyit jelent, hogy az emelt színtű informatika érettségire készítenek fel. Végül csak matematikából volt szükséges emelten érettségiznem, de az informatika és a számítástechnika iránti érdeklődésem már itt elkezdte térnyerését bennem. Tanáraimnak ezúton is köszönöm munkájukat, és hogy a magyar közoktás viszonytagsága mellett is segítettek a fejlődésemben. A sikereim legalább annyira az ő érdemük mint az enyém.
