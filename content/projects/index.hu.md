@@ -207,6 +207,7 @@ Ha esetleg érdekel a dokumentáció, azt [itt](https://github.com/valkosch/ciph
 Második félév közben elvállaltam egy weboldal készítését, amelyhez próbáltam a legújabb technológiákat használni, hogy minél minőségibb végeredmény szülessen. Ezért használtam a Next.js framework-ot az app router-rel. Az oldal célja az a reklámozás, kapcsolattartás és bemutatás volt. Mivel én csináltam mindent, ezért nem csak frontend, hanem backend szinten is tudtam fejlődni a munka során. Az oldalnak kellett egy Node.js futásikörnyezet a szerveren, ezentúl tűzfalat beállítani, Nginx proxyt konfigurálni, illetve a weboldal űrlapos részének egy API-t írni. Összeségében szerintem sokat tudtam tanulni a készítése során, miközben a megrendelőm elvárásainak is megfeleltem és még egyetemről sem buktam ki :).
 
 A kliensem visszajelzése referencia gyanánt:
+> "Cégünk, a Liftech Group Kft weboldal készítéséhez keresett segítséget, és így találtunk rá Kurcz Valentinra, akinek a személyében egy fantasztikus fiatalembert ismertünk meg több hónapos együttműködésünk során. Első pillanattól teljes odaadással állt neki a munkának. Áttanulmányozta a cég felépítését, működését, utána maximális szakmai tudással illetve alapossággal, kreativitással készítette el az elvállalt munkát. Mindig elérhető volt, minden felmerülő kérésünket nagyon gyorsan teljesítette. A végeredménnyel maximálisan meg vagyunk elégedve, és reményeink szerint a jövőben is szeretnénk fenntartani a szakmai együttműködést Valentinnal." - Lábas Attila
 
 Az oldal: [liftech.hu](https://www.liftech.hu)
 

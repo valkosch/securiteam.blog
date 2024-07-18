@@ -183,6 +183,7 @@ If you are interested in the documentation, you can find it [here](https://githu
 During the second semester, I took on the task of creating a website, for which I tried to use the latest technologies to achieve the highest quality result. Therefore, I used the Next.js framework with the app router. The purpose of the site was advertising, contact, and presentation. Since I did everything, I was able to improve both frontend and backend skills during the work. The site required a Node.js runtime environment on the server, setting up a firewall, configuring an Nginx proxy, and writing an API for the form part of the website. Overall, I think I learned a lot during its creation, while meeting my client's expectations and not failing university :).
 
 My client's feedback as a reference:
+>"Our company, Liftech Group Ltd, sought assistance for creating our website, and this is how we found Valentin Kurcz. Throughout our several months of collaboration, we got to know a fantastic young man in him. From the very first moment, he approached the work with complete dedication. He studied the structure and operation of the company, then carried out the task he undertook with maximum professional knowledge, thoroughness, and creativity. He was always available and fulfilled all our requests very quickly. We are completely satisfied with the end result, and we hope to maintain our professional cooperation with Valentin in the future." - Attila Lábas
 
 The site: [liftech.hu](https://www.liftech.hu)
 
