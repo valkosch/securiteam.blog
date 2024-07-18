@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 13 Jul 2024 20:48:10 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2024 17:53:55 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Program visszafejtés - No. 1</title>
+      <link>http://localhost:1313/posts/2024/07/program-visszafejt%C3%A9s-no.-1/</link>
+      <pubDate>Wed, 17 Jul 2024 17:53:55 +0200</pubDate>
+      <guid>http://localhost:1313/posts/2024/07/program-visszafejt%C3%A9s-no.-1/</guid>
+      <description>Bevezető a reverse engineering világába, ahol kezdő szintű program visszafejtős feladatokat oldok meg, bemutatom a technikákat és az alapokat. Csak annyit tudok mondani hogy: &amp;ldquo;Ki itt belépsz, hagyj fel minden reménnyel.&amp;rdquo;</description>
+    </item>
     <item>
       <title>::Myprojects::</title>
       <link>http://localhost:1313/projects/</link>

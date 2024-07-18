@@ -7,8 +7,29 @@
     <generator>Hugo</generator>
     <language>hu</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 09 Jul 2024 17:47:21 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2024 17:53:55 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/hu/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Crackme</title>
+      <link>http://localhost:1313/hu/tags/crackme/</link>
+      <pubDate>Wed, 17 Jul 2024 17:53:55 +0200</pubDate>
+      <guid>http://localhost:1313/hu/tags/crackme/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming</title>
+      <link>http://localhost:1313/hu/tags/programming/</link>
+      <pubDate>Wed, 17 Jul 2024 17:53:55 +0200</pubDate>
+      <guid>http://localhost:1313/hu/tags/programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reverse</title>
+      <link>http://localhost:1313/hu/tags/reverse/</link>
+      <pubDate>Wed, 17 Jul 2024 17:53:55 +0200</pubDate>
+      <guid>http://localhost:1313/hu/tags/reverse/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Misc</title>
       <link>http://localhost:1313/hu/tags/misc/</link>

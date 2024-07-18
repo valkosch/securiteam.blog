@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Kurcz Valentin ">
+<meta name="description" content="Mai világban egyre több dolgot kapunk meg kézhez anélkül, hogy tudnánk mi történik valójában a motorháztető alatt. Ez kényelmes és egyszerű, de ekkor teljesen meg kell bíznunk a készítő szaktudásában és szándékában, hiszen nincs módunkban ellenőrizni a helyességet. A reverse engineering tud ezen segíteni." />
+<meta name="keywords" content="IT Security, Valentin Kurcz, Portfolio, Blog, reverse, crackme, programming" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="http://localhost:1313/posts/2024/07/program-visszafejt%C3%A9s-no.-1/" />
+
+
+    <title>
+        
+            Program visszafejtés - No. 1 :: Kurcz Valentin  — Blog and Portfolio page
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.5f49f7af8fad3d518db0a237e0fde26ceaa50a60278a3dba7a1e9d150b72125a.css" integrity="sha256-X0n3r4&#43;tPVGNsKI34P3ibOqlCmAnij26eh6dFQtyElo=">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Program visszafejtés - No. 1">
+  <meta itemprop="description" content="Mai világban egyre több dolgot kapunk meg kézhez anélkül, hogy tudnánk mi történik valójában a motorháztető alatt. Ez kényelmes és egyszerű, de ekkor teljesen meg kell bíznunk a készítő szaktudásában és szándékában, hiszen nincs módunkban ellenőrizni a helyességet. A reverse engineering tud ezen segíteni.">
+  <meta itemprop="datePublished" content="2024-07-17T17:53:55+02:00">
+  <meta itemprop="dateModified" content="2024-07-17T17:53:55+02:00">
+  <meta itemprop="wordCount" content="1491">
+  <meta itemprop="image" content="http://localhost:1313/">
+  <meta itemprop="keywords" content="Reverse,Crackme,Programming">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/">
+  <meta name="twitter:title" content="Program visszafejtés - No. 1">
+  <meta name="twitter:description" content="Mai világban egyre több dolgot kapunk meg kézhez anélkül, hogy tudnánk mi történik valójában a motorháztető alatt. Ez kényelmes és egyszerű, de ekkor teljesen meg kell bíznunk a készítő szaktudásában és szándékában, hiszen nincs módunkban ellenőrizni a helyességet. A reverse engineering tud ezen segíteni.">
+
+
+
+    <meta property="og:url" content="http://localhost:1313/posts/2024/07/program-visszafejt%C3%A9s-no.-1/">
+  <meta property="og:site_name" content="Kurcz Valentin">
+  <meta property="og:title" content="Program visszafejtés - No. 1">
+  <meta property="og:description" content="Mai világban egyre több dolgot kapunk meg kézhez anélkül, hogy tudnánk mi történik valójában a motorháztető alatt. Ez kényelmes és egyszerű, de ekkor teljesen meg kell bíznunk a készítő szaktudásában és szándékában, hiszen nincs módunkban ellenőrizni a helyességet. A reverse engineering tud ezen segíteni.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-07-17T17:53:55+02:00">
+    <meta property="article:modified_time" content="2024-07-17T17:53:55+02:00">
+    <meta property="article:tag" content="Reverse">
+    <meta property="article:tag" content="Crackme">
+    <meta property="article:tag" content="Programming">
+    <meta property="og:image" content="http://localhost:1313/">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2024-07-17 17:53:55 &#43;0200 CEST" />
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                 you@kurczvalentin $</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#ff0000;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/about">~/aboutme</a></li><li><a href="/posts">~/posts</a></li><li><a href="/projects">~/projects</a></li>
+        <div class="submenu">
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn"><span class="flag fi fi-gb"></span>
+</a>
+                <div class="dropdown-content">
+                    
+                        
+                            <a title="hu" href="http://localhost:1313/hu/posts/2024/07/program-visszafejt%C3%A9s-no.-1/"><span class="flag fi fi-hu"></span>
+</a>
+                        
+                    
+                </div>
+            </li>
+        </div>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        7 minutes
+
+         | Also available in
+          
+              <a href="http://localhost:1313/hu/posts/2024/07/program-visszafejt%C3%A9s-no.-1/"><span class="flag fi fi-hu"></span></a>
+          
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="http://localhost:1313/posts/2024/07/program-visszafejt%C3%A9s-no.-1/">Program visszafejtés - No. 1</a>
+      </h1>
+
+      
+        <div class="post-excerpt">Mai világban egyre több dolgot kapunk meg kézhez anélkül, hogy tudnánk mi történik valójában a motorháztető alatt. Ez kényelmes és egyszerű, de ekkor teljesen meg kell bíznunk a készítő szaktudásában és szándékában, hiszen nincs módunkban ellenőrizni a helyességet. A reverse engineering tud ezen segíteni.</div>
+      
+
+      
+
+      
+
+      <div class="post-content">
+        <h2 id="bevezető">Bevezető</h2>
+<p>Az informatikában sok helyen hasznos lehet ha az ember beláthat a színfalak mögé. Ilyen például amikor egy kártékony programmal megtámadnak egy céget, és a hatékony védekezés érdekében, a blue team oldalán, meg akarjuk tudni az ellenség módszereit, taktikáit és procedúráit. Ekkor az említett programot elemeire kell bontani, szét kell cincálni. Ugyanakkor előfordul, hogy a másik oldalon, a red team-ben vagyunk, amikor is teljesen nemes szándékkal vezérelve, és engedéllyel a birtokunkban, megpróbálunk hibát keresni egy programban, hogy aztán azt kihasználva, érvényesítsük céljainkat.</p>
+<p>Nem lehet jobban hangsúlyozni a program visszafejtéssel elsajátítható készségek fontosságát az informatikában. A kiberbiztonság kétségkívül egy olyan ág, ahol ez különösen igaz. Nem véletlen, hogy a 3 betűs amerikai ügynökségek bizzilión mennyiségű dollárt fektetnek be ebbe az ágazatba.</p>
+<p>Ebben a kis cikk sorozatban vissza fogok fejteni egy pár &ldquo;crackme&rdquo;-t a lehető legegyszerűbb eszközöket használva. A programok a <a href="https://crackmes.one">crackmes.one</a> oldalról vannak, ahova edukációs célokkal tudnak az emberek programokat feltölteni, amiket mások meg gyakorlásként fel tudnak törni.</p>
+<p><img alt="crackmes" src="/crackmes.png"></p>
+<h2 id="kis-alapozás">Kis alapozás</h2>
+<p>Egyáltalán miért is olyan fene nehéz visszafejteni a programokat? A világon több gazdasági modell is létezik a program fejlesztésre, de általában azt szoktuk mondani, hogy egy program vagy zárt vagy nyílt forráskódú.</p>
+<p>A zárt programokat általában cégek finanszírozzák és fejlesztik, majd a végeredményt értékesítik. Ekkor a forráskódot nem teszik közzé, hiszen az egyenlő lenne azzal, hogy ingyenessé teszik a programjukat.</p>
+<p>Ezzel ellentétben a nyílt forráskódú programok, mint például a linux kernel, a közösség álltal vannak fentartva, ingyenesek, bárki hozzájárulhat és fejlesztheti őket.</p>
+<p>Most nem megyek bele ebbe a vitába, mindkét oldalnak megvannak a saját érvei, de annyit elmondanék, hogy biztonsági szempontból nézve a nyílt forráskódú projektek szerintem jobb helyzetben vannak mint a part túloldala. Az ok erre egyszerű, a zárt programok kódját visszafejtés nélkül nem lehet ellenőrizni. Az egész rendszer a &ldquo;trust me bro&rdquo; elven működik, mivel a felhasználónak semmi hatalma nincsen arra, hogy megnézze valójában mit is csinál a progam. Ez abból a szempontból is kicsit gáz, hogy így nem csak abban kell bízni, hogy a fejlesztők szakmailag tökéletes munkát végeznek, hanem abban is, hogy a program tényleg semmi mást nem csinál az állítottakon kívül, hiszen ha úgyse tudja ellenőrizni ezt senki, és ráadásul még így lehet több profitot termelni, akkor miért is ne csinálnák? Láttuk már, hogy ekkor mi történik (khm Facebook per).</p>
+<p>Tehét most olyan C/C++ nyelvben írt programokkal fogunk foglalkozni, amiknek a forráskódja nem adott, csak is egy futtatható állomány az egész. Ez az executable gépi kódból áll, hiszen az emberi nyelven írt kódot a fordító lefordítja a számítógép nyelvére, és ha explicit módon nem adtuk meg a fordítónak paraméterként, hogy hagyja benne a szimbólumokat, akkor egyáltalán nem lesz kölcsönösen egyértelmű ez a leképezés, kód szempontjából. Egy szó mint száz, nem fogjuk tudni a forráskódot olvasni. Azt megemlítem viszont hogy vannnak olyan csúcsszuper &ldquo;decompiler&rdquo;-ek, mint a <a href="https://github.com/NationalSecurityAgency/ghidra">Ghidra</a>, amik így is nagyjából ki tudják találni, hogy mire gondolt a költő, amikor a programot írta, de ezekre most szerintem nem lesz szükségünk.</p>
+<p>Most relatíve egyszerű és kezdőknek szánt feladatokat fogok megoldani, de hogy teljesen megértsd a megoldásokat, ahhoz C/C++ illetve Intel x86-64 assembly tudás az elengedhetetlen.</p>
+<p>Az alábbiakat CLI programokat fogom használni:</p>
+<ul>
+<li><strong>objdump</strong> - az assembly kódját tudjuk ezzel olvasni a programnak</li>
+<li><strong>ltrace</strong> és <strong>strace</strong> - a program futása közben leköveti milyen dinamikus könyvtár hívások történnek (pl printf vagy strcmp)</li>
+<li><strong>gdb</strong> - egy svájci bicska ami minden programozónak a legjobb barátja, debugger szoftver de visszafejtésnél is szuperál</li>
+<li><strong>strings</strong> - kis egyszerű eszköz, ami kiírja az összes kiírható karaktert amit megtalált az állományban</li>
+</ul>
+<p>Fontos óvintézkedés mielőtt még bele lendülünk, hogy érdemes egy virtuális gépen csinalni ezeket a crackme-ket, mivel annak ellenére, hogy az exe-ket ellenőrzik feltöltés után, mégiscsak egy ismeretlen programot készülünk futtatni. A virtuális környezet pedig elszeparálja ezt a programot a valódi rendszerünktől, így biztonságosabbá téve ezt az egészet. Arra viszont figyeljünk, hogy még ez sem teljesen atombiztos, mivel ha van például megosztott mappa a virtuális gépünkben akkor máris van híd a kettő rendszer között. Illetve ismertek már olyan vírusok is, amik képesek kilépni a virtuális gépből, bizonyos körülmények között. Mindenesetre ezek közül valószínüleg egyse fenyeget minket, de ez az elővigyázatosság illetve ez az &ldquo;adversary mindset&rdquo; tehát, hogy a legrosszabbra készülünk, hasznos rutin amikor az ember kiberbiztonságban érdekelt.</p>
+<h2 id="visszafejtés">Visszafejtés</h2>
+<p>Virtuális gépnek a <a href="https://www.virtualbox.org/">VirtualBox</a>-ot használom, amin van egy csupasz Arch Linux a felsorolt eszközökkel.</p>
+<h3 id="az-első">Az első:</h3>
+<h4 id="d4rkfl0ws-easy_firstcrackme-by-d4rk_fl0whttpscrackmesonecrackme5c8e1a9533c5d4776a837ecf"><a href="https://crackmes.one/crackme/5c8e1a9533c5d4776a837ecf">D4RKFL0W&rsquo;s Easy_firstCrackme-by-D4RK_FL0W</a></h4>
+<p>Letöltötjük és futtatjuk, csak hogy lássuk mivel van dolgunk.</p>
+<p><img alt="fut" src="/crackmes2.png"></p>
+<p>Mint ahogy látszik egy jelszót kell valahogy kitalálnunk vagy éppenséggel kikerülnünk, és a jelszó az nem az almafa :((.</p>
+<p>Próbáljuk rajta ki az eszközeinket:</p>
+<p>Először nézzük az ltrace-t. Nagyon sokra nem mentünk vele, semmi érdekes nem látszik benne, csak a kiíratás folyamata. Ha például a beolvasott jelszót úgy ellenőrizte volna a program, hogy strcmp()-t használ, akkor azt itt láttuk volna.</p>
+<p><img alt="ltrace" src="/crackmes3.png"></p>
+<p>Az objdump már annál hasznosabbnak bizonyult. Megkeressük a main blokkot, mivel valószínüleg ott történik a jelszó helyességének a vizsgálata. Itt már látszik egy kis minta, amit ki is emeltem a képen. A beolvasott jelszót karakterenkét ellenőrzi a program cmp operátorral. A &ldquo;je&rdquo; utasítás az a &ldquo;jump if equal&rdquo;-nak felel meg. Tehát ha a karakter egyenlő cmp-ben a hexadecimálissal, akkor átugorja a programazt a függvényhívást ami valami &ldquo;failed&rdquo; metódust hív meg. Az összehasonlításban használt hexadecimális értékeket ASCII karakterre fordítva és konkatenálva megkapjuk a kívánt jelszót: H1DD3N. Yey!</p>
+<p><img alt="objdump" src="/reverse_help.png"></p>
+<p>Megjegyezném, hogy karakterenként soha sehol sem érdemes jelszót ellenőrizni, vagy ha muszáj akkor figyeljünk oda arra, hogy konstans idő legyen az ellenőrzés, máskülönben támadható lesz a program side-channel támadással. Például ha van egy 4 jegyű beléptető PIN terminál ami egyből visszatér &ldquo;Rossz jelszó!&quot;-val miután beírtuk az első számjegyet, akkor brute force-nál 10.000 próbálkozás helyett elég lesz csak 40 próbálkozás.</p>
+<h3 id="a-második">A második:</h3>
+<h4 id="d4rkfl0ws-crackme2-be-d4rk_fl0whttpscrackmesonecrackme5c95646333c5d46ecd37c960"><a href="https://crackmes.one/crackme/5c95646333c5d46ecd37c960">D4RKFL0W&rsquo;s crackme2-be-D4RK_FL0W</a></h4>
+<p>Ez lesz sem sokkal nehezebb első látszatra, itt is jelszót kell megfejtenünk.</p>
+<p>A strings, ltrace, strace itt sem hasznos sokra. Az objdump-ot nézve sem találtam nagyon semmi triviális megoldásra vezetőt, de azt láttam hogy van a programban egy olyan blokk hogy _Z14check_passwordPc ami talán érdekes lehet a számunkra. Visszont passzív módon nem lehetet csak úgy az assembly kódból kiolvasni a jelszót mint előbb, valószínüleg a kolléga szándékosan úgy csinálta, hogy a program valamelyik eldugott részébe strcat()-tel futás időben állítja elő a jelszót karakterről karakterre.</p>
+<p>Tehát futás közben kell végig lépkedünk azon, hogy mi is történik valójában. Erre fogom használni a <strong>gdb</strong>-t. A gdb önmagában kicsit csupasz ezért ajánlom neked is, hogy kicsit tuningold fel a <a href="https://github.com/hugsy/gef">GEF</a>-fel, hogy egyszerűbb legyen a szomszéd néni wifijének a feltörése (viccelek).</p>
+<p>Tehát amit csinláltam:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>gbd -q crackme2-be-D4RK_FL0W
+</span></span></code></pre></div><p>Elindítjuk a gdb-t.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>set disassembly-flavor Intel
+</span></span><span style="display:flex;"><span>break *_Z14check_passwordPc
+</span></span><span style="display:flex;"><span>run 
+</span></span></code></pre></div><p>Már nem emlékszem, hogy mi a default disassembly-flavor de én jobban preferálom az Intel féle syntaxot ezért állítottam be arra. Majd breakpoint-ot raktam a már említett függvényhez, hogy a programfutása ott megálljon, és megtudjuk vizsgálni közelebről is. A run-nal pedig elindítjuk a programot.</p>
+<p><img alt="gdb1" src="/crackmes4.png"></p>
+<p>Ez a felület fogad minket. Gyors hogy miket láthatunk:</p>
+<ul>
+<li>felül ott van mind a 16 db 64 bites regiszter amikkel a számítógép dolgozik (igazából sokkal több regiszterrel dolgozik a számítógép, hogy minél több párhuzamosítást tudjon végrehajtani, csak az architektúra utasításkészlete 16 regiszterre lett kitalálva, és ettől eltérni nem lehet, mivel akkor nem lenne visszafelé kompatibilis és így a régi programok nem müködnének, ezért a processzor belül ezt a 16 regisztert képzi le az összes szabad szerintem több ezer regiszterére).</li>
+<li>alatta ott van a jól ismert stack</li>
+<li>utána az assembly utasítások, zölddel jelölve az épp következő utasítást</li>
+</ul>
+<p>a többi annyira most nem érdekes számunkra</p>
+<p>Itt már kiszúrja a szemünket valami, egész pontosan az r8 regiszterben ez a &ldquo;isAAthisFunBBCCD&rdquo;. Potenciálisan megvan már a győztesünk, de azért kutakodjunk tovább. Amikor ilyennel foglalkozik az ember akkor általában teljesül az, hogy ha valami túl jó hogy igaz legyen akkor valószínüleg tényleg nem igaz. Ezt csak azért mondom mert ezekben a feladatokban többszőr előfordul, hogy szándékosan tesznek bele &ldquo;honeypot&rdquo;-ot, aminek kb a magyar megfelelője a mézesmadzag. Ezeket szándékosan könnyen megszerezhetővé teszik, hogy az emberek bedőljenek neki. Ennek van valós gyakorlati haszna is, rengeteg rendszerbe helyeznek el ilyen honeypot-okat, csalikat, hogy a támadó fél erőforrását, idejét vesztegesse rajta fölöslegesen. Olyakor még úgy is tud viselkedni, mint egy viharjelző, tehát ha valaki elkezdi támadni a honeypot-ot, akkor értesítést küld a védekezőknek, így időt nyerve nekik a védelemben való felkészülésnél.</p>
+<p>Vissza feladathoz, lépkedjünk a programban, ezt a <strong>stepi</strong> és <strong>nexti</strong> utasításokkal lehet a gdb-ben megcsinálni. Amikor a saját programodat debuggolod, akkor ugyanazek müködnek csak az i nélkül. Gondolom az i az &ldquo;instruction&rdquo;-nek felel meg, mivel itt assembly utasításokról van szó.</p>
+<p>Ekkor real-time látszik a program futása és a regisztereken a változás.</p>
+<p><img alt="gdb2" src="/crackmes5.png"></p>
+<p>Itt látszik már, hogy tényleg a feltételezett megoldásunk lesz a jó, mivel a program&hellip;.</p>
+<ol>
+<li>az <strong>rax</strong> regiszterbe a 0x69(&ldquo;i&rdquo;) értéket rakta</li>
+<li>az <strong>rdx</strong> regiszterbe a 0x74(&ldquo;t&rdquo;) értéket rakta</li>
+<li>majd ezeknek az alsó 8 bitjét hasonlította össze <strong>cmp dl, al</strong> utasítással</li>
+</ol>
+<p>Tehát itt is karakterenkét hasonlítja össze a program az általunk adott jelszót, ami most a &ldquo;test&rdquo; volt, a programban előállított &ldquo;isAAthisFunBBCCD&rdquo; -vel. Ez a megoldás.</p>
+<p>Ennyi volt ez a kis bevezető, ha ijesztő az assembly számodra, nem vagy egyedül, de csak bíztatni tudlak, mivel megérteni talán még annyira nem nehéz és mellette kifizetődő, főleg ha érdekel a program visszafejtés.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="http://localhost:1313/tags/reverse/">reverse</a></span>
+        <span class="tag"><a href="http://localhost:1313/tags/crackme/">crackme</a></span>
+        <span class="tag"><a href="http://localhost:1313/tags/programming/">programming</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1491 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2024-07-17 17:53
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2f2024%2f07%2fprogram-visszafejt%25C3%25A9s-no.-1%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=http%3a%2f%2flocalhost%3a1313%2fposts%2f2024%2f07%2fprogram-visszafejt%25C3%25A9s-no.-1%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Program%20visszafejt%c3%a9s%20-%20No.%201&amp;caption=Program%20visszafejt%c3%a9s%20-%20No.%201&amp;canonicalUrl=http%3a%2f%2flocalhost%3a1313%2fposts%2f2024%2f07%2fprogram-visszafejt%25C3%25A9s-no.-1%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=Program%20visszafejt%c3%a9s%20-%20No.%201&amp;body=http%3a%2f%2flocalhost%3a1313%2fposts%2f2024%2f07%2fprogram-visszafejt%25C3%25A9s-no.-1%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a1313%2fposts%2f2024%2f07%2fprogram-visszafejt%25C3%25A9s-no.-1%2f&amp;media=http%3a%2f%2flocalhost%3a1313%2fposts%2f2024%2f07%2fprogram-visszafejt%25C3%25A9s-no.-1%2f;description=Program%20visszafejt%c3%a9s%20-%20No.%201" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2f2024%2f07%2fprogram-visszafejt%25C3%25A9s-no.-1%2f&amp;title=Program%20visszafejt%c3%a9s%20-%20No.%201&amp;summary=Program%20visszafejt%c3%a9s%20-%20No.%201&amp;source=http%3a%2f%2flocalhost%3a1313%2fposts%2f2024%2f07%2fprogram-visszafejt%25C3%25A9s-no.-1%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=http%3a%2f%2flocalhost%3a1313%2fposts%2f2024%2f07%2fprogram-visszafejt%25C3%25A9s-no.-1%2f&amp;resubmit=true&amp;title=Program%20visszafejt%c3%a9s%20-%20No.%201" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=http%3a%2f%2flocalhost%3a1313%2fposts%2f2024%2f07%2fprogram-visszafejt%25C3%25A9s-no.-1%2f;title=Program%20visszafejt%c3%a9s%20-%20No.%201" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=Program%20visszafejt%c3%a9s%20-%20No.%201%20http%3a%2f%2flocalhost%3a1313%2fposts%2f2024%2f07%2fprogram-visszafejt%25C3%25A9s-no.-1%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2fposts%2f2024%2f07%2fprogram-visszafejt%25C3%25A9s-no.-1%2f&amp;t=Program%20visszafejt%c3%a9s%20-%20No.%201" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Program%20visszafejt%c3%a9s%20-%20No.%201&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2f2024%2f07%2fprogram-visszafejt%25C3%25A9s-no.-1%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="http://localhost:1313/posts/2024/07/the-consequences-of-the-information-revolution-and-the-internet/">
+                    <span class="button__text">The consequences of the Information Revolution and the Internet</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+      <script defer src=https://cdn.commento.io/js/commento.js></script>
+      <div id="commento"></div>
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2024</span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="http://localhost:1313/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span><span>Made with &#10084; by <a href="https://github.com/valkosch">Kurcz Valentin</a></span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.85fad2de4f13fec3bcb3b3cb10430cdb44a7b4a9749b32938241a5c6e77718df7624f1002b880521fdc26e24ec1077fda214bf1cb36ee3045510760d09638cae.js" integrity="sha512-hfrS3k8T/sO8s7PLEEMM20SntKl0mzKTgkGlxud3GN92JPEAK4gFIf3CbiTsEHf9ohS/HLNu4wRVEHYNCWOMrg=="></script>
+
+
+
+
+
+    </body>
+</html>
