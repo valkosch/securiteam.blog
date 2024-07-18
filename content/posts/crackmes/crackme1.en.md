@@ -21,7 +21,7 @@ In this short article series, I will reverse engineer a few "crackmes" using the
 
 Why is that, it's so incredibly difficult to reverse engineer programs? There are several economic models for software development in the world, but we usually say that a program is either closed or open source.
 
-Closedwsource, proprietary programs are usually funded and developed by companies, and then the final product is sold. The source code is not published because that would make the program free.
+Closed source, proprietary programs are usually funded and developed by companies, and then the final product is sold. The source code is not published because that would make the program free.
 
 In contrast, open source programs, like the Linux kernel, are maintained by the community, are free, and anyone can contribute and commit to them.
 
@@ -64,7 +64,7 @@ Objdump proved to be much more useful. We look for the main block since the pass
 
 I should note that it's never a good idea to check a password character by character anywhere. If it's necessary, ensure that the check is of constant time; otherwise, the program will be vulnerable to side-channel attacks. For example, if there is a 4-digit PIN terminal that immediately returns "Wrong password!" after entering the first digit, brute force will only require 40 attempts instead of 10,000.
 
-### A második:
+### Second:
 #### [D4RKFL0W's crackme2-be-D4RK_FL0W](https://crackmes.one/crackme/5c95646333c5d46ecd37c960)
 
 This one doesn't seem much harder at first glance; we need to figure out a password here as well.
