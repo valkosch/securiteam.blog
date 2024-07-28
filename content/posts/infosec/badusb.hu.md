@@ -26,9 +26,9 @@ Itt a cukiság
 ### Ardunio IDE setup
 
 Az Arduino IDE-t töltsd le a hivatalos oldalról, vagy csomagkezelőddel (nekem a csomagkezelős változat hiányos volt). Mivel ez nem egy Arduino board ezér külön le kell tölteni hozzá az illesztést. Ezt az alábbi módon tudod megtenni:
-1. File >> Prefrences >> Additional board manager URLs: ide illeszd be ezt a linket **https://raw.githubusercontent.com/digistump/arduino-boards-index/master/package_digistump_index.json** (más tutoriálokban esetleg más linket látsz az azért van mert azok még a hivatalos oldalról vannak, de sajnos nem olyan rég megszűnt a támogatás onnan, ezért kellett kiásnom a Github repo-ból ugyanarra a fájlra mutató linket).
-2. Board manager >> Itt keresd meg a "Digistump AVR" csomagot és töltsd le.
-3. Tools >> Itt a "programmer"-nél válaszd ki a Micronucleus-t, a "board"-nál pedig a Digispark 16,5 Mhz (default)-ot.
+1. **File >> Prefrences >> Additional board manager URLs:** ide illeszd be ezt a linket **https://raw.githubusercontent.com/digistump/arduino-boards-index/master/package_digistump_index.json** (más tutoriálokban esetleg más linket látsz az azért van mert azok még a hivatalos oldalról vannak, de sajnos nem olyan rég megszűnt a támogatás onnan, ezért kellett kiásnom a Github repo-ból ugyanarra a fájlra mutató linket).
+2. **Board manager >> Itt keresd meg a "Digistump AVR" csomagot** és töltsd le.
+3. **Tools >> Itt a "programmer"-nél** válaszd ki a Micronucleus-t, a "board"-nál pedig a Digispark 16,5 Mhz (default)-ot.
 
 Kész is vagy!
 
@@ -38,6 +38,7 @@ Az eredeti Arduino board-okat az operációs rendszerek automatikusan ellátják
 
 1. Hozz létre egy 49-micronucleus.rules fájlt az itt jelölt helyen: /etc/udev/rules.d/49-micronucleus.rules
 2. Másold bele ezeket a sorokat és futtasd a parancsot: 
+
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="16d0", ATTRS{idProduct}=="0753", MODE:="0666"
 KERNEL=="ttyACM*", ATTRS{idVendor}=="16d0", ATTRS{idProduct}=="0753", MODE:="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
 
