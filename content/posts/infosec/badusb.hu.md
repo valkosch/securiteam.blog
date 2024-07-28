@@ -2,6 +2,7 @@
 title= "Csak egy ártatlan pendrive"
 date= 2024-07-23T19:22:46+02:00
 draft= false
+toc= true
 summary = "Filmekben lehet látni olyat, hogy a titkosügynökök a számítógépbe dugnak egy pendrive-ot és utána történik a varázslat. Ez is valami ehhez hasonló."
 description = "Piacon már régota kint van a USB Rubber Ducky, ami lényegében egy pendrive-nak álcázott mikrokontroller. Közönséges érdelődők számára kicsit elérhetetlen áron van szerintem, mivel jelenleg $80 egy darab. Ezért szerettem volna kipróbálni egy olcsóbb de minőségben közelítő alternatívát."
 tags = ['Digispark', 'badusb', 'infosec']

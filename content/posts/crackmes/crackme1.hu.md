@@ -2,6 +2,7 @@
 title= "Program visszafejtés - No. 1"
 date= 2024-07-17T17:53:55+02:00
 draft= false
+toc= true
 summary = "Bevezető a reverse engineering világába, ahol kezdő szintű program visszafejtős feladatokat oldok meg, bemutatom a technikákat és az alapokat. Csak annyit tudok mondani hogy: \"Ki itt belépsz, hagyj fel minden reménnyel.\""
 description = "Mai világban egyre több dolgot kapunk meg kézhez anélkül, hogy tudnánk mi történik valójában a motorháztető alatt. Ez kényelmes és egyszerű, de ekkor teljesen meg kell bíznunk a készítő szaktudásában és szándékában, hiszen nincs módunkban ellenőrizni a helyességet. A reverse engineering tud ezen segíteni."
 tags = ['reverse', 'crackme', 'programming']

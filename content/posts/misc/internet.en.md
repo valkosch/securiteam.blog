@@ -2,6 +2,7 @@
 title= "The consequences of the Information Revolution and the Internet"
 date= 2024-07-09T17:47:21+02:00
 draft= false
+toc= true
 summary = "The internet is one of the sharpest double-edged swords in our world. Its positive impact on commerce and, consequently, the economy is unquestionable. However, it remains a question of what price society and people have paid for this."
 description = "The internet is one of the sharpest double-edged swords in our world. Its positive impact on commerce and, consequently, the economy is unquestionable. However, it remains a question of what price society and people have paid for this."
 tags = ['misc']
