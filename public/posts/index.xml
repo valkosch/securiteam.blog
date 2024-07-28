@@ -6,8 +6,82 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 09 Jul 2024 17:47:21 +0200</lastBuildDate>
+        <lastBuildDate>Wed, 17 Jul 2024 17:53:55 +0200</lastBuildDate>
         <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Reverse engineering - No. 1</title>
+            <link>http://localhost:1313/posts/2024/07/reverse-engineering-no.-1/</link>
+            <pubDate>Wed, 17 Jul 2024 17:53:55 +0200</pubDate>
+            
+            <guid>http://localhost:1313/posts/2024/07/reverse-engineering-no.-1/</guid>
+            <description>Introduction to the world of reverse engineering, where I solve beginner-level program reverse engineering tasks, demonstrate techniques and basics. All I can say is: &amp;lsquo;Abandon all hope, ye who enter here.</description>
+            <content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>In IT, it can be very useful to see behind the scenes. For example, when a company is attacked with a malicious software, on the blue team side we want to understand the enemy&rsquo;s techniques, tactics, and procedures to effectively defend ourselves. In this case, we need to break down the mentioned program. On the other hand, sometimes we are on the red team, driven by completely noble intentions and with permission, trying to find a flaw in a program so we can exploit it to achieve our goals.</p>
+<p>The importance of the skills that can be learned through program reverse engineering cannot be overstated in IT. Cybersecurity is undoubtedly a field where this is especially true. It&rsquo;s no coincidence that American three-letter agencies invest billions of dollars into this sector.</p>
+<p>In this short article series, I will reverse engineer a few &ldquo;crackmes&rdquo; using the simplest tools possible. The programs are from the <a href="https://crackmes.one">crackmes.one</a> site, where people can upload programs for educational purposes, and others can crack them for practice.</p>
+<p><img alt="crackmes" src="/crackmes.png"></p>
+<h2 id="foundation">Foundation</h2>
+<p>Why is that, it&rsquo;s so incredibly difficult to reverse engineer programs? There are several economic models for software development in the world, but we usually say that a program is either closed or open source.</p>
+<p>Closed source, proprietary programs are usually funded and developed by companies, and then the final product is sold. The source code is not published because that would make the program free.</p>
+<p>In contrast, open source programs, like the Linux kernel, are maintained by the community, are free, and anyone can contribute and commit to them.</p>
+<p>I won&rsquo;t delve into this debate now, both sides have their arguments, pros and cons, but I will say that from a security perspective, open source projects are in a better position than the other side. The reason is simple, closed source code cannot be verified without reverse engineering. The whole system works on the &ldquo;trust me bro&rdquo; principle, as the user has no power to see what the program actually does. This is problematic because it means trusting that the developers have done a perfect job and that the program doesn&rsquo;t do anything beyond what it claims. We&rsquo;ve seen what happens when this trust is misplaced (e.g., Facebook lawsuit).</p>
+<p>So now we will deal with programs written in C/C++ where the source code is not provided, only an executable file. This executable consists of machine code because the human-readable code is translated by the compiler into the computer&rsquo;s language. Unless we explicitly tell the compiler to keep the symbols, this translation will be irreversible, code-wise. In short, we won&rsquo;t be able to read the source code. However, there are advanced &ldquo;decompilers&rdquo; like <a href="https://github.com/NationalSecurityAgency/ghidra">Ghidra</a> that can roughly guess what was the original source code, but we probably won&rsquo;t need those now.</p>
+<p>I will solve relatively simple and beginner tasks, but to fully understand the solutions, knowledge of C/C++ and Intel x86-64 assembly is essential and recommended.</p>
+<p>I will use the following CLI programs:</p>
+<ul>
+<li><strong>objdump</strong> - allows us to read the assembly code of the program</li>
+<li><strong>ltrace</strong> and <strong>strace</strong> - trace dynamic library calls during the program&rsquo;s execution (e.g., printf or strcmp)</li>
+<li><strong>gdb</strong> - a Swiss army knife for every programmer, a debugger software, but also great tool for reverse engineering</li>
+<li><strong>strings</strong> - a simple tool that prints all printable characters found in the file</li>
+</ul>
+<p>An important precaution before we dive in: it&rsquo;s advisable to do these crackmes on a virtual machine since we are about to run an unknown program, even though the exes are checked after upload by the crackme moderators. The virtual environment separates this program from our real system, making it safer. However, keep in mind that even this is not completely foolproof, as if there is, for example, a shared folder in the virtual machine, there is already a bridge between the two systems. Also, there are known malwares that can escape the virtual machine under certain conditions. Nonetheless, none of these probably threaten us, but this precaution and this &ldquo;adversary mindset&rdquo;—preparing for the worst—is a useful routine when working in cybersecurity.</p>
+<h2 id="reverse-engineering">Reverse Engineering</h2>
+<p>For the virtual machine, I use <a href="https://www.virtualbox.org/">VirtualBox</a> with a bare-bones Arch Linux and the listed tools.</p>
+<h3 id="first">First:</h3>
+<h4 id="d4rkfl0ws-easy_firstcrackme-by-d4rk_fl0whttpscrackmesonecrackme5c8e1a9533c5d4776a837ecf"><a href="https://crackmes.one/crackme/5c8e1a9533c5d4776a837ecf">D4RKFL0W&rsquo;s Easy_firstCrackme-by-D4RK_FL0W</a></h4>
+<p>Download it and run it just to see what we&rsquo;re dealing with.</p>
+<p><img alt="fut" src="/crackmes2.png"></p>
+<p>As you can see, we need to guess or bypass a password, and the password is not &ldquo;almafa&rdquo; :(.</p>
+<p>Let&rsquo;s try our tools on it:</p>
+<p>First, let&rsquo;s look at ltrace. Not much luck here, nothing interesting shows up, just the process of printing out to stdcout. If, for example, the program used strcmp() to check the password, we would have seen it here.</p>
+<p><img alt="ltrace" src="/crackmes3.png"></p>
+<p>Objdump proved to be much more useful. We look for the main block since the password check likely happens there. Here we see a small pattern that I&rsquo;ve highlighted. The program checks the entered password character by character with the cmp operator. The &ldquo;je&rdquo; instruction corresponds to &ldquo;jump if equal.&rdquo; So if the character is equal in cmp to the given hexadecimal value, the program skips the call that calls some &ldquo;failed&rdquo; method. Translating the hexadecimal values used in the comparison to ASCII characters and concatenating them gives us the desired password: H1DD3N. Yay!</p>
+<p><img alt="objdump" src="/reverse_help.png"></p>
+<p>I should note that it&rsquo;s never a good idea to check a password character by character anywhere. If it&rsquo;s necessary, ensure that the check is of constant time; otherwise, the program will be vulnerable to side-channel attacks. For example, if there is a 4-digit PIN terminal that immediately returns &ldquo;Wrong password!&rdquo; after entering the first digit, brute force will only require 40 attempts instead of 10,000.</p>
+<h3 id="second">Second:</h3>
+<h4 id="d4rkfl0ws-crackme2-be-d4rk_fl0whttpscrackmesonecrackme5c95646333c5d46ecd37c960"><a href="https://crackmes.one/crackme/5c95646333c5d46ecd37c960">D4RKFL0W&rsquo;s crackme2-be-D4RK_FL0W</a></h4>
+<p>This one doesn&rsquo;t seem much harder at first glance; we need to figure out a password here as well.</p>
+<p>Strings, ltrace, strace are not very useful here either. Looking at objdump, I didn&rsquo;t find anything that led to a trivial solution, but I saw a block in the program called _Z14check_passwordPc, which might be interesting for us. However, it was not possible to read the password from the assembly code passively like before, likely because the game maker deliberately designed it so that the program concatenates the password character by character in some hidden part using strcat() or something like that, at runtime.</p>
+<p>So we need to step through the program while it runs. I will use <strong>gdb</strong> for this. Gdb is a bit bare-bones on its own, so I recommend tuning it with <a href="https://github.com/hugsy/gef">GEF</a> to make it easier to crack your neighbor&rsquo;s Wi-Fi (just kidding).</p>
+<p>So what I did here:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>gbd -q crackme2-be-D4RK_FL0W
+</span></span></code></pre></div><p>Start gdb.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>set disassembly-flavor Intel
+</span></span><span style="display:flex;"><span>break *_Z14check_passwordPc
+</span></span><span style="display:flex;"><span>run 
+</span></span></code></pre></div><p>I don&rsquo;t remember what the default disassembly-flavor is, but I prefer the Intel syntax, so I set it to that. Then I placed a breakpoint at the mentioned function to stop the program&rsquo;s execution there so we can examine it more closely. The run command starts the program.</p>
+<p><img alt="gdb1" src="/crackmes4.png"></p>
+<p>This is the interface that greets us. To sum up, what we can see:</p>
+<ul>
+<li>At the top are all 16 64-bit registers the computer works with (actually, the computer works with many more registers to execute as much parallelization as possible, but the architecture instruction set is designed for 16 registers, and deviating from this would break backward compatibility, meaning old programs wouldn&rsquo;t work, so the processor internally maps these 16 registers to its many, probably thousands, of available registers).</li>
+<li>Below that is the stack</li>
+<li>And below that are the assembly instructions, with the next instruction highlighted in green</li>
+</ul>
+<p>The rest is not so interesting for us now.</p>
+<p>The r8 register looks promicing: &ldquo;isAAthisFunBBCCD&rdquo;. We potentially have our winner, but let&rsquo;s investigate further. When dealing with something like this, if something is too good to be true, it probably is. I say this because these tasks often include &ldquo;honeypots,&rdquo; which are easily obtainable bait to mislead people. There is practical use for this in real life scenarios, where honeypots are placed to waste the attacker&rsquo;s resources and time. Sometimes they even act as alerts, notifying defenders when someone starts attacking the honeypot, giving them more time to prepare for defense.</p>
+<p>Back to the task, let&rsquo;s step through the program using the <strong>stepi</strong> and <strong>nexti</strong> commands in gdb. The former steps into method calls, while the latter skips them.</p>
+<p><img alt="gdb2" src="/crackmes5.png"></p>
+<p>As you can see it here, our guess about the solution, is correct since during the execution of the program&hellip;</p>
+<ol>
+<li>the <strong>rax</strong> register will be equal to 0x69(&ldquo;i&rdquo;)</li>
+<li>the <strong>rdx</strong> register will be equal to 0x74(&ldquo;t&rdquo;)</li>
+<li>then these will be compared with the <strong>cmp dl, al</strong> instruction</li>
+</ol>
+<p>Therefore character by character comparison is happening here too, where my given password &ldquo;test&rdquo; is checked against the &ldquo;isAAthisFunBBCCD&rdquo; password. That&rsquo;s the solution.&quot;</p>
+<p>That was is for this small introduction to binary exploitation and reverse engineering. If assembly looks a bit scary at first glance, don&rsquo;t worry you are not alone, but with time and practice you can master it, just like everything else, and I can assure you that it&rsquo;s going to worth it, especially when you are into reverse engineering.</p>
+]]></content>
+        </item>
         
         <item>
             <title>The consequences of the Information Revolution and the Internet</title>

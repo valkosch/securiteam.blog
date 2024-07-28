@@ -7,8 +7,29 @@
     <generator>Hugo</generator>
     <language>hu</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 17 Jul 2024 17:53:55 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jul 2024 19:22:46 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/hu/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Badusb</title>
+      <link>http://localhost:1313/hu/tags/badusb/</link>
+      <pubDate>Tue, 23 Jul 2024 19:22:46 +0200</pubDate>
+      <guid>http://localhost:1313/hu/tags/badusb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Digispark</title>
+      <link>http://localhost:1313/hu/tags/digispark/</link>
+      <pubDate>Tue, 23 Jul 2024 19:22:46 +0200</pubDate>
+      <guid>http://localhost:1313/hu/tags/digispark/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Infosec</title>
+      <link>http://localhost:1313/hu/tags/infosec/</link>
+      <pubDate>Tue, 23 Jul 2024 19:22:46 +0200</pubDate>
+      <guid>http://localhost:1313/hu/tags/infosec/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Crackme</title>
       <link>http://localhost:1313/hu/tags/crackme/</link>

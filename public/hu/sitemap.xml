@@ -2,20 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/hu/tags/crackme/</loc>
-    <lastmod>2024-07-17T17:53:55+02:00</lastmod>
+    <loc>http://localhost:1313/hu/tags/badusb/</loc>
+    <lastmod>2024-07-23T19:22:46+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/hu/posts/2024/07/csak-egy-%C3%A1rtatlan-pendrive/</loc>
+    <lastmod>2024-07-23T19:22:46+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/hu/tags/digispark/</loc>
+    <lastmod>2024-07-23T19:22:46+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/hu/tags/infosec/</loc>
+    <lastmod>2024-07-23T19:22:46+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/hu/</loc>
-    <lastmod>2024-07-17T17:53:55+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://localhost:1313/es/"
-                />
+    <lastmod>2024-07-23T19:22:46+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -24,7 +33,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/hu/posts/</loc>
-    <lastmod>2024-07-17T17:53:55+02:00</lastmod>
+    <lastmod>2024-07-23T19:22:46+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -36,8 +45,49 @@
                 href="http://localhost:1313/hu/posts/"
                 />
   </url><url>
+    <loc>http://localhost:1313/hu/tags/</loc>
+    <lastmod>2024-07-23T19:22:46+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="http://localhost:1313/hu/tags/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/hu/tags/crackme/</loc>
+    <lastmod>2024-07-17T17:53:55+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/crackme/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="http://localhost:1313/hu/tags/crackme/"
+                />
+  </url><url>
     <loc>http://localhost:1313/hu/posts/2024/07/program-visszafejt%C3%A9s-no.-1/</loc>
     <lastmod>2024-07-17T17:53:55+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/posts/2024/07/reverse-engineering-no.-1/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="hu"
+                href="http://localhost:1313/hu/posts/2024/07/program-visszafejt%C3%A9s-no.-1/"
+                />
   </url><url>
     <loc>http://localhost:1313/hu/tags/programming/</loc>
     <lastmod>2024-07-17T17:53:55+02:00</lastmod>
@@ -54,23 +104,15 @@
   </url><url>
     <loc>http://localhost:1313/hu/tags/reverse/</loc>
     <lastmod>2024-07-17T17:53:55+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/hu/tags/</loc>
-    <lastmod>2024-07-17T17:53:55+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://localhost:1313/es/tags/"
-                />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/tags/"
+                href="http://localhost:1313/tags/reverse/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="hu"
-                href="http://localhost:1313/hu/tags/"
+                href="http://localhost:1313/hu/tags/reverse/"
                 />
   </url><url>
     <loc>http://localhost:1313/hu/projects/</loc>
