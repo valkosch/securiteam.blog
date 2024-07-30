@@ -19,11 +19,25 @@ Csak azért hoztam föl az Enigmát, mert egy jó példa arra, hogy a szimmetrik
 
 ## Asszimetrikus kriptográfia
 
-Az asszimetrikus kriptográfiában, avagy nyílvános kulcsú titkosításnál kulcs párokról beszélünk, ahol van egy **privát kulcs** és egy **publikus kulcs**. 
+Az asszimetrikus kriptográfiában, avagy nyílvános kulcsú titkosításnál kulcs párokról beszélünk, ahol van egy **privát kulcs** és egy **publikus kulcs**. Restrospektíven, úgy a székben hátradőlve nézve a koncepció egyszerűsítve az alábbi: páronként a titkosításhoz szükséges kulcs publikus, a feloldáshoz a kulcs pedig titkos, és a publikus kulcsból visszafejteni a titkos kulcsot algoritmusokkal annyi időbe telne, hogy nem csak a kávénk hűlne ki, de még a Naprendszer is. Az asszimetrikus jelző innen jön, hogy a titkosítás és dekódolás nem ugyanúgy megy.
+
+Egy információ csere asszimetrikus titkosítást használva Bob és Alice között az alábbiak szerint zajlana le az ábrát követve:
+1. Bob letitkosítja az üzenetét Alice publikus kulcsával, majd elküldi Alice-nak az eredményt.
+2. Alice megkapja a titkosított üzenetet, majd a titkos kulcsával feloldja azt.
 
 ![pkc](/pkc1.png)
 
-enigma nem volt skálázható tengeralatjáró
-ssh - challange and response
-tls
-digitális aláirás- pl számítógépes frissitések - világ uralom ha NP problémát megfejted- pl számítógépes frissitések - világ uralom ha NP problémát megfejted
+Az egész rendszer müködése azon alapszik, hogy a titkos kulcsok titkosak maradnak és senkivel nem osztjuk meg azt, mivel annak beláthatatlan következményei lehetnek ránk nézve.
+
+Most pedig konkrét megvalósítások.
+
+### RSA (Rivest–Shamir–Adleman)
+
+Az RSA az egy kriptográfiában nevezetes algortimus amely nyílvános kulcsú titkosítást valósít meg, melyet 1977-ben vázolt a nevében is szereplő 3 dzsentlmen. A cél az volt, hogy hatékony algortimus, azaz polinomiális, szülessen asszimetrikus titkosításra.
+
+#### Definíciók
+
+- **n** és **e**: ezek a természetes számok alkotják a publikus kulcsot, melyben az **n** a moduló amely **p** és **q** prímszám szorzatából áll, és az **e** pedig egy hatványkitevő mely relatív prím phí(n) számmal.
+- **p**,**q** és **d**: a **p** és **q** alkotják a titkos kulcsot, melyekbők kiszámítható a **d** hatványkitevő, ami a dekódoláshoz fog kelleni.
+
+
