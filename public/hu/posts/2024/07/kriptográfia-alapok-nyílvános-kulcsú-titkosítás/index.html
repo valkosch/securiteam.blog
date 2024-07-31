@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Kurcz Valentin ">
+<meta name="description" content="Meg kell tudnunk valósítani azt, hogy egy hatalmas teremben elkiálthassuk magunkat úgy, hogy csak az az egyetlen ember érthesse, akinek szól az üzenetünk, és ezt mind úgy, hogy ezzel az emberrel nem beszéltük meg előre a titkos kódunkat, nyelvünket egy már titkos médiumon keresztül. Ha ezt meg tudjuk oldani akkor az interneten is tudunk titkosan üzenetet megosztani hiszen istenigazából az internet is csak egy hatalmas terem." />
+<meta name="keywords" content="IT biztonság, Kurcz Valentin, Portfólió, Blog, Mérnökinformatikus, Computer Science, Kriptográfia, RSA" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="http://localhost:1313/hu/posts/2024/07/kriptogr%C3%A1fia-alapok-ny%C3%ADlv%C3%A1nos-kulcs%C3%BA-titkos%C3%ADt%C3%A1s/" />
+
+
+    <title>
+        
+            Kriptográfia alapok - Nyílvános kulcsú titkosítás :: Kurcz Valentin  — Blog és Portfólió oldala
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.5f49f7af8fad3d518db0a237e0fde26ceaa50a60278a3dba7a1e9d150b72125a.css" integrity="sha256-X0n3r4&#43;tPVGNsKI34P3ibOqlCmAnij26eh6dFQtyElo=">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Kriptográfia alapok - Nyílvános kulcsú titkosítás">
+  <meta itemprop="description" content="Meg kell tudnunk valósítani azt, hogy egy hatalmas teremben elkiálthassuk magunkat úgy, hogy csak az az egyetlen ember érthesse, akinek szól az üzenetünk, és ezt mind úgy, hogy ezzel az emberrel nem beszéltük meg előre a titkos kódunkat, nyelvünket egy már titkos médiumon keresztül. Ha ezt meg tudjuk oldani akkor az interneten is tudunk titkosan üzenetet megosztani hiszen istenigazából az internet is csak egy hatalmas terem.">
+  <meta itemprop="datePublished" content="2024-07-30T14:42:35+02:00">
+  <meta itemprop="dateModified" content="2024-07-30T14:42:35+02:00">
+  <meta itemprop="wordCount" content="1781">
+  <meta itemprop="image" content="http://localhost:1313/">
+  <meta itemprop="keywords" content="Kriptográfia,RSA">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/">
+  <meta name="twitter:title" content="Kriptográfia alapok - Nyílvános kulcsú titkosítás">
+  <meta name="twitter:description" content="Meg kell tudnunk valósítani azt, hogy egy hatalmas teremben elkiálthassuk magunkat úgy, hogy csak az az egyetlen ember érthesse, akinek szól az üzenetünk, és ezt mind úgy, hogy ezzel az emberrel nem beszéltük meg előre a titkos kódunkat, nyelvünket egy már titkos médiumon keresztül. Ha ezt meg tudjuk oldani akkor az interneten is tudunk titkosan üzenetet megosztani hiszen istenigazából az internet is csak egy hatalmas terem.">
+
+
+
+    <meta property="og:url" content="http://localhost:1313/hu/posts/2024/07/kriptogr%C3%A1fia-alapok-ny%C3%ADlv%C3%A1nos-kulcs%C3%BA-titkos%C3%ADt%C3%A1s/">
+  <meta property="og:site_name" content="Kurcz Valentin">
+  <meta property="og:title" content="Kriptográfia alapok - Nyílvános kulcsú titkosítás">
+  <meta property="og:description" content="Meg kell tudnunk valósítani azt, hogy egy hatalmas teremben elkiálthassuk magunkat úgy, hogy csak az az egyetlen ember érthesse, akinek szól az üzenetünk, és ezt mind úgy, hogy ezzel az emberrel nem beszéltük meg előre a titkos kódunkat, nyelvünket egy már titkos médiumon keresztül. Ha ezt meg tudjuk oldani akkor az interneten is tudunk titkosan üzenetet megosztani hiszen istenigazából az internet is csak egy hatalmas terem.">
+  <meta property="og:locale" content="hu">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-07-30T14:42:35+02:00">
+    <meta property="article:modified_time" content="2024-07-30T14:42:35+02:00">
+    <meta property="article:tag" content="Kriptográfia">
+    <meta property="article:tag" content="RSA">
+    <meta property="og:image" content="http://localhost:1313/">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2024-07-30 14:42:35 &#43;0200 CEST" />
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
+      inlineMath: [['\\(', '\\)']]                  
+    }
+  };
+</script>
+
+
+          
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                 you@kurczvalentin $</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#ff0000;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/hu/posts">~/cikkek</a></li><li><a href="/hu/projects">~/projektek</a></li><li><a href="/hu/about">~/rólam</a></li>
+        <div class="submenu">
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn"><span class="flag fi fi-hu"></span>
+</a>
+                <div class="dropdown-content">
+                    
+                        
+                    
+                </div>
+            </li>
+        </div>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        9 perc
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="http://localhost:1313/hu/posts/2024/07/kriptogr%C3%A1fia-alapok-ny%C3%ADlv%C3%A1nos-kulcs%C3%BA-titkos%C3%ADt%C3%A1s/">Kriptográfia alapok - Nyílvános kulcsú titkosítás</a>
+      </h1>
+
+      
+        <div class="post-excerpt">Meg kell tudnunk valósítani azt, hogy egy hatalmas teremben elkiálthassuk magunkat úgy, hogy csak az az egyetlen ember érthesse, akinek szól az üzenetünk, és ezt mind úgy, hogy ezzel az emberrel nem beszéltük meg előre a titkos kódunkat, nyelvünket egy már titkos médiumon keresztül. Ha ezt meg tudjuk oldani akkor az interneten is tudunk titkosan üzenetet megosztani hiszen istenigazából az internet is csak egy hatalmas terem.</div>
+      
+
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Tartalomjegyzék</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#szimmetrikus-kriptográfia">Szimmetrikus kriptográfia</a></li>
+    <li><a href="#asszimetrikus-kriptográfia">Asszimetrikus kriptográfia</a>
+      <ul>
+        <li><a href="#rsa-rivestshamiradleman">RSA (Rivest–Shamir–Adleman)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      
+
+      <div class="post-content">
+        <h2 id="szimmetrikus-kriptográfia">Szimmetrikus kriptográfia</h2>
+<p>A klasszikus titkosítási módszerek, amelyeket használtak egészen mostanáig arra alapoznak, hogy a titkosításhoz (encryption) és a feloldáshoz (decryption) is ugyanaz a kulcs használatos. Ez azt igényli, hogy a kulcsot valami titkos közegben kellene átadnunk a második félnek anélkül, hogy egy harmadik fél ne szerezzen róla tudomást, hiszen akkor az összes titkosított üzenetünket olvasni tudná. Ez kicsit ilyen &ldquo;tyúk vagy a tojás&rdquo; probléma, hiszen pont arra akarnánk használni a kulcsot, hogy megteremtsük ezt a titkosított közeget. Illetve ekkor, teljesen meg kell bíznunk a második félben, hiszen miután megosztottuk vele a kulcsunkat, az teljesen az ő döntése lesz, hogy azt nem e adja tovább másnak.</p>
+<p>Tegyük fel, hogy a bankba besétálunk és a fiókunkhoz elkéri a recepciós a jelszót. Ha egy kicsit is korumpálható a recepciós, akkor a fiókunk jelszava könnyen nem kívánatos emberek kezébe kerülhet. Ehhez a problémához még visszatérek, addig is gondolkozz egy megoldáson.</p>
+<blockquote>
+<p>Az Enigma is szimmetrikus kriptográfia szerint működött és mint titkosítás a korában egyedülálló és példátlan volt. Komoly szürkeállománynak kellett összeülnie a Szövetségesek oldalán, hogy feltörjék de végül Alan Turing és csapatának illetve automatájának (kezdetleges számítógép) köszönhetően sikerült. Szó sincs arról, hogy a titkosításban találtak hibát. Mint mindig az informatikában, a gyenge láncszem és a legnagyobb sérülékenység itt is az ember volt. A katonák nem minden nap cseréltek kódot, ahogy azt kellett volna, illetve az üzenetek végén ismétlődő kifejezések mint például a &ldquo;Heil Hitler&rdquo; egyszerűsítették a kódfejtő dolgát. Érdekesség, hogy 1982-ben is használták még az Enigmát még pedig az argentínok, Fakland-szigeteki háborúban. Nagyot néztek mikor az angolok minden lépésüket tudták előre. Nem lehet hibáztatni az argentínokat, hiszen az Egyesült Királyság sose hozta nyílvánosságra az eredményeiket az Enigma feltörésében, így még mindig az volt a köztudat, hogy az Enigma titkos.</p>
+</blockquote>
+<p>Csak azért hoztam föl az Enigmát, mert egy jó példa arra, hogy a szimmetrikus titkosítás önmagában miért nem elég. Gondolkoztál már azon, hogy az Enigmát miért csak tengeralatjárókon használták? Azért mert a tengeralatjáró ha megsemmisül, akkor az Enigmát is viszi magával a tengerfenékre, így nem lehet a gépet, azaz a titkosítást visszafejteni illetve a kódot ellopni. Ezért nem használták szárazföldi csapatoknál. Tehát nem volt skálázható, hiszen több ember esetén egyre nagyobb lett volna az esélye a kód kitudodásának. Az internet térnyerésével, és a felhasználók exponenciális növekedésével pedig a szükség egy skálázható titkosítási szabványra nőttön-nőtt.</p>
+<h2 id="asszimetrikus-kriptográfia">Asszimetrikus kriptográfia</h2>
+<p>Az asszimetrikus kriptográfiában, avagy nyílvános kulcsú titkosításnál kulcs párokról beszélünk, ahol van egy <strong>privát kulcs</strong> és egy <strong>publikus kulcs</strong>. Restrospektíven, úgy a székben hátradőlve nézve a koncepció egyszerűsítve az alábbi: páronként a titkosításhoz szükséges kulcs publikus, a feloldáshoz a kulcs pedig titkos, és a publikus kulcsból visszafejteni a titkos kulcsot algoritmusokkal annyi időbe telne, hogy nem csak a kávénk hűlne ki, de még a Naprendszer is. Az asszimetrikus jelző innen jön, hogy a titkosítás és dekódolás nem ugyanúgy megy.</p>
+<p>Egy információ csere asszimetrikus titkosítást használva Bob és Alice között az alábbiak szerint zajlana le az ábrát követve:</p>
+<ol>
+<li>Bob letitkosítja az üzenetét Alice publikus kulcsával, majd elküldi Alice-nak az eredményt.</li>
+<li>Alice megkapja a titkosított üzenetet, majd a titkos kulcsával feloldja azt.</li>
+</ol>
+<p><img alt="pkc" src="/pkc1.png"></p>
+<p>Az egész rendszer müködése azon alapszik, hogy a titkos kulcsok titkosak maradnak és senkivel nem osztjuk meg azt, mivel annak beláthatatlan következményei lehetnek ránk nézve.</p>
+<p>Most pedig konkrét megvalósítások.</p>
+<h3 id="rsa-rivestshamiradleman">RSA (Rivest–Shamir–Adleman)</h3>
+<p>Az RSA az egy kriptográfiában nevezetes algortimus amely nyílvános kulcsú titkosítást valósít meg, melyet 1977-ben vázolt a nevében is szereplő 3 dzsentlmen. A cél az volt, hogy hatékony algortimus, azaz polinomiális, szülessen asszimetrikus titkosításra.</p>
+<h4 id="definíciók">Definíciók</h4>
+\[n,e,p,q,d \in N, (e,\phi(n))=1: n=p * q\]
+<p>Az alap ötlet az RSA mögött, hogy adott \(n, e\) és \(d\) egész számnál, az \(x \in N: 0 \leq x < n\) szám esetén az \((x^e)^d\) és \(x\) azonos maradékot adnak \(n\)-nel osztva, azaz kongruensek moduló n:</p>
+\[(x^e)^d \equiv x \pmod n\]
+<p>Ugyanakkor ha csak az \(n\) és \(e\) szám adott, a \(d\) szám kiszámítása borzasztóan nehéz. Olyannyira nehéz elég nagy n szám esetén, hogyha megpróbálkoznánk vele egy nem kvantumszámítógéppel, akkor nem csak a kávén hűlne ki hanem az univerzum is. Hogy miért lehetséges ez azt rövidesen tisztázom.</p>
+<p>Az \(n\) és \(e\) természetes számok alkotják a publikus kulcsot, melyben az \(n\) a moduló amely \(p\) és \(q\) prímszám szorzatából áll, és az \(e\) pedig a titkosításhoz használt (&ldquo;e&rdquo; for encryption) hatványkitevő mely relatív prím \(\phi(n)\) számmal.</p>
+<blockquote>
+<p>a \(\phi(n)\) függvény az az Euler-féle phí függvény mely megadja, hogy \(x \in N: 1 \leq x \leq n\) számok között mennyi n-hez relatív prím van.</p>
+</blockquote>
+<p>A \(p\) és \(q\) alkotják a titkos kulcsot, melyekbők kiszámítható a \(d\) (&ldquo;d&rdquo; for decryption) hatványkitevő, ami a dekódoláshoz fog kelleni. Igazából a \(p\) és \(q\) eldobható miután \(d\) ki lett számítva.</p>
+<p>A titkosítás folyamata:</p>
+<h4 id="kulcs-generálás">Kulcs generálás</h4>
+<ol>
+<li>
+<p>Generáljunk 2 nagy \(p\) és \(q\) prímszámot. A lényeg az lesz, hogy az \(n\) számból minél nehezebb legyen prím faktorizációval megkapni a \(p\) és \(q\) számot. Ehhez a \(p\) és \(q\) is legyen lehetőleg teljesen véletlenszerű, kellően nagy és kettőjük különbsége is legyen nagy. Hatékony prím generálásra a prím tesztelése véletlenszámokra. Fontos hogy a véletlenszám generátorunk legyen minél &ldquo;véletlenebb&rdquo;, azaz entrópiája minél nagyobb, hiszen számítógépen csak pszeudo véletlent ismerünk hiszen a számítógép önmagában determisztikus. Ezzel egy külön ágazat foglalkozik matematikában, csak érdekességnek hoztam föl.</p>
+</li>
+<li>
+<p>Számoljuk ki \(n=p * q\). Biztonságosnak ítélt kulcs azaz \(n\) hossz az 2048 bit, ami kb 617 számjegynek felel meg a tízes számrendszerben azaz értéke saccperkb \(10^616\). Most álljunk meg és gondolkozzunk el ezen nagyságon egy picit. Ugyebár úgy tudnánk támadóként feltörni a titkosítást, ha \(n\)-ből meg tudnánk kapni \(p\)-t és \(q\)-t. Ez kicsit túl lő az üzenet feltörésén, hiszen ezután az összes üzenetet fel tudnánk törni. Ez a prím faktorizáció problémája melyre mai napig nem ismert polinomiális komplexitású algoritmus, ugyanakkor nincsen az se bizonyítva, hogy nem létezik ilyen, bár ez a sejtés. Ha esetleg találnál ilyet, akkor könnyűszerrel világuralomra törhetsz, hiszen a banki tranzakciók, kriptovaluták, államtitkok és nem utolsósoron a digitális aláírások titkosítása is ezt használja. Például a szofterfrissítések is digitális aláírással ellenőrzik, hogy a hivatalos szerverről jött a frissités, de ha feltörnéd ezt, bárkinek kiadhatnád magad, ezáltal például az összes Windows gép felett átvehetnéd az irányítást egyetlen Windows frissítéssel. Érdekes, hogy az egész világrendünk, a civilizációnk egy matematikai sejtésre van bízva. Csak hogy elképzelhesd mennyi időbe is telne ha naívan elkezdenénk próbálgatni brute-force módszerrel a prímeket 2-től kezdve \(\sqrt n\)-ig: kb. \(10^{80}\) proton van a megfigyelhető világegyetemen, tegyük fel hogy ez mind egy olyan számításiegység ami 4 GHz-en müködik azaz az egyszerűség kedvéért másodpercenként \(4 * 10^9\) prím tesztelésére képes, tehát másodpercenként \(4 * 10^{89}\) szám tesztelésére vagyunk képesek összesen. Ezek szerint \(\frac{\sqrt{10^{616}}}{4 * 10^{89}} \approx 10^{218} \) másodpercre lenne szükségünk. Az univerzum 13,7 milliárd éves azaz kb \(4,3 * 10^17\) másodperc éves. Remélem ez a kis gondolatkísérlet kontextusba helyezte a nagyságokat.</p>
+</li>
+<li>
+<p>Válasszunk ki egy természetes számot az \(e\) számára úgy, hogy \((e,\phi(n))=1\), azaz relatív prímek. Itt a hossz nem annyira lényeges mint az \(n\) esetén, tipikus érték az \(e\)-nek a \(65537\).</p>
+</li>
+<li>
+<p>Számoljuk ki a \(d\) értékét a \(p\) és \(q\) számok segítségével. Hogy hogyan azt a helyesség bizonyításánál méltatom bemutatni.</p>
+</li>
+</ol>
+<p>Tehát ezek után van egy publikus kódoló függvényünk</p>
+\[C: x \mapsto x^e \pmod n\]
+<p>ahol \(x:=\) a plaintext üzenetünk azaz a titkosítandó adat</p>
+<p>és van egy titkos dekódoló függvényünk</p>
+\[D: y \mapsto y^d \pmod n\]
+<p>ahol teljesül az hogy \(D(C(x))=x\)</p>
+<p>Aki eddig eljutott és ismeri a hatványazonosságokat az biztos elgondolkozott rajta, hogy a \(d\) és \(e\) felcserélhető-e. Bizony felcserélhetőek hiszen \((x^e)^d = (x^d)^e\). Tehát a \(d\) is használható titkosításra és az \(e\) pedig feloldásra, már ha a művelet inverze is a kulcs pár másik felével történt. Ezt ki is használjuk a gyakorlatban a digitális aláírásnál és azonosításnál, de erről többet kicsit lejebb :).</p>
+<h4 id="kulcs-megosztása">Kulcs megosztása</h4>
+<p>Bob és Alice az RSA-t akarják használni tikosításra beszélgetés közben, mert biztonságos. Ekkor ha Bob üzenetet szeretne küldeni Alice-nek, akkor elkéri Alice publikus kulcsát \((n,e)\), majd ezt egy csatornán (nem muszáj biztonságosnak lennie) meg is kapja. Alice a titkos kulcsát \((d)\) soha nem adja ki, azt a dekódolásra használja saját magánál.</p>
+<h4 id="titkosítás">Titkosítás</h4>
+<p>Bob miután megkapta Alice publikus kulcsát, azt felhasználva titkosítja az \(x\) üzenetet és megkapja titkosított szöveget \(c\)-t.</p>
+\[c \equiv x^e \pmod n\]
+<p>Minden józan, már tapasztaltabb emberben, fel kell merülnie annak az ördögi kérdésnek, hogy ez a lépés vajon polinomiális-e mert ha nem akkor semmi értelme nincsen az egésznek. Szerencsére a moduláris hatványozás megoldható polinomiálisan az ismételt négyzetre emelés módszerével, annak ellenére, hogy a hatványozás önmagában nem lenne polinomiálisan kivitelezhető.</p>
+<h4 id="feloldás">Feloldás</h4>
+<p>Alice ezután megkapja a titkosított üzenetet és a titkos kulcs segítségével feloldja azt.</p>
+\[c^d \equiv (x^e)^d \equiv x \pmod n\]
+<h4 id="helyesség-bizonyítása">Helyesség bizonyítása</h4>
+<p>Eddig valjuk be őszintén a levegőbe beszéltem, semmi se lett bizonytva, már pedig ez így nem járja.</p>
+<p>Cél hogy bebizonyítsuk, hogy </p>
+\[\forall n \in N, n=p * q, \forall e \in N, (e,\phi(n))=1\]
+<p> esetén \(\exists d\) ahol igaz az, hogy \((x^e)^d \equiv x \pmod n\) ahol \(x\) tetszőleges üzenet.</p>
+<p>Ehhez felhasználjuk az Euler-Fermat tételt miszerint</p>
+<p>ha \(n \leq 1\) és \((x,n)=1\) \(\Rightarrow x^{\phi(n)} \equiv 1 \pmod n\)</p>
+<p>Emeljük a konkruenciát \(k \in N\)-ra és szorozzuk mindkét oldalát \(x\)-szel. Ezek ekvivalens lépések, ekkor</p>
+\[x^{k\phi(n) + 1} \equiv x \pmod n\]
+<p>tehát ha a hatványkitevő \(ed = k\phi(n) + 1\) akkor igaz a konkruencia.</p>
+<p>Ebből a megállapításból az alábbi konkruencia következik</p>
+\[ed \equiv 1 \pmod {\phi(n)}\]
+<p>hiszen ez az előbbi állítással ekvivalens.</p>
+<p>Ez pedig egy lineáris konkruencia a \(d\) ismeretlenre, hiszen \(e\) értéke adott és \(\phi(n) = (p-1)(q-1)\) itt nem tárgyalt azonosságok alapján. Ennek a lin. kon. biztosan \(\exists\) megoldása, mivel \((e,\phi(n))=1\). Ezt a megoldást hatékonyan meg is tudjuk találni az Euklideszi algortimussal.</p>
+<p>Ez nem a teljes bizonyítás hiszen nem fedtük le azt az esetet amikor is \((x,n) \neq 1\). Ennek a gyakorlati valószínüsége ámbár nagyon kevés hiszen ez azt jelenti, hogy \(p | x\) vagy \(q | x\), de mégis kell vele foglalkozni, hiszen matematikusok vagyunk :D.</p>
+<p>Ha \(p | x\) és \(q | x\) is akkor \(pq | x\) azaz \(n | x\) ekkor \(x^{k\phi(n) + 1} \equiv x \pmod n\) természetes hogy létezik megoldás hiszen \(x \equiv 0 \pmod n\) és \(x^{k\phi(n) + 1} \equiv 0 \pmod n\) hiszen ha \(n | x\) akkor \(x\) többszörösei is oszthatóak \(n\)-nel.</p>
+<p>Ha \(p | x\) és \( q \nmid x\) akkor külön-külön bemutatjuk</p>
+<ol>
+<li>
+\[x^{k\phi(n) + 1} \equiv x \pmod q\]
+</li>
+<li>
+\[x^{k\phi(n) + 1} \equiv x \pmod p\]
+</li>
+</ol>
+<p>kongruenciát is, hiszen ekvivalens ez \(x^{k\phi(n) + 1} \equiv x \pmod n\)-nel</p>
+<p>Az 1. állítás bizonyítása 1:1 megegyezik azzal az esettel mikor \((n,x)=1\) hiszen most \((q,x)=1\).
+A 2. állítás pedig szinte ugyanaz mint amikor \(x \equiv 0 \pmod n\).</p>
+<p>Most már teljes a bizonyítás!</p>
+<h4 id="megjegyzések-a-gyakorlati-alkalmazáshoz">Megjegyzések a gyakorlati alkalmazáshoz</h4>
+<p>Sajnos (vagy nem sajnos) a matekot nem lehet elkerülni ha az ember komolyabban akar foglalkozni az informatikával, és ez a gyakorlati implementációnál is igaz.</p>
+<p>kulcs megosztás aztan szimmetrikus mert az gyorsabb
+NSA gyüjti a titkosított adatot hátha fel tudja később törni
+ssh - challange and response
+tls</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="http://localhost:1313/hu/tags/kriptogr%C3%A1fia/">Kriptográfia</a></span>
+        <span class="tag"><a href="http://localhost:1313/hu/tags/rsa/">RSA</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1781 szó
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2024-07-30 14:42
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fhu%2fposts%2f2024%2f07%2fkriptogr%25C3%25A1fia-alapok-ny%25C3%25ADlv%25C3%25A1nos-kulcs%25C3%25BA-titkos%25C3%25ADt%25C3%25A1s%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=http%3a%2f%2flocalhost%3a1313%2fhu%2fposts%2f2024%2f07%2fkriptogr%25C3%25A1fia-alapok-ny%25C3%25ADlv%25C3%25A1nos-kulcs%25C3%25BA-titkos%25C3%25ADt%25C3%25A1s%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Kriptogr%c3%a1fia%20alapok%20-%20Ny%c3%adlv%c3%a1nos%20kulcs%c3%ba%20titkos%c3%adt%c3%a1s&amp;caption=Kriptogr%c3%a1fia%20alapok%20-%20Ny%c3%adlv%c3%a1nos%20kulcs%c3%ba%20titkos%c3%adt%c3%a1s&amp;canonicalUrl=http%3a%2f%2flocalhost%3a1313%2fhu%2fposts%2f2024%2f07%2fkriptogr%25C3%25A1fia-alapok-ny%25C3%25ADlv%25C3%25A1nos-kulcs%25C3%25BA-titkos%25C3%25ADt%25C3%25A1s%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=Kriptogr%c3%a1fia%20alapok%20-%20Ny%c3%adlv%c3%a1nos%20kulcs%c3%ba%20titkos%c3%adt%c3%a1s&amp;body=http%3a%2f%2flocalhost%3a1313%2fhu%2fposts%2f2024%2f07%2fkriptogr%25C3%25A1fia-alapok-ny%25C3%25ADlv%25C3%25A1nos-kulcs%25C3%25BA-titkos%25C3%25ADt%25C3%25A1s%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a1313%2fhu%2fposts%2f2024%2f07%2fkriptogr%25C3%25A1fia-alapok-ny%25C3%25ADlv%25C3%25A1nos-kulcs%25C3%25BA-titkos%25C3%25ADt%25C3%25A1s%2f&amp;media=http%3a%2f%2flocalhost%3a1313%2fhu%2fposts%2f2024%2f07%2fkriptogr%25C3%25A1fia-alapok-ny%25C3%25ADlv%25C3%25A1nos-kulcs%25C3%25BA-titkos%25C3%25ADt%25C3%25A1s%2f;description=Kriptogr%c3%a1fia%20alapok%20-%20Ny%c3%adlv%c3%a1nos%20kulcs%c3%ba%20titkos%c3%adt%c3%a1s" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fhu%2fposts%2f2024%2f07%2fkriptogr%25C3%25A1fia-alapok-ny%25C3%25ADlv%25C3%25A1nos-kulcs%25C3%25BA-titkos%25C3%25ADt%25C3%25A1s%2f&amp;title=Kriptogr%c3%a1fia%20alapok%20-%20Ny%c3%adlv%c3%a1nos%20kulcs%c3%ba%20titkos%c3%adt%c3%a1s&amp;summary=Kriptogr%c3%a1fia%20alapok%20-%20Ny%c3%adlv%c3%a1nos%20kulcs%c3%ba%20titkos%c3%adt%c3%a1s&amp;source=http%3a%2f%2flocalhost%3a1313%2fhu%2fposts%2f2024%2f07%2fkriptogr%25C3%25A1fia-alapok-ny%25C3%25ADlv%25C3%25A1nos-kulcs%25C3%25BA-titkos%25C3%25ADt%25C3%25A1s%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=http%3a%2f%2flocalhost%3a1313%2fhu%2fposts%2f2024%2f07%2fkriptogr%25C3%25A1fia-alapok-ny%25C3%25ADlv%25C3%25A1nos-kulcs%25C3%25BA-titkos%25C3%25ADt%25C3%25A1s%2f&amp;resubmit=true&amp;title=Kriptogr%c3%a1fia%20alapok%20-%20Ny%c3%adlv%c3%a1nos%20kulcs%c3%ba%20titkos%c3%adt%c3%a1s" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=http%3a%2f%2flocalhost%3a1313%2fhu%2fposts%2f2024%2f07%2fkriptogr%25C3%25A1fia-alapok-ny%25C3%25ADlv%25C3%25A1nos-kulcs%25C3%25BA-titkos%25C3%25ADt%25C3%25A1s%2f;title=Kriptogr%c3%a1fia%20alapok%20-%20Ny%c3%adlv%c3%a1nos%20kulcs%c3%ba%20titkos%c3%adt%c3%a1s" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=Kriptogr%c3%a1fia%20alapok%20-%20Ny%c3%adlv%c3%a1nos%20kulcs%c3%ba%20titkos%c3%adt%c3%a1s%20http%3a%2f%2flocalhost%3a1313%2fhu%2fposts%2f2024%2f07%2fkriptogr%25C3%25A1fia-alapok-ny%25C3%25ADlv%25C3%25A1nos-kulcs%25C3%25BA-titkos%25C3%25ADt%25C3%25A1s%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2fhu%2fposts%2f2024%2f07%2fkriptogr%25C3%25A1fia-alapok-ny%25C3%25ADlv%25C3%25A1nos-kulcs%25C3%25BA-titkos%25C3%25ADt%25C3%25A1s%2f&amp;t=Kriptogr%c3%a1fia%20alapok%20-%20Ny%c3%adlv%c3%a1nos%20kulcs%c3%ba%20titkos%c3%adt%c3%a1s" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Kriptogr%c3%a1fia%20alapok%20-%20Ny%c3%adlv%c3%a1nos%20kulcs%c3%ba%20titkos%c3%adt%c3%a1s&amp;url=http%3a%2f%2flocalhost%3a1313%2fhu%2fposts%2f2024%2f07%2fkriptogr%25C3%25A1fia-alapok-ny%25C3%25ADlv%25C3%25A1nos-kulcs%25C3%25BA-titkos%25C3%25ADt%25C3%25A1s%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="http://localhost:1313/hu/posts/2024/07/csak-egy-%C3%A1rtatlan-pendrive/">
+                    <span class="button__text">Csak egy ártatlan pendrive</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+      <script defer src=https://cdn.commento.io/js/commento.js></script>
+      <div id="commento"></div>
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2024</span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="http://localhost:1313/hu/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span><span>Made with &#10084; by <a href="https://github.com/valkosch">Kurcz Valentin</a></span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js" integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc&#43;cxaJzDdCYbAW0X1G&#43;DgZYvtKFXe6MBex8jUJ2JT25mQx&#43;YjACIng=="></script>
+
+
+
+
+
+    </body>
+</html>

@@ -32,6 +32,15 @@ disableSitemap = false
 disable404     = false
 disableHugoGeneratorInject = false
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
+
 [permalinks]
   posts = "/posts/:year/:month/:title/"
 
@@ -44,7 +53,7 @@ disableHugoGeneratorInject = false
   series   = "series"
 
 [params]
-
+  math = false
   dateform        = "Jan 2, 2006"
   dateformShort   = "Jan 2"
   dateformNum     = "2006-01-02"

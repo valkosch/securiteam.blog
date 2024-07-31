@@ -3,7 +3,7 @@ title= "Reverse engineering - No. 1"
 date= 2024-07-17T17:53:55+02:00
 draft= false
 toc= true
-summary = "Introduction to the world of reverse engineering, where I solve beginner-level program reverse engineering tasks, demonstrate techniques and basics. All I can say is: 'Abandon all hope, ye who enter here."
+summary = "Introduction to the world of reverse engineering, where I solve beginner-level program reverse engineering tasks, demonstrate techniques and basics. All I can say is: \"Abandon all hope, ye who enter here.\""
 description = "In today's world, we increasingly use things without knowing what actually happens under the hood. This is convenient and simple, but it means we must completely trust the expertise and intentions of the creators, as we have no way to verify the truth. Reverse engineering can help with this."
 tags = ['reverse', 'crackme', 'programming']
 +++
