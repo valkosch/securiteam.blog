@@ -2,7 +2,7 @@
 <html lang="{{ .Site.Language }}">
     <head>
         {{ partial "head.html" . }}
-        {{ partial "math.html" . }}
+        {{ partialCached "math.html" . }}
     </head>
 
     {{ block "body" . }}
