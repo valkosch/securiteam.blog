@@ -38,7 +38,7 @@ Az RSA az egy kriptográfiában nevezetes algortimus amely nyílvános kulcsú t
 
 #### Definíciók
 
-\[n,e,p,q,d \in N, (e,\phi(n))=1: n=p * q\] 
+$$n,e,p,q,d \in N, (e,\phi(n))=1: n=p * q$$
 
 Az alap ötlet az RSA mögött, hogy adott \(n, e\) és \(d\) egész számnál, az \(x \in N: 0 \leq x < n\) szám esetén az \((x^e)^d\) és \(x\) azonos maradékot adnak \(n\)-nel osztva, azaz kongruensek moduló n:
 

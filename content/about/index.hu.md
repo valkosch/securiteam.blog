@@ -1,7 +1,7 @@
 +++
 title = '::Jómagam::'
 date = 2024-06-16T13:45:51+02:00
-draft = true
+draft = false
 +++
 
 Kurcz Valentin vagyok, 19 éves, magyar, szénalapú mérnökinformatikus hallgató a Budapesti Műszaki Egyetemen (BME), és örülök hogy itt talállak. Szeretek szerelgetni, alkotni, kirándulni a természetben, pizzát sütni, szeretem a westend filmeket, a szeletelt kenyeret és a fogkefém lila. Szerény oldalamon keresztül blog és portfólió formájában, szeretném bemutatni magamat, munkáimat, gondolataimat, melyekről véleményt is fogalmazhatsz akár anoním módon. Ebben a szekcióban a tanulmányaimról, készségeimről és motivációmról olvashatsz.

@@ -1,7 +1,7 @@
 +++
 title= "Az Információs forradalom és az internet következményei"
 date= 2024-07-09T17:47:21+02:00
-draft= true
+draft= false
 toc= true
 summary = "Az internet a világunk egyik legélesebb kétélű kardja. A kereskedelemre, ezáltal pedig a gazdaságra gyakorolt pozitív hatása megkérdőjelezhetetlen. Az viszont még mindig kérdéses, hogy a társadalom és az emberek milyen árat fizettek ezért."
 description = "Az internet a világunk egyik legélesebb kétélű kardja. A kereskedelemre, ezáltal pedig a gazdaságra gyakorolt pozitív hatása megkérdőjelezhetetlen. Az viszont még mindig kérdéses, hogy a társadalom és az emberek milyen árat fizettek ezért."
