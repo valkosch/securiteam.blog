@@ -41,7 +41,7 @@
   <meta itemprop="description" content="Meg kell tudnunk valósítani azt, hogy egy hatalmas teremben elkiálthassuk magunkat úgy, hogy csak az az egyetlen ember érthesse, akinek szól az üzenetünk, és ezt mind úgy, hogy ezzel az emberrel nem beszéltük meg előre a titkos kódunkat, nyelvünket egy már titkos médiumon keresztül. Ha ezt meg tudjuk oldani akkor az interneten is tudunk titkosan üzenetet megosztani hiszen istenigazából az internet is csak egy hatalmas terem.">
   <meta itemprop="datePublished" content="2024-07-30T14:42:35+02:00">
   <meta itemprop="dateModified" content="2024-07-30T14:42:35+02:00">
-  <meta itemprop="wordCount" content="3059">
+  <meta itemprop="wordCount" content="3057">
   <meta itemprop="image" content="http://localhost:1313/">
   <meta itemprop="keywords" content="Kriptográfia,RSA">
 
@@ -314,7 +314,7 @@ Alicenál, az \(a, \in N\) titkos kulcssal:</p>
 <p>Majd \(A\)-t Alice elküldi publikusan Bobnak, Bob pedig \(B\)-t Alicenak.</p>
 <p>Ezután mindkettőjük a kapott értéken megint felhasználják titkos kulcsukat. A keletkező \(s\) szám lesz a közös titok.</p>
 <p>Az algoritmus fő ötlete, hogy kihasználja az alábbi összefüggést</p>
-\[g^{ab} /pmod p = g^{ba} /pmod p\]
+\[g^{ab} \equiv g^{ba} \pmod p\]
 <p>Ez teszi lehetővé, hogy Alice és Bob is ugyanazt az értéket kapja meg. Mi állítja meg a támadókat a privát kulcsok visszafejtésére vagy akár a közös titok kiderítésétől?</p>
 <p>Itt is egy olyan matematikai függvényen alapszik a biztonság, amelyről azt sejtjük, hogy nem lehet polinomiális időn belül (a kvantumszámítógépeket nem beleértve ebbe megint) elvégezni. Ez a függvény a diszkrét logaritmus. Egyszerűen arról van szó, hogy \(g^a,g^b,p,g\) ismeretével nem tudjuk visszafejteni \(a,b,g^{ab}\) értékeket még mielőtt a Nap kihűlne.</p>
 <h3 id="gyakorlat">Gyakorlat</h3>
@@ -357,7 +357,7 @@ Alicenál, az \(a, \in N\) titkos kulcssal:</p>
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        3059 szó
+        3057 szó
       </p>
 
       <p>

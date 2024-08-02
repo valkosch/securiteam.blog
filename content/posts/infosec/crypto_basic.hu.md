@@ -2,7 +2,8 @@
 title= "Kriptográfia alapok - Nyílvános kulcsú titkosítás"
 date= 2024-07-30T14:42:35+02:00
 draft= false
-math= true
+[params]
+    math = true
 toc=true
 summary = "A cikk végére példákon keresztül világossá válik számodra, hogy miként tudunk magabiztosan titkos információkat megosztani egymással, főképp az interneten, anélkül, hogy megosztottunk volna egymással, bármiféle titkos és privát kódot, kulcsot vagy jelszót. Ezen túl még sokkal több..."
 description = "Meg kell tudnunk valósítani azt, hogy egy hatalmas teremben elkiálthassuk magunkat úgy, hogy csak az az egyetlen ember érthesse, akinek szól az üzenetünk, és ezt mind úgy, hogy ezzel az emberrel nem beszéltük meg előre a titkos kódunkat, nyelvünket egy már titkos médiumon keresztül. Ha ezt meg tudjuk oldani akkor az interneten is tudunk titkosan üzenetet megosztani hiszen istenigazából az internet is csak egy hatalmas terem."
@@ -178,7 +179,7 @@ Ezután mindkettőjük a kapott értéken megint felhasználják titkos kulcsuka
 
 Az algoritmus fő ötlete, hogy kihasználja az alábbi összefüggést
 
-\[g^{ab} /pmod p = g^{ba} /pmod p\]
+\[g^{ab} \equiv g^{ba} \pmod p\]
 
 Ez teszi lehetővé, hogy Alice és Bob is ugyanazt az értéket kapja meg. Mi állítja meg a támadókat a privát kulcsok visszafejtésére vagy akár a közös titok kiderítésétől?
 
