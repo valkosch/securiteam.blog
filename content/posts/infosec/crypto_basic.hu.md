@@ -1,8 +1,7 @@
 +++
 title= "Kriptográfia alapok - Nyílvános kulcsú titkosítás"
 date= 2024-07-30T14:42:35+02:00
-[params]
-    math= true
+math= true
 draft= false
 toc=true
 summary = "A cikk végére példákon keresztül világossá válik számodra, hogy miként tudunk magabiztosan titkos információkat megosztani egymással, főképp az interneten, anélkül, hogy megosztottunk volna egymással, bármiféle titkos és privát kódot, kulcsot vagy jelszót. Ezen túl még sokkal több..."
