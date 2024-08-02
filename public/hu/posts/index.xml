@@ -15,7 +15,7 @@
             <pubDate>Tue, 30 Jul 2024 14:42:35 +0200</pubDate>
             
             <guid>http://localhost:1313/hu/posts/2024/07/kriptogr%C3%A1fia-alapok-ny%C3%ADlv%C3%A1nos-kulcs%C3%BA-titkos%C3%ADt%C3%A1s/</guid>
-            <description>A cikk végére példákon keresztül világossá válik számodra, hogy miként tudunk magabiztosan titkos információkat megosztani egymással, főképp az interneten, anélkül, hogy megosztottunk volna egymással, bármiféle titkos és privát kódot, kulcsot vagy jelszót. Ezen túl még sokkal több&amp;hellip;</description>
+            <description>Szimmetrikus kriptográfia A klasszikus titkosítási módszerek, amelyeket használtak egészen mostanáig arra alapoznak, hogy a titkosításhoz (encryption) és a feloldáshoz (decryption) is ugyanaz a kulcs használatos. Ez azt igényli, hogy a kulcsot valami titkos közegben kellene átadnunk a második félnek anélkül, hogy egy harmadik fél ne szerezzen róla tudomást, hiszen akkor az összes titkosított üzenetünket olvasni tudná. Ez kicsit ilyen &amp;ldquo;tyúk vagy a tojás&amp;rdquo; probléma, hiszen pont arra akarnánk használni a kulcsot, hogy megteremtsük ezt a titkosított közeget.</description>
             <content type="html"><![CDATA[<h2 id="szimmetrikus-kriptográfia">Szimmetrikus kriptográfia</h2>
 <p>A klasszikus titkosítási módszerek, amelyeket használtak egészen mostanáig arra alapoznak, hogy a titkosításhoz (encryption) és a feloldáshoz (decryption) is ugyanaz a kulcs használatos. Ez azt igényli, hogy a kulcsot valami titkos közegben kellene átadnunk a második félnek anélkül, hogy egy harmadik fél ne szerezzen róla tudomást, hiszen akkor az összes titkosított üzenetünket olvasni tudná. Ez kicsit ilyen &ldquo;tyúk vagy a tojás&rdquo; probléma, hiszen pont arra akarnánk használni a kulcsot, hogy megteremtsük ezt a titkosított közeget. Illetve ekkor, teljesen meg kell bíznunk a második félben, hiszen miután megosztottuk vele a kulcsunkat, az teljesen az ő döntése lesz, hogy azt nem e adja tovább másnak.</p>
 <p>Tegyük fel, hogy a bankba besétálunk és a fiókunkhoz elkéri a recepciós a jelszót. Ha egy kicsit is korumpálható a recepciós, akkor a fiókunk jelszava könnyen nem kívánatos emberek kezébe kerülhet. Ehhez a problémához még visszatérek, addig is gondolkozz egy megoldáson.</p>
@@ -127,7 +127,7 @@ Alicenál, az \(a, \in N\) titkos kulcssal:</p>
 <p>Majd \(A\)-t Alice elküldi publikusan Bobnak, Bob pedig \(B\)-t Alicenak.</p>
 <p>Ezután mindkettőjük a kapott értéken megint felhasználják titkos kulcsukat. A keletkező \(s\) szám lesz a közös titok.</p>
 <p>Az algoritmus fő ötlete, hogy kihasználja az alábbi összefüggést</p>
-\[g^{ab} \pmod p = g^{ba} \pmod p\]
+\[g^{ab} \equiv g^{ba} \pmod p\]
 <p>Ez teszi lehetővé, hogy Alice és Bob is ugyanazt az értéket kapja meg. Mi állítja meg a támadókat a privát kulcsok visszafejtésére vagy akár a közös titok kiderítésétől?</p>
 <p>Itt is egy olyan matematikai függvényen alapszik a biztonság, amelyről azt sejtjük, hogy nem lehet polinomiális időn belül (a kvantumszámítógépeket nem beleértve ebbe megint) elvégezni. Ez a függvény a diszkrét logaritmus. Egyszerűen arról van szó, hogy \(g^a,g^b,p,g\) ismeretével nem tudjuk visszafejteni \(a,b,g^{ab}\) értékeket még mielőtt a Nap kihűlne.</p>
 <h3 id="gyakorlat">Gyakorlat</h3>
