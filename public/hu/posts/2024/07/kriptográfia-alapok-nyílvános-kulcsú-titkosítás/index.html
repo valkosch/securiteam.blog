@@ -41,7 +41,7 @@
   <meta itemprop="description" content="Meg kell tudnunk valósítani azt, hogy egy hatalmas teremben elkiálthassuk magunkat úgy, hogy csak az az egyetlen ember érthesse, akinek szól az üzenetünk, és ezt mind úgy, hogy ezzel az emberrel nem beszéltük meg előre a titkos kódunkat, nyelvünket egy már titkos médiumon keresztül. Ha ezt meg tudjuk oldani akkor az interneten is tudunk titkosan üzenetet megosztani hiszen istenigazából az internet is csak egy hatalmas terem.">
   <meta itemprop="datePublished" content="2024-07-30T14:42:35+02:00">
   <meta itemprop="dateModified" content="2024-07-30T14:42:35+02:00">
-  <meta itemprop="wordCount" content="2239">
+  <meta itemprop="wordCount" content="3059">
   <meta itemprop="image" content="http://localhost:1313/">
   <meta itemprop="keywords" content="Kriptográfia,RSA">
 
@@ -166,7 +166,7 @@
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        11 perc
+        15 perc
 
         
       </p>
@@ -191,6 +191,8 @@
     <li><a href="#asszimetrikus-kriptográfia">Asszimetrikus kriptográfia</a>
       <ul>
         <li><a href="#rsa-rivestshamiradleman">RSA (Rivest–Shamir–Adleman)</a></li>
+        <li><a href="#diffie-hellman">Diffie-Hellman</a></li>
+        <li><a href="#gyakorlat">Gyakorlat</a></li>
       </ul>
     </li>
   </ul>
@@ -212,7 +214,7 @@
 <p>Az asszimetrikus kriptográfiában, avagy nyílvános kulcsú titkosításnál kulcs párokról beszélünk, ahol van egy <strong>privát kulcs</strong> és egy <strong>publikus kulcs</strong>. Restrospektíven, úgy a székben hátradőlve nézve a koncepció egyszerűsítve az alábbi: páronként a titkosításhoz szükséges kulcs publikus, a feloldáshoz a kulcs pedig titkos, és a publikus kulcsból visszafejteni a titkos kulcsot algoritmusokkal annyi időbe telne, hogy nem csak a kávénk hűlne ki, de még a Naprendszer is. Az asszimetrikus jelző innen jön, hogy a titkosítás és dekódolás nem ugyanúgy megy.</p>
 <p>Egy információ csere asszimetrikus titkosítást használva Bob és Alice között az alábbiak szerint zajlana le az ábrát követve:</p>
 <ol>
-<li>Bob letitkosítja az üzenetét Alice publikus kulcsával, majd elküldi Alice-nak az eredményt.</li>
+<li>Bob letitkosítja az üzenetét Alice publikus kulcsával, majd elküldi Alicenak az eredményt.</li>
 <li>Alice megkapja a titkosított üzenetet, majd a titkos kulcsával feloldja azt.</li>
 </ol>
 <p><img alt="pkc" src="/pkc1.png"></p>
@@ -254,7 +256,7 @@
 <p>ahol teljesül az hogy \(D(C(x))=x\)</p>
 <p>Aki eddig eljutott és ismeri a hatványazonosságokat az biztos elgondolkozott rajta, hogy a \(d\) és \(e\) felcserélhető-e. Bizony felcserélhetőek hiszen \((x^e)^d = (x^d)^e\). Tehát a \(d\) is használható titkosításra és az \(e\) pedig feloldásra, már ha a művelet inverze is a kulcs pár másik felével történt. Ezt ki is használjuk a gyakorlatban a digitális aláírásnál és azonosításnál, de erről többet kicsit lejebb :).</p>
 <h4 id="kulcs-megosztása">Kulcs megosztása</h4>
-<p>Bob és Alice az RSA-t akarják használni tikosításra beszélgetés közben, mert biztonságos. Ekkor ha Bob üzenetet szeretne küldeni Alice-nek, akkor elkéri Alice publikus kulcsát \((n,e)\), majd ezt egy csatornán (nem muszáj biztonságosnak lennie) meg is kapja. Alice a titkos kulcsát \((d)\) soha nem adja ki, azt a dekódolásra használja saját magánál.</p>
+<p>Bob és Alice az RSA-t akarják használni tikosításra beszélgetés közben, mert biztonságos. Ekkor ha Bob üzenetet szeretne küldeni Alicenak, akkor elkéri Alice publikus kulcsát \((n,e)\), majd ezt egy csatornán (nem muszáj biztonságosnak lennie) meg is kapja. Alice a titkos kulcsát \((d)\) soha nem adja ki, azt a dekódolásra használja saját magánál.</p>
 <h4 id="titkosítás">Titkosítás</h4>
 <p>Bob miután megkapta Alice publikus kulcsát, azt felhasználva titkosítja az \(x\) üzenetet és megkapja titkosított szöveget \(c\)-t.</p>
 \[c \equiv x^e \pmod n\]
@@ -297,9 +299,38 @@ A 2. állítás pedig szinte ugyanaz mint amikor \(x \equiv 0 \pmod n\).</p>
 <p>Nem feltétlenül kell viszont magaslatokban gondolkodni ha RSA sérülékenységről van szó. Elég csak egy rossz konfiguráció. Például ha \(e=3\) azaz túl kicsi, akkor könnyen meglehet hogy \(x^e < n\) és ilyenkor csak elég \(e\)-dik gyökét venni a titkosított üzenetnek, és mivel nem jászott a modulus, ezért megkapjuk gond nélkül az üzenetet. Ez amatőr dolog, gyakorlatban nem megszokott de például CTF feladatban előfordulhat. Kulcs generálásnál is már említettem, hogy rendkívül fontos az eléggé random véletlenszám generátor, ami nem kis feladat. Hallottam, hogy például valamilyen nagy cég lávalámpa mátrixot használt, ahol a lávalámpákban mozgó kis buborékok mozgását figyelték és ezek alapján generáltak véletlenszámot.</p>
 <p>A csupasz RSA determisztikus, tehát ugyanaz a kulcs ugyanazt az üzenetet, ugyanazt a titkosított szöveget köpi ki. Ebből az következik, hogy a támadóknak lehetősgük van idő-tárhely &ldquo;trade-off&rdquo;-ra. Ez hasonlít a hash függvények elleni támadásra, ahol úgynevezett &ldquo;rainbow table&rdquo;-lel előre lehashelnek rengeteg előfordulható szöveget (főképp jelszavakat) majd eltárolják az eredményeket. Itt is ez a helyzet, a nyílvános publikus kulcssal letitkosítunk temérdek variációt és eltároljuk őket, majd ha valamit vissza akarunk fejteni, csak megkeressük a hatalmas adatbázisunkban, hogy van-e egyezés. Félelemre semmi ok, pontosan ugyanúgy lehet védekezni ez ellen is mint a rainbow table-ök ellen is. Ott a salting azaz sózásnak hívták, itt padding-nek nevezik. Padding-nél az üzenetet bizonyos protokoll szerint kiegészítjük egy véletlenszerű toldással, majd ezt feloldásnál visszafele eljátszuk.</p>
 <p>Ami engem izgat és biztosan meg fogom csinálni a gyakorlatban, azok a side-channel támadások. Ezek arra alapoznak, hogy a támadónak hozzáférése van plusz információkhoz a titkosítás során, például hogy milyen hardveren történik, mennyi idő alatt, mekkora teljesítményt igényel, mennyi hőt vagy elektromágneses hullámokat bocsájt ki a processzor a titkosítás alatt. Olyan titkosítás nem létezik amely side-channel támadással ne lehetne feltörni, mivel az implementációt nem lehet tökéletesre megcsinálni. Viszont ehhez fizikai hozzáférésre lenne szükségünk a számítógéphez amely szerencsére nagyban csökkenti a támadók esélyeit.</p>
-<p>kulcs megosztás aztan szimmetrikus mert az gyorsabb
-ssh - challange and response
-tls</p>
+<h3 id="diffie-hellman">Diffie-Hellman</h3>
+<p>Az RSA képes hatalmas üzenetek blokkonkénti titkosítására a tárgyalt asszimetrikus algoritmussal, de az igazság az, hogy bármennyire is próbálkozunk optimalizálni, egy szimmetrikus titkosítás mindig gyorsabb lesz nála. A szimmetikus titkosításnak viszont szüksége van egy közös titkos kulcsra amely titkosan lett megosztva a felek közöt, ezt a problémát már a cikk elegén túltárgyaltam. Tehát az asszimetrikus és szimmetrikus titkosításnak is megvannak előnyei és hátrányai. Mit csináltak a zseniális mérnökök? Mindkettőt használják egyszerre megtartva a jó tulajdonságokat a rosszaktól pedig megszabadulva. Ezért az internet vadvilágában az a szabvány, hogy A és B eszköz asszimetrikus titkosítással közös titkos kulcson megegyeznek, majd ezután egy megegyezett szimmetrikus titkosításra átváltanak. Lenyűgöző, nem?</p>
+<p>Itt jön képbe a Diffie-Hellman-kulcscsere, ami időben meg is előzte az RSA-t, az 1976-os megjelenésével. Az elismerés érte Ralph Merkle-t, Whitfield Diffie-t és Martin Hellmant-t érdemli. Az algoritmus célja, hogy nyílvános kulcsú rejtjelezéssel, felek között megteremtsen egy közös titkot, amelyhez harmdik fél hozzáférni nem tudhatott. Ezt az RSA-hoz hasonlóan egy olyan függvénnyel teszi ami egyirányú.</p>
+<p><img alt="diffie" src="/diffie.png"></p>
+<p>Wikipédián találtam ezt a remek kis egyszerű ábrát amit követve könnyen meg lehet érteni a fő gondolatot.</p>
+<p>A folyamat az alábbi:</p>
+<p>Alice és Bob megegyeznek publikusan \(p,g \in N\) számokról (ábrával ellentétben, nagyságrendben nagyobb számokat használva).</p>
+<p>Alice és Bob is külön-külön felhasználják titkos kulcsaikat.
+Alicenál, az \(a, \in N\) titkos kulcssal:</p>
+\[A=g^a \pmod p\]
+<p>Bobnál, a \(b, \in N\) titkos kulcssal:</p>
+\[B=g^b \pmod p\]
+<p>Majd \(A\)-t Alice elküldi publikusan Bobnak, Bob pedig \(B\)-t Alicenak.</p>
+<p>Ezután mindkettőjük a kapott értéken megint felhasználják titkos kulcsukat. A keletkező \(s\) szám lesz a közös titok.</p>
+<p>Az algoritmus fő ötlete, hogy kihasználja az alábbi összefüggést</p>
+\[g^{ab} /pmod p = g^{ba} /pmod p\]
+<p>Ez teszi lehetővé, hogy Alice és Bob is ugyanazt az értéket kapja meg. Mi állítja meg a támadókat a privát kulcsok visszafejtésére vagy akár a közös titok kiderítésétől?</p>
+<p>Itt is egy olyan matematikai függvényen alapszik a biztonság, amelyről azt sejtjük, hogy nem lehet polinomiális időn belül (a kvantumszámítógépeket nem beleértve ebbe megint) elvégezni. Ez a függvény a diszkrét logaritmus. Egyszerűen arról van szó, hogy \(g^a,g^b,p,g\) ismeretével nem tudjuk visszafejteni \(a,b,g^{ab}\) értékeket még mielőtt a Nap kihűlne.</p>
+<h3 id="gyakorlat">Gyakorlat</h3>
+<p>A fentiekben is már bőven szó esett arról, hogy mire is lehet használni az asszimetrikus kriptográfiát, de talán most jobban kifejtem.</p>
+<h4 id="tls">TLS</h4>
+<p>A TLS (Transport Layer Security), egy olyan keretrendszer, szabvány, amely azon protokollok biztonságáért felelős mint például a HTTPS, amelyek A címtől juttatnak el B címre adatokat. Tehát lényegében azt testesíti meg, ami eddig a cél volt, hogy az internet kommunikáció titkosítva legyen. A TLS jóformán az amit, aDiffie-Hellman-kulcscserénél már elmondtam, hogy asszimetikus titkosítással megegyezünk egy közös titkos majd átállunk szimmetikusra ezzel a titokkal, mivel az gyorsabb. Azonban az olyan részleteket kihagytam, mint hogy azon is ilyenkor egyeznek meg milyen titkosítást használjanak, amelyre mindkettő eszköz képes.</p>
+<p>Fontos feladata a TLS-nek az autentikáció is. Például hiába a sok erőfeszítés ha kivetelezhető egy MITM (Man-In-The-Middle) támadás. Az MITM során a támadó harmadik félként beáll Alice és Bob kommunikációja közé, úgy hogy ezt sem Alice nem veszi észre sem Bob. Ez úgy lehetséges, hogy a támadó, mondjuk József, azt állítja Alicenak, hogy ő Bob, Bobnak pedig azt mondja hogy ő Alice. Így Alice és Bob is József publikus kulcsával fofja titkosítani a kommunikációját, ezért József bármikor beleolvashat abba. Fontos, hogy ahhoz hogy az illúzió müködjön, József a kommunikációt továbbítja Alice és Bob között, így a két szereplőnek tényleg fogalma sem lehet hogy valójában valakin keresztül megy az üzenetük.</p>
+<p><img alt="mitm" src="/mitm.png"></p>
+<p>Erre a megoldások voltak a tanusítványok. Tanúsítványokat megbízott harmadik felek állítják elő, és egy tanusítványban szerepel, hogy az adott félhez milyen publikus kulcs tartozik. Ezek az SSL tanusítványok, melyeket te is részletesen el tudsz olvasni bármelyik weboldalnál ha a böngésződben a lakatra kattintasz. Itt van például az enyém:</p>
+<p><img alt="cert" src="/cert.png"></p>
+<h4 id="challange-response">Challange-response</h4>
+<p>Minden eszköz most már rendelkezésünkre áll ahhoz, hogy megoldjuk a korrupt recepciós problémát. A cél az, hogy a recepcióssal ne kelljen megosztanunk semmi titkosat, de ugyanakkor a recepciós 100%-ban biztos lehessen, hogy azok vagyunk akiknek állítjuk magunkat. Mi sem egyszerűbb: a recepciós a tanusítvány szerint Kurz Valentinhez tartozó publikus kulcssal letitkosít valami számára egyedi dolgot, mondjuk egy véletlenszámot, és elküldi azt nekem - ez a challange. Majd én ezt feloldom a titkos kulcsommal, és visszaküldöm neki az eredményt - ez a response. A jó eredményt valóban csak is én tudom megmondani (már ha tényleg én vagyok Kurcz Valentin :D), hiszen csak az én titkos kulcsommal lehet feloldani a hozzám tartozó publikus kulcssal titkosított üzeneteket. A korrupt recepciós pedig a kardjába dőlhet mert nem sikerült kicsalnia belőlünk a titkunkat.</p>
+<p>Ezt a challange-response rendszert használja a legtöbb SSH kliens is, amikor távolról szeretnénk elérni egy shell-t. A szerver autentikálja a klienst, hogy meggyőződjön jogosultságairól.</p>
+<h4 id="digitális-aláírás">Digitális aláírás</h4>
+<p>Autentikációra van más módszer és erre példa a digitális aláírás. Hasznossága kétségbevonhatatlan, hazánkban is már az Ügyfélkapun keresztül alá tudunk írni hivatalos okmányokat, és nemhogy legalább annyira hiteles mint a tinta és papír, de megfelelő konfiguráció mellett, meghamisíthatlan nem úgy mint az írásunk.</p>
+<p>Az RSA című elbeszélő költeményemben már szó esett arról, hogy a titkos és a publikus kulcs funkcionalitása felcserélhető, nem úgy mint például a Diffie-Hellman esetében.</p>
 
       </div>
     </article>
@@ -326,7 +357,7 @@ tls</p>
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        2239 szó
+        3059 szó
       </p>
 
       <p>
