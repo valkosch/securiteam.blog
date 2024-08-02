@@ -41,7 +41,7 @@
   <meta itemprop="description" content="Meg kell tudnunk valósítani azt, hogy egy hatalmas teremben elkiálthassuk magunkat úgy, hogy csak az az egyetlen ember érthesse, akinek szól az üzenetünk, és ezt mind úgy, hogy ezzel az emberrel nem beszéltük meg előre a titkos kódunkat, nyelvünket egy már titkos médiumon keresztül. Ha ezt meg tudjuk oldani akkor az interneten is tudunk titkosan üzenetet megosztani hiszen istenigazából az internet is csak egy hatalmas terem.">
   <meta itemprop="datePublished" content="2024-07-30T14:42:35+02:00">
   <meta itemprop="dateModified" content="2024-07-30T14:42:35+02:00">
-  <meta itemprop="wordCount" content="1781">
+  <meta itemprop="wordCount" content="2239">
   <meta itemprop="image" content="http://localhost:1313/">
   <meta itemprop="keywords" content="Kriptográfia,RSA">
 
@@ -166,7 +166,7 @@
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        9 perc
+        11 perc
 
         
       </p>
@@ -292,9 +292,12 @@
 A 2. állítás pedig szinte ugyanaz mint amikor \(x \equiv 0 \pmod n\).</p>
 <p>Most már teljes a bizonyítás!</p>
 <h4 id="megjegyzések-a-gyakorlati-alkalmazáshoz">Megjegyzések a gyakorlati alkalmazáshoz</h4>
-<p>Sajnos (vagy nem sajnos) a matekot nem lehet elkerülni ha az ember komolyabban akar foglalkozni az informatikával, és ez a gyakorlati implementációnál is igaz.</p>
+<p>A dekódolás folyamatában, az 1 ismételt négyzetre emelést érdemes lecserélni 2 ismételt négyzetre emelésre, és ez ekvivalens is lesz a kínai maradéktétel miatt, ugyanakkor kisebb hatványkitevővel dolgozik ez a 2 ismételt négyzetre emelés ami a gyakorlatban gyorsabb mint az 1 nagy hatványkitevővel. A részletekbe most nem megyek bele.</p>
+<p>Most pedig térjünk rá a biztonságra, ami egy titkosításnál sarkallatos pont úgy hiszem. Már eset róla szó hogy az egész RSA biztonsága az a faktorizációs problémára épül. Ahogy már említettem kulcs hossznál már a 2048 bit ajánlott, bár még nem ismert olyan eset, hogy 1024 bites kulcsot praktikus időn belül feltörtek volna. 512 bites kulcsokat még nem de már ennél rövidebb kulcsokat talán már 20 évvel ezelőtt is feltörtek gépparkokkal, ma már egy asztali számítógép is megtudja csinálni reális időn belül. Az aktuális viszont a kérdés, hogy a kvantumszámítógépek megjelenése mennyire zavarja meg ezt a magabiztosságot. Rosszul fogalmaztam mert ez már 1994 óta nem is kérdés, mivel Peter Shor bemutatta, hogy ha valaha keletkezik kvantumszámítógép, akkor azon polinomiális időn belül törhető lesz az RSA. Emiatt nemzet szintű szervezetek és játékosok, illetve most már applikációk is (pl. Signal, Messenger) kezdenek átállni kvantum rezisztens titkosításokra.</p>
+<p>Nem feltétlenül kell viszont magaslatokban gondolkodni ha RSA sérülékenységről van szó. Elég csak egy rossz konfiguráció. Például ha \(e=3\) azaz túl kicsi, akkor könnyen meglehet hogy \(x^e < n\) és ilyenkor csak elég \(e\)-dik gyökét venni a titkosított üzenetnek, és mivel nem jászott a modulus, ezért megkapjuk gond nélkül az üzenetet. Ez amatőr dolog, gyakorlatban nem megszokott de például CTF feladatban előfordulhat. Kulcs generálásnál is már említettem, hogy rendkívül fontos az eléggé random véletlenszám generátor, ami nem kis feladat. Hallottam, hogy például valamilyen nagy cég lávalámpa mátrixot használt, ahol a lávalámpákban mozgó kis buborékok mozgását figyelték és ezek alapján generáltak véletlenszámot.</p>
+<p>A csupasz RSA determisztikus, tehát ugyanaz a kulcs ugyanazt az üzenetet, ugyanazt a titkosított szöveget köpi ki. Ebből az következik, hogy a támadóknak lehetősgük van idő-tárhely &ldquo;trade-off&rdquo;-ra. Ez hasonlít a hash függvények elleni támadásra, ahol úgynevezett &ldquo;rainbow table&rdquo;-lel előre lehashelnek rengeteg előfordulható szöveget (főképp jelszavakat) majd eltárolják az eredményeket. Itt is ez a helyzet, a nyílvános publikus kulcssal letitkosítunk temérdek variációt és eltároljuk őket, majd ha valamit vissza akarunk fejteni, csak megkeressük a hatalmas adatbázisunkban, hogy van-e egyezés. Félelemre semmi ok, pontosan ugyanúgy lehet védekezni ez ellen is mint a rainbow table-ök ellen is. Ott a salting azaz sózásnak hívták, itt padding-nek nevezik. Padding-nél az üzenetet bizonyos protokoll szerint kiegészítjük egy véletlenszerű toldással, majd ezt feloldásnál visszafele eljátszuk.</p>
+<p>Ami engem izgat és biztosan meg fogom csinálni a gyakorlatban, azok a side-channel támadások. Ezek arra alapoznak, hogy a támadónak hozzáférése van plusz információkhoz a titkosítás során, például hogy milyen hardveren történik, mennyi idő alatt, mekkora teljesítményt igényel, mennyi hőt vagy elektromágneses hullámokat bocsájt ki a processzor a titkosítás alatt. Olyan titkosítás nem létezik amely side-channel támadással ne lehetne feltörni, mivel az implementációt nem lehet tökéletesre megcsinálni. Viszont ehhez fizikai hozzáférésre lenne szükségünk a számítógéphez amely szerencsére nagyban csökkenti a támadók esélyeit.</p>
 <p>kulcs megosztás aztan szimmetrikus mert az gyorsabb
-NSA gyüjti a titkosított adatot hátha fel tudja később törni
 ssh - challange and response
 tls</p>
 
@@ -323,7 +326,7 @@ tls</p>
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        1781 szó
+        2239 szó
       </p>
 
       <p>
