@@ -76,7 +76,7 @@ ahol \\(x:=\\) a plaintext üzenetünk azaz a titkosítandó adat
 
 ahol teljesül az hogy \\(D(C(x))=x\\)
 
-Aki eddig eljutott és ismeri a hatványazonosságokat az biztos elgondolkozott rajta, hogy a \\(d\\) és \\(e\\) felcserélhető-e. Bizony felcserélhetőek hiszen \\((x^e)^d = (x^d)^e\\). Tehát a \\(d\\) is használható titkosításra és az \\(e\\) pedig feloldásra, már ha a művelet inverze is a kulcs pár másik felével történt. Ezt ki is használjuk a gyakorlatban a digitális aláírásnál és azonosításnál, de erről többet kicsit lejebb :).
+Aki eddig eljutott és ismeri a hatványazonosságokat az biztos elgondolkozott rajta, hogy a \\(d\\) és \\(e\\) felcserélhető-e. Bizony felcserélhetőek hiszen \\((x^e)^d = (x^d)^e\\). Azt nem mondanám, hogy használható lenne a titkos kulcs titkosításra, mivel nem lesz tőle titkos, hiszen bárki feloldhatja a hozzátartozó publikus kulccsal. Ezt a kommutatívitást is ki tudjuk használni a gyakorlatban a digitális aláírásnál és azonosításnál, de erről többet kicsit lejebb :).
 
 #### Kulcs megosztása
 
@@ -145,7 +145,7 @@ Most pedig térjünk rá a biztonságra, ami egy titkosításnál sarkallatos po
 
 Nem feltétlenül kell viszont magaslatokban gondolkodni ha RSA sérülékenységről van szó. Elég csak egy rossz konfiguráció. Például ha \\(e=3\\) azaz túl kicsi, akkor könnyen meglehet hogy \\(x^e < n\\) és ilyenkor csak elég \\(e\\)-dik gyökét venni a titkosított üzenetnek, és mivel nem jászott a modulus, ezért megkapjuk gond nélkül az üzenetet. Ez amatőr dolog, gyakorlatban nem megszokott de például CTF feladatban előfordulhat. Kulcs generálásnál is már említettem, hogy rendkívül fontos az eléggé random véletlenszám generátor, ami nem kis feladat. Hallottam, hogy például valamilyen nagy cég lávalámpa mátrixot használt, ahol a lávalámpákban mozgó kis buborékok mozgását figyelték és ezek alapján generáltak véletlenszámot.
 
-A csupasz RSA determisztikus, tehát ugyanaz a kulcs ugyanazt az üzenetet, ugyanazt a titkosított szöveget köpi ki. Ebből az következik, hogy a támadóknak lehetősgük van idő-tárhely "trade-off"-ra. Ez hasonlít a hash függvények elleni támadásra, ahol úgynevezett "rainbow table"-lel előre lehashelnek rengeteg előfordulható szöveget (főképp jelszavakat) majd eltárolják az eredményeket. Itt is ez a helyzet, a nyílvános publikus kulcssal letitkosítunk temérdek variációt és eltároljuk őket, majd ha valamit vissza akarunk fejteni, csak megkeressük a hatalmas adatbázisunkban, hogy van-e egyezés. Félelemre semmi ok, pontosan ugyanúgy lehet védekezni ez ellen is mint a rainbow table-ök ellen is. Ott a salting azaz sózásnak hívták, itt padding-nek nevezik. Padding-nél az üzenetet bizonyos protokoll szerint kiegészítjük egy véletlenszerű toldással, majd ezt feloldásnál visszafele eljátszuk.
+A csupasz RSA determisztikus, tehát ugyanaz a kulcs ugyanazt az üzenetet, ugyanazt a titkosított szöveget köpi ki. Ebből az következik, hogy a támadóknak lehetősgük van idő-tárhely "trade-off"-ra. Ez hasonlít a hash függvények elleni támadásra, ahol úgynevezett "rainbow table"-lel előre lehashelnek rengeteg előfordulható szöveget (főképp jelszavakat) majd eltárolják az eredményeket. Itt is ez a helyzet, a nyílvános publikus kulccsal letitkosítunk temérdek variációt és eltároljuk őket, majd ha valamit vissza akarunk fejteni, csak megkeressük a hatalmas adatbázisunkban, hogy van-e egyezés. Félelemre semmi ok, pontosan ugyanúgy lehet védekezni ez ellen is mint a rainbow table-ök ellen is. Ott a salting azaz sózásnak hívták, itt padding-nek nevezik. Padding-nél az üzenetet bizonyos protokoll szerint kiegészítjük egy véletlenszerű toldással, majd ezt feloldásnál visszafele eljátszuk.
 
 Ami engem izgat és biztosan meg fogom csinálni a gyakorlatban, azok a side-channel támadások. Ezek arra alapoznak, hogy a támadónak hozzáférése van plusz információkhoz a titkosítás során, például hogy milyen hardveren történik, mennyi idő alatt, mekkora teljesítményt igényel, mennyi hőt vagy elektromágneses hullámokat bocsájt ki a processzor a titkosítás alatt. Olyan titkosítás nem létezik amely side-channel támadással ne lehetne feltörni, mivel az implementációt nem lehet tökéletesre megcsinálni. Viszont ehhez fizikai hozzáférésre lenne szükségünk a számítógéphez amely szerencsére nagyban csökkenti a támadók esélyeit.
 
@@ -164,11 +164,11 @@ A folyamat az alábbi:
 Alice és Bob megegyeznek publikusan \\(p,g \in N\\) számokról (ábrával ellentétben, nagyságrendben nagyobb számokat használva).
 
 Alice és Bob is külön-külön felhasználják titkos kulcsaikat.
-Alicenál, az \\(a, \in N\\) titkos kulcssal:
+Alicenál, az \\(a, \in N\\) titkos kulccsal:
 
 \\[A=g^a \pmod p\\]
 
-Bobnál, a \\(b, \in N\\) titkos kulcssal:
+Bobnál, a \\(b, \in N\\) titkos kulccsal:
 
 \\[B=g^b \pmod p\\]
 
@@ -202,7 +202,7 @@ Erre a megoldások voltak a tanusítványok. Tanúsítványokat megbízott harma
 
 #### Challange-response
 
-Minden eszköz most már rendelkezésünkre áll ahhoz, hogy megoldjuk a korrupt recepciós problémát. A cél az, hogy a recepcióssal ne kelljen megosztanunk semmi titkosat, de ugyanakkor a recepciós 100%-ban biztos lehessen, hogy azok vagyunk akiknek állítjuk magunkat. Mi sem egyszerűbb: a recepciós a tanusítvány szerint Kurz Valentinhez tartozó publikus kulcssal letitkosít valami számára egyedi dolgot, mondjuk egy véletlenszámot, és elküldi azt nekem - ez a challange. Majd én ezt feloldom a titkos kulcsommal, és visszaküldöm neki az eredményt - ez a response. A jó eredményt valóban csak is én tudom megmondani (már ha tényleg én vagyok Kurcz Valentin :D), hiszen csak az én titkos kulcsommal lehet feloldani a hozzám tartozó publikus kulcssal titkosított üzeneteket. A korrupt recepciós pedig a kardjába dőlhet mert nem sikerült kicsalnia belőlünk a titkunkat.
+Minden eszköz most már rendelkezésünkre áll ahhoz, hogy megoldjuk a korrupt recepciós problémát. A cél az, hogy a recepcióssal ne kelljen megosztanunk semmi titkosat, de ugyanakkor a recepciós 100%-ban biztos lehessen, hogy azok vagyunk akiknek állítjuk magunkat. Mi sem egyszerűbb: a recepciós a tanusítvány szerint Kurz Valentinhez tartozó publikus kulccsal letitkosít valami számára egyedi dolgot, mondjuk egy véletlenszámot, és elküldi azt nekem - ez a challange. Majd én ezt feloldom a titkos kulcsommal, és visszaküldöm neki az eredményt - ez a response. A jó eredményt valóban csak is én tudom megmondani (már ha tényleg én vagyok Kurcz Valentin :D), hiszen csak az én titkos kulcsommal lehet feloldani a hozzám tartozó publikus kulccsal titkosított üzeneteket. A korrupt recepciós pedig a kardjába dőlhet mert nem sikerült kicsalnia belőlünk a titkunkat.
 
 Ezt a challange-response rendszert használja a legtöbb SSH kliens is, amikor távolról szeretnénk elérni egy shell-t. A szerver autentikálja a klienst, hogy meggyőződjön jogosultságairól.
 
@@ -210,4 +210,24 @@ Ezt a challange-response rendszert használja a legtöbb SSH kliens is, amikor t
 
 Autentikációra van más módszer és erre példa a digitális aláírás. Hasznossága kétségbevonhatatlan, hazánkban is már az Ügyfélkapun keresztül alá tudunk írni hivatalos okmányokat, és nemhogy legalább annyira hiteles mint a tinta és papír, de megfelelő konfiguráció mellett, meghamisíthatlan nem úgy mint az írásunk.
 
-Az RSA című elbeszélő költeményemben már szó esett arról, hogy a titkos és a publikus kulcs funkcionalitása felcserélhető, nem úgy mint például a Diffie-Hellman esetében.
+Az RSA című elbeszélő költeményemben már szó esett arról, hogy a titkos és a publikus kulcs funkcionalitása felcserélhető (kommmutatívak), nem úgy mint például a Diffie-Hellman esetében. Ezt a tulajdonságot kombinálva egy biztonságos hash függvénnyel és megkapjuk a gyakorlatilag meghamisíthatlan aláírást, ami az aláírt üzenetek integritását is ellenőrzi. A folyamat a következő:
+
+1. Az aláírandó dokumentumot leképezzük egy hash értékre.
+
+2. Ezt a hash értéket kombináljuk az RSA algoritmusával a titkos kulccsal (direkt nem titkosítást mondtam)
+
+3. Majd ennek a végeredményét mellékeljük mint aláírás a dokumentumunk mellé.
+
+![digsig](/digsig.png)
+
+Aki ellenőrizni szeretné az aláírást, csak annyi a dolga, hogy a dokumentumot hasheli, és az aláírást kombinálja a feltételezett aláíró publikus kulcsával, és ha az eredmény egyezik az előbbi hashel, akkor biztosak lehetünk, hogy ő írta alá.
+
+A hashelés lépése több szempontból is kézenfekvő:
+
+* Mivel bármilyen nagy dokumentumra, ugyanolyan hosszú hash digest-et képez (pl SHA256 esetén 32 byte hosszúságút) ezért a titkos kulccsal való kombinálás gyorsabban megy. 
+
+* Hashelés egyik természetes haszna az integritás ellenőrzése, hiszen a legisebb változás is a bemenetben, teljesen más hash digest-et eredményezhet. Így ha a dokumentum, amit aláírtunk az ellenőrzés előtt az úton valahol manipulálva, módosítva lett, akkor az aláírás érvénytelenődik.
+
+Fontos megjegyzés az is, hogy ha egyszer valami aláírva lett, utána letagadni azt nem lehet, hiszen senki más nem írhatta alá.
+
+Ennek a biztonsága is azon múlik, hogy semmilyen titkos kulcs nem kerül illetéktelen kezekbe, mert ha ez megtörténik, utána a támadó az ellopott kulcs tulajdonosának adhatja ki magát bárhol, bármikor. Ennek a következmé Sajnos ilyenek történnek, ezért kell valami immunitás ez ellen. Ezért vezették be a kulcsok érvénytelenítését, amiket akkor használunk ha kulcsunkat ellopták és nem akarjuk, hogy felhasználhassák őket.
