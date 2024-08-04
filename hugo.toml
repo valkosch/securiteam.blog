@@ -166,7 +166,7 @@ disableHugoGeneratorInject = false
   # Uncomment this to enable Commento.
   #
  [params.commento]
-     url = "https://cdn.commento.io/js/commento.js"
+     url = "https://comments.kurczvalentin.com/js/commento.js"
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  
   # Addon: Social icons
