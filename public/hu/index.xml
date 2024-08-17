@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>hu</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 30 Jul 2024 14:42:35 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 15 Aug 2024 16:15:29 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/hu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adat és a hatalma</title>
+      <link>http://localhost:1313/hu/posts/2024/08/adat-%C3%A9s-a-hatalma/</link>
+      <pubDate>Thu, 15 Aug 2024 16:15:29 +0200</pubDate>
+      <guid>http://localhost:1313/hu/posts/2024/08/adat-%C3%A9s-a-hatalma/</guid>
+      <description>A biztonság és a kényelem oltárán feláldoztuk a magánéletünket, olyan szolgáltatásokért amikre nem is biztos, hogy szükségünk van. Régen magánnyomozót kellett felbérelni, hogy valakiről megtudjuk, hogy kivel beszélget, hova szokott járni, mik a szokásai. Most már ezüst tálcán kínáljuk ezeket az információkat a zsebünkben lévő telefonunkkal. Bruce Schneier - Data and Goliath című könyve elgondolkoztatott ebben a témában és ezeknek a gondolatoknak adok formát ebben a cikkben.</description>
+    </item>
     <item>
       <title>Kriptográfia alapok - Nyílvános kulcsú titkosítás</title>
       <link>http://localhost:1313/hu/posts/2024/07/kriptogr%C3%A1fia-alapok-ny%C3%ADlv%C3%A1nos-kulcs%C3%BA-titkos%C3%ADt%C3%A1s/</link>

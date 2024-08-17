@@ -10,9 +10,6 @@ paginate  = 10
 rssLimit  = 10  # Maximum number of items in the RSS feed.
 copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
-# googleAnalytics = ""
-# disqusShortname = ""
-
 archetypeDir = "archetypes"
 contentDir   = "content"
 dataDir      = "data"

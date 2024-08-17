@@ -239,3 +239,10 @@ Ennek a biztonsága is azon múlik, hogy semmilyen titkos kulcs nem kerül illet
 Sikerült összefoglalni felső nézetből az asszimetikus rejtjelezést, néhol belemenni a részletekbe is, példákkal ellátva. Jelenleg is kezdő pályán vagyok ebben a témában szóval könnyen előfordul, hogy valahol nem pontosan fogalmaztam. Ebben az esetben szólj és kijavítom. 
 
 Irodalom amit használtam/olvastam: Applied Cryptography, Second Edition: Protocols, Algorthms, and Source Code in C
+
+## Források
+
+https://people.csail.mit.edu/alinush/6.858-fall-2014/l16-timing-attacks.html
+
+https://en.wikipedia.org/wiki/RSA_(cryptosystem)
+

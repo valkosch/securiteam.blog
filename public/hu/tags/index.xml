@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>hu</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 30 Jul 2024 14:42:35 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 15 Aug 2024 16:15:29 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/hu/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data</title>
+      <link>http://localhost:1313/hu/tags/data/</link>
+      <pubDate>Thu, 15 Aug 2024 16:15:29 +0200</pubDate>
+      <guid>http://localhost:1313/hu/tags/data/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Surveillance</title>
+      <link>http://localhost:1313/hu/tags/surveillance/</link>
+      <pubDate>Thu, 15 Aug 2024 16:15:29 +0200</pubDate>
+      <guid>http://localhost:1313/hu/tags/surveillance/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Kriptográfia</title>
       <link>http://localhost:1313/hu/tags/kriptogr%C3%A1fia/</link>
@@ -63,20 +77,6 @@
       <link>http://localhost:1313/hu/tags/reverse/</link>
       <pubDate>Wed, 17 Jul 2024 17:53:55 +0200</pubDate>
       <guid>http://localhost:1313/hu/tags/reverse/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Misc</title>
-      <link>http://localhost:1313/hu/tags/misc/</link>
-      <pubDate>Tue, 09 Jul 2024 17:47:21 +0200</pubDate>
-      <guid>http://localhost:1313/hu/tags/misc/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>C</title>
-      <link>http://localhost:1313/hu/tags/c/</link>
-      <pubDate>Fri, 28 Jun 2024 13:20:06 +0200</pubDate>
-      <guid>http://localhost:1313/hu/tags/c/</guid>
       <description></description>
     </item>
   </channel>
