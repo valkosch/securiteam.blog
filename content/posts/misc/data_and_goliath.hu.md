@@ -12,8 +12,6 @@ tags = ['data','surveillance']
 
 ## Az alku
 
-### Az adat mint melléktermék
-
 Az ipari forradalomban a szén-dioxid volt a melléktermék, melyet a gépek füstöltek működésük közben. Korunk eme hasonló mellékterméke az adat, melyet a számítógépek természetüktől fogva fogyasztanak és készítenek (input/output). Az adat szinte teljesen behálózta életünket, szinte bármit teszünk, nagy esély van rá, hogy vagy lokálisan, vagy egy 1000 km-re lévő komplexumban, az feldolgozva van, vagy eltárolva 0-sok és 1-sek formájában.
 
 ### Tudjuk mit csinálsz. Tudjuk mire gondolsz.

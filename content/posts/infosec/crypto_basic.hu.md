@@ -110,15 +110,15 @@ Emeljük a konkruenciát \\(k \in N\\)-ra és szorozzuk mindkét oldalát \\(x\\
 
 \\[x^{k\phi(n) + 1} \equiv x \pmod n\\]
 
-tehát ha a hatványkitevő \\(ed = k\phi(n) + 1\\) akkor igaz a konkruencia.
+tehát ha a hatványkitevő \\(ed = k\phi(n) + 1\\) akkor igaz a kongruencia.
 
-Ebből a megállapításból az alábbi konkruencia következik
+Ebből a megállapításból az alábbi kongruencia következik
 
 \\[ed \equiv 1 \pmod {\phi(n)}\\]
 
 hiszen ez az előbbi állítással ekvivalens.
 
-Ez pedig egy lineáris konkruencia a \\(d\\) ismeretlenre, hiszen \\(e\\) értéke adott és \\(\phi(n) = (p-1)(q-1)\\) itt nem tárgyalt azonosságok alapján. Ennek a lin. kon. biztosan \\(\exists\\) megoldása, mivel \\((e,\phi(n))=1\\). Ezt a megoldást hatékonyan meg is tudjuk találni az Euklideszi algortimussal.
+Ez pedig egy lineáris kongruencia a \\(d\\) ismeretlenre, hiszen \\(e\\) értéke adott és \\(\phi(n) = (p-1)(q-1)\\) itt nem tárgyalt azonosságok alapján. Ennek a lin. kon. biztosan \\(\exists\\) megoldása, mivel \\((e,\phi(n))=1\\). Ezt a megoldást hatékonyan meg is tudjuk találni az Euklideszi algortimussal.
 
 Ez nem a teljes bizonyítás hiszen nem fedtük le azt az esetet amikor is \\((x,n) \neq 1\\). Ennek a gyakorlati valószínüsége ámbár nagyon kevés hiszen ez azt jelenti, hogy \\(p | x\\) vagy \\(q | x\\), de mégis kell vele foglalkozni, hiszen matematikusok vagyunk :D. 
 
